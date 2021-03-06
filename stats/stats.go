@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sort"
 )
 
@@ -14,7 +15,15 @@ var MacDirectory string = "/Library/Application Support/com.LiquidBit.KillerQuee
 
 func ListStatFiles() []string {
 	homeDir, _ := os.UserHomeDir()
-	statsPath := filepath.Join(homeDir, WindowsDirectory)
+	var statsPath string
+	switch runtime.GOOS {
+	case "windows":
+		statsPath = filepath.Join(homeDir, WindowsDirectory)
+	case "darwin":
+		statsPath = filepath.Join(homeDir, MacDirectory)
+	default:
+		statsPath = filepath.Join(homeDir, WindowsDirectory)
+	}
 	files, err := ioutil.ReadDir(statsPath)
 	if err != nil {
 		log.Fatal(err)

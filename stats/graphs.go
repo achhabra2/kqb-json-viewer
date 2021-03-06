@@ -58,6 +58,7 @@ func PlotStats(data StatsJSON) image.Image {
 	}
 	barsB.LineStyle.Width = vg.Length(0)
 	barsB.Color = plotutil.Color(1)
+	barsB.Offset = -w
 
 	barsC, err := plotter.NewBarChart(WorkerKills, w)
 	if err != nil {
@@ -65,7 +66,6 @@ func PlotStats(data StatsJSON) image.Image {
 	}
 	barsC.LineStyle.Width = vg.Length(0)
 	barsC.Color = plotutil.Color(2)
-	barsC.Offset = -w
 
 	barsD, err := plotter.NewBarChart(WarriorDeaths, w)
 	if err != nil {
