@@ -1,0 +1,3635 @@
+{
+    "playerMatchStats": [
+        {
+            "nickname": "cat",
+            "inputID": 0,
+            "actorNr": 1,
+            "playerId": "5e1d3a6a43e7480659176023-0",
+            "playerIndex": 0,
+            "dropped": false,
+            "kills": 32,
+            "ping": 16,
+            "queenKills": 6,
+            "deaths": 11,
+            "berries": 0,
+            "glances": 23,
+            "snail": 0.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 0,
+            "mostQueenKillsInAMatch": 2,
+            "mostKillsPerLife": 7,
+            "allBerriesInSingleGame": false,
+            "team": 2,
+            "entityType": 3,
+            "entitySkin": 0
+        },
+        {
+            "nickname": "free microwave",
+            "inputID": 0,
+            "actorNr": 8,
+            "playerId": "5d9b7bd309fa48063ed27ff5-0",
+            "playerIndex": 1,
+            "dropped": false,
+            "kills": 4,
+            "ping": 23,
+            "queenKills": 2,
+            "deaths": 20,
+            "berries": 9,
+            "glances": 17,
+            "snail": 643.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 8,
+            "mostQueenKillsInAMatch": 1,
+            "mostKillsPerLife": 2,
+            "allBerriesInSingleGame": false,
+            "team": 2,
+            "entityType": 1,
+            "entitySkin": 1
+        },
+        {
+            "nickname": "Yeesh",
+            "inputID": 0,
+            "actorNr": 9,
+            "playerId": "5da2506bf0ef6f0642d2f2de-0",
+            "playerIndex": 2,
+            "dropped": false,
+            "kills": 7,
+            "ping": 66,
+            "queenKills": 0,
+            "deaths": 18,
+            "berries": 17,
+            "glances": 17,
+            "snail": 354.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 14,
+            "mostQueenKillsInAMatch": 0,
+            "mostKillsPerLife": 4,
+            "allBerriesInSingleGame": false,
+            "team": 2,
+            "entityType": 1,
+            "entitySkin": 2
+        },
+        {
+            "nickname": "prosive",
+            "inputID": 0,
+            "actorNr": 5,
+            "playerId": "5e59880591f2ba06453547df-0",
+            "playerIndex": 3,
+            "dropped": false,
+            "kills": 11,
+            "ping": 16,
+            "queenKills": 4,
+            "deaths": 11,
+            "berries": 7,
+            "glances": 21,
+            "snail": 3.0,
+            "snailDeaths": 1,
+            "berryThrowIns": 5,
+            "mostQueenKillsInAMatch": 3,
+            "mostKillsPerLife": 1,
+            "allBerriesInSingleGame": false,
+            "team": 1,
+            "entityType": 2,
+            "entitySkin": 3
+        },
+        {
+            "nickname": "L[YOU]rd Fischi[YOU]s",
+            "inputID": 0,
+            "actorNr": 13,
+            "playerId": "5dfc3a3a43e748065997cbfc-0",
+            "playerIndex": 4,
+            "dropped": false,
+            "kills": 43,
+            "ping": 50,
+            "queenKills": 6,
+            "deaths": 9,
+            "berries": 0,
+            "glances": 34,
+            "snail": 0.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 0,
+            "mostQueenKillsInAMatch": 3,
+            "mostKillsPerLife": 7,
+            "allBerriesInSingleGame": false,
+            "team": 1,
+            "entityType": 3,
+            "entitySkin": 0
+        },
+        {
+            "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+            "inputID": 1,
+            "actorNr": 13,
+            "playerId": "5dfc3a3a43e748065997cbfc-1",
+            "playerIndex": 5,
+            "dropped": false,
+            "kills": 6,
+            "ping": 50,
+            "queenKills": 1,
+            "deaths": 13,
+            "berries": 19,
+            "glances": 17,
+            "snail": 111.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 16,
+            "mostQueenKillsInAMatch": 1,
+            "mostKillsPerLife": 3,
+            "allBerriesInSingleGame": false,
+            "team": 1,
+            "entityType": 1,
+            "entitySkin": 4
+        },
+        {
+            "nickname": "AndresGP",
+            "inputID": 0,
+            "actorNr": 14,
+            "playerId": "5da696898d03af061c366025-0",
+            "playerIndex": 6,
+            "dropped": false,
+            "kills": 12,
+            "ping": 33,
+            "queenKills": 1,
+            "deaths": 14,
+            "berries": 1,
+            "glances": 16,
+            "snail": 0.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 0,
+            "mostQueenKillsInAMatch": 1,
+            "mostKillsPerLife": 4,
+            "allBerriesInSingleGame": false,
+            "team": 2,
+            "entityType": 1,
+            "entitySkin": 4
+        },
+        {
+            "nickname": "moke",
+            "inputID": 0,
+            "actorNr": 15,
+            "playerId": "5e0d95b02e48e2062b5611ed-0",
+            "playerIndex": 7,
+            "dropped": false,
+            "kills": 3,
+            "ping": 33,
+            "queenKills": 0,
+            "deaths": 22,
+            "berries": 9,
+            "glances": 17,
+            "snail": 231.0,
+            "snailDeaths": 0,
+            "berryThrowIns": 7,
+            "mostQueenKillsInAMatch": 0,
+            "mostKillsPerLife": 0,
+            "allBerriesInSingleGame": false,
+            "team": 1,
+            "entityType": 1,
+            "entitySkin": 2
+        }
+    ],
+    "gameWinners": [
+        2,
+        2,
+        1,
+        1,
+        1
+    ],
+    "winConditions": [
+        2,
+        1,
+        1,
+        1,
+        1
+    ],
+    "mapPool": [
+        7,
+        15,
+        4,
+        17,
+        11
+    ],
+    "matchType": 0,
+    "profiles": [
+        {
+            "liquidId": "moke#7653",
+            "playerId": "5e0d95b02e48e2062b5611ed",
+            "displayName": "moke",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5e0d95b02e48e2062b5611ed",
+                "steam": "76561199015879487",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2507.722900390625,
+                "deviation": 61.647256910211119,
+                "volatility": 0.060218549851448734,
+                "roundedRating": 2507
+            },
+            "unrankedRankingData": {
+                "rating": 1994.3906099897786,
+                "deviation": 79.750119285215845,
+                "volatility": 0.065192440360646225,
+                "roundedRating": 1994
+            },
+            "rankedRecord": {
+                "win": 1001,
+                "loss": 743
+            },
+            "unrankedRecord": {
+                "win": 1820,
+                "loss": 846
+            },
+            "placementRecord": {
+                "win": 8,
+                "loss": 2
+            },
+            "stats": {
+                "kills": 87705,
+                "killsAsWarrior": 4763,
+                "killsAsQueen": 43278,
+                "deaths": 28796,
+                "berries": 15581,
+                "snailDistance": 254045.0,
+                "runnerMinutes": 7888.44336,
+                "warriorMinutes": 2548.78638,
+                "queenMinutes": 16218.7646
+            },
+            "rankingAdjustment": 7,
+            "previousLeague": 4,
+            "currentLeague": 4,
+            "timeoutExpiration": "2021-01-31T23:25:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": true,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b6/b609464e294a5f54086a398b4b2f7497cf54423f_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 19,
+            "promotionPercentComplete": 1.0,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5e0d95b02e48e2062b5611ed-0"
+        },
+        {
+            "liquidId": "prosive#9573",
+            "playerId": "5e59880591f2ba06453547df",
+            "displayName": "prosive",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5e59880591f2ba06453547df",
+                "steam": "76561197969399181",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2290.67431640625,
+                "deviation": 62.411675238616738,
+                "volatility": 0.060030263957823425,
+                "roundedRating": 2290
+            },
+            "unrankedRankingData": {
+                "rating": 1999.8606454777791,
+                "deviation": 69.475920832138527,
+                "volatility": 0.059985198549510448,
+                "roundedRating": 1999
+            },
+            "rankedRecord": {
+                "win": 497,
+                "loss": 441
+            },
+            "unrankedRecord": {
+                "win": 54,
+                "loss": 19
+            },
+            "placementRecord": {
+                "win": 8,
+                "loss": 2
+            },
+            "stats": {
+                "kills": 18603,
+                "killsAsWarrior": 2994,
+                "killsAsQueen": 8271,
+                "deaths": 8960,
+                "berries": 2601,
+                "snailDistance": 91686.0,
+                "runnerMinutes": 4337.087,
+                "warriorMinutes": 2344.8335,
+                "queenMinutes": 4108.7915
+            },
+            "rankingAdjustment": 30,
+            "previousLeague": 3,
+            "currentLeague": 3,
+            "timeoutExpiration": "2020-11-19T06:14:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": true,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5c/5c26704ee6cd6c06bc532e95a6d43da4dcd6a038_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 6,
+            "promotionPercentComplete": 0.203371584,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5e59880591f2ba06453547df-0"
+        },
+        {
+            "liquidId": "free-microwav#6730",
+            "playerId": "5d9b7bd309fa48063ed27ff5",
+            "displayName": "free microwave",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5d9b7bd309fa48063ed27ff5",
+                "steam": "76561198025043708",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2440.802978515625,
+                "deviation": 67.7936517697292,
+                "volatility": 0.061384111423790674,
+                "roundedRating": 2440
+            },
+            "unrankedRankingData": {
+                "rating": 1871.0042039205732,
+                "deviation": 65.098876838238539,
+                "volatility": 0.0599526351678035,
+                "roundedRating": 1871
+            },
+            "rankedRecord": {
+                "win": 2208,
+                "loss": 1574
+            },
+            "unrankedRecord": {
+                "win": 299,
+                "loss": 188
+            },
+            "placementRecord": {
+                "win": 8,
+                "loss": 2
+            },
+            "stats": {
+                "kills": 56440,
+                "killsAsWarrior": 4729,
+                "killsAsQueen": 18906,
+                "deaths": 40742,
+                "berries": 15565,
+                "snailDistance": 397344.0,
+                "runnerMinutes": 15558.9248,
+                "warriorMinutes": 3704.21973,
+                "queenMinutes": 13445.7979
+            },
+            "rankingAdjustment": 10,
+            "previousLeague": 3,
+            "currentLeague": 3,
+            "timeoutExpiration": "2021-03-01T01:43:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": true,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/97742fb56ada012460c1142fffa02ff6c01627bb_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 19,
+            "promotionPercentComplete": 0.9540149,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5d9b7bd309fa48063ed27ff5-0"
+        },
+        {
+            "liquidId": "l[you]rd-fisc#8903",
+            "playerId": "5dfc3a3a43e748065997cbfc",
+            "displayName": "L[YOU]rd Fischi[YOU]s",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5dfc3a3a43e748065997cbfc",
+                "steam": "76561198121366792",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2506.9404296875,
+                "deviation": 62.074724199507,
+                "volatility": 0.05993990329038297,
+                "roundedRating": 2506
+            },
+            "unrankedRankingData": {
+                "rating": 1789.2255156351307,
+                "deviation": 66.6542623011105,
+                "volatility": 0.062943312168014534,
+                "roundedRating": 1789
+            },
+            "rankedRecord": {
+                "win": 471,
+                "loss": 331
+            },
+            "unrankedRecord": {
+                "win": 1304,
+                "loss": 578
+            },
+            "placementRecord": {
+                "win": 10,
+                "loss": 0
+            },
+            "stats": {
+                "kills": 38418,
+                "killsAsWarrior": 3147,
+                "killsAsQueen": 20964,
+                "deaths": 18035,
+                "berries": 12536,
+                "snailDistance": 182709.0,
+                "runnerMinutes": 7888.43848,
+                "warriorMinutes": 2285.3606,
+                "queenMinutes": 9923.314
+            },
+            "rankingAdjustment": -15,
+            "previousLeague": 4,
+            "currentLeague": 4,
+            "timeoutExpiration": "2020-08-28T06:04:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": true,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 2,
+            "localPlayerCount": 2,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/36/36a4beee53eba09d3f830f350a33fae6ecb870f1_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 1,
+            "promotionPercentComplete": 1.0,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5dfc3a3a43e748065997cbfc-0"
+        },
+        {
+            "liquidId": "yeesh#7677",
+            "playerId": "5da2506bf0ef6f0642d2f2de",
+            "displayName": "Yeesh",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5da2506bf0ef6f0642d2f2de",
+                "steam": "76561198198495877",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2750.609130859375,
+                "deviation": 76.0140590554117,
+                "volatility": 0.066268816654167131,
+                "roundedRating": 2750
+            },
+            "unrankedRankingData": {
+                "rating": 1814.9682646558397,
+                "deviation": 63.102623758436188,
+                "volatility": 0.060334563287266683,
+                "roundedRating": 1814
+            },
+            "rankedRecord": {
+                "win": 2649,
+                "loss": 851
+            },
+            "unrankedRecord": {
+                "win": 312,
+                "loss": 168
+            },
+            "placementRecord": {
+                "win": 9,
+                "loss": 1
+            },
+            "stats": {
+                "kills": 102154,
+                "killsAsWarrior": 4381,
+                "killsAsQueen": 28343,
+                "deaths": 25277,
+                "berries": 8937,
+                "snailDistance": 211927.0,
+                "runnerMinutes": 7319.952,
+                "warriorMinutes": 2851.928,
+                "queenMinutes": 18447.09
+            },
+            "rankingAdjustment": 25,
+            "previousLeague": 4,
+            "currentLeague": 4,
+            "timeoutExpiration": "2021-03-06T02:47:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": false,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/08/082e73b86679f44e868f46b36544fdefd23c1986_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 5,
+            "promotionPercentComplete": 1.0,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5da2506bf0ef6f0642d2f2de-0"
+        },
+        {
+            "liquidId": "andresgp#0665",
+            "playerId": "5da696898d03af061c366025",
+            "displayName": "AndresGP",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5da696898d03af061c366025",
+                "steam": "76561197994297419",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2615.629150390625,
+                "deviation": 65.131984023842492,
+                "volatility": 0.060381470606417291,
+                "roundedRating": 2615
+            },
+            "unrankedRankingData": {
+                "rating": 1736.1006277073479,
+                "deviation": 62.898573374061989,
+                "volatility": 0.06004032644204163,
+                "roundedRating": 1736
+            },
+            "rankedRecord": {
+                "win": 847,
+                "loss": 357
+            },
+            "unrankedRecord": {
+                "win": 181,
+                "loss": 115
+            },
+            "placementRecord": {
+                "win": 5,
+                "loss": 5
+            },
+            "stats": {
+                "kills": 14119,
+                "killsAsWarrior": 1799,
+                "killsAsQueen": 543,
+                "deaths": 13153,
+                "berries": 5808,
+                "snailDistance": 240209.0,
+                "runnerMinutes": 6908.73047,
+                "warriorMinutes": 3825.11377,
+                "queenMinutes": 1282.90515
+            },
+            "rankingAdjustment": 13,
+            "previousLeague": 4,
+            "currentLeague": 4,
+            "timeoutExpiration": "0001-01-01T00:00:00",
+            "status": 3,
+            "allowFriendsToJoinParty": false,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": false,
+            "allowSpectateCustomMatch": false,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/aa/aa5eea042bbc12244435d2a710ca871667e035c8_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 18,
+            "promotionPercentComplete": 1.0,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5da696898d03af061c366025-0"
+        },
+        {
+            "liquidId": "cat#8726",
+            "playerId": "5e1d3a6a43e7480659176023",
+            "displayName": "cat",
+            "externalIds": {
+                "discord": null,
+                "nintendo": null,
+                "test": "5e1d3a6a43e7480659176023",
+                "steam": "76561199018809259",
+                "xboxone": null,
+                "ps4": null,
+                "stadia": null
+            },
+            "highestRankingRating": 1500.0,
+            "rankedRankingData": {
+                "rating": 2662.462890625,
+                "deviation": 64.964140318674467,
+                "volatility": 0.062423743301455344,
+                "roundedRating": 2662
+            },
+            "unrankedRankingData": {
+                "rating": 1998.8289787712647,
+                "deviation": 71.421013768621052,
+                "volatility": 0.060569656694303774,
+                "roundedRating": 1998
+            },
+            "rankedRecord": {
+                "win": 2296,
+                "loss": 1544
+            },
+            "unrankedRecord": {
+                "win": 147,
+                "loss": 72
+            },
+            "placementRecord": {
+                "win": 8,
+                "loss": 2
+            },
+            "stats": {
+                "kills": 111061,
+                "killsAsWarrior": 1966,
+                "killsAsQueen": 48399,
+                "deaths": 30151,
+                "berries": 4294,
+                "snailDistance": 392457.0,
+                "runnerMinutes": 4790.97363,
+                "warriorMinutes": 1541.58093,
+                "queenMinutes": 25851.2012
+            },
+            "rankingAdjustment": 3,
+            "previousLeague": 4,
+            "currentLeague": 4,
+            "timeoutExpiration": "2021-02-10T06:51:00Z",
+            "status": 3,
+            "allowFriendsToJoinParty": true,
+            "allowFriendsOfFriendsToJoinParty": false,
+            "allowFriendsToJoinCustomMatch": true,
+            "allowSpectateCustomMatch": true,
+            "currentNetworkingPreferences": 0,
+            "crossPlayEnabled": true,
+            "partyCount": 1,
+            "localPlayerCount": 1,
+            "inParty": false,
+            "partyLeader": true,
+            "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/06/06b429614dda00b21886a529af72f1de0d20ca23_full.jpg",
+            "rankInLeague": 0,
+            "defaultAvatar": 5,
+            "promotionPercentComplete": 1.0,
+            "version": 1,
+            "rankedV2Data": [],
+            "requiredPlacementMatches": 10.0,
+            "type": 2,
+            "liquidFriend": false,
+            "requiredPlacementMatchesString": "10",
+            "online": true,
+            "inGame": true,
+            "combinedId": "5e1d3a6a43e7480659176023-0"
+        }
+    ],
+    "games": [
+        {
+            "playerStats": [
+                {
+                    "nickname": "cat",
+                    "actorNr": 1,
+                    "inputID": 0,
+                    "playerId": "5e1d3a6a43e7480659176023-0",
+                    "externalPlayerId": "5e1d3a6a43e7480659176023",
+                    "playerIndex": 0,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 16,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 2,
+                    "currentWorkerKillCount": 2,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 2,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 5,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 2,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 4
+                },
+                {
+                    "nickname": "free microwave",
+                    "actorNr": 8,
+                    "inputID": 0,
+                    "playerId": "5d9b7bd309fa48063ed27ff5-0",
+                    "externalPlayerId": "5d9b7bd309fa48063ed27ff5",
+                    "playerIndex": 1,
+                    "entityType": 1,
+                    "entitySkin": 1,
+                    "ping": 23,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 1,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.158888891,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 6,
+                    "totalBerryThrowIns": 5,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "Yeesh",
+                    "actorNr": 9,
+                    "inputID": 0,
+                    "playerId": "5da2506bf0ef6f0642d2f2de-0",
+                    "externalPlayerId": "5da2506bf0ef6f0642d2f2de",
+                    "playerIndex": 2,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 66,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 6,
+                    "totalBerryThrowIns": 5,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "prosive",
+                    "actorNr": 5,
+                    "inputID": 0,
+                    "playerId": "5e59880591f2ba06453547df-0",
+                    "externalPlayerId": "5e59880591f2ba06453547df",
+                    "playerIndex": 3,
+                    "entityType": 1,
+                    "entitySkin": 3,
+                    "ping": 16,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 1,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 2,
+                    "totalBerryThrowIns": 1,
+                    "totalGlanceCount": 4,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 3.682434,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s",
+                    "actorNr": 13,
+                    "inputID": 0,
+                    "playerId": "5dfc3a3a43e748065997cbfc-0",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 4,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 5,
+                    "currentQueenKillCount": 1,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 7,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 6,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 5,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 10,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 6
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+                    "actorNr": 13,
+                    "inputID": 1,
+                    "playerId": "5dfc3a3a43e748065997cbfc-1",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 5,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 7,
+                    "totalBerryThrowIns": 6,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 8.797852,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "AndresGP",
+                    "actorNr": 14,
+                    "inputID": 0,
+                    "playerId": "5da696898d03af061c366025-0",
+                    "externalPlayerId": "5da696898d03af061c366025",
+                    "playerIndex": 6,
+                    "entityType": 2,
+                    "entitySkin": 4,
+                    "ping": 33,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 3,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 3,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 3,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 0,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 51.2208252,
+                    "currentKillCount": 3
+                },
+                {
+                    "nickname": "moke",
+                    "actorNr": 15,
+                    "inputID": 0,
+                    "playerId": "5e0d95b02e48e2062b5611ed-0",
+                    "externalPlayerId": "5e0d95b02e48e2062b5611ed",
+                    "playerIndex": 7,
+                    "entityType": 2,
+                    "entitySkin": 2,
+                    "ping": 33,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 1,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 1.46630859,
+                    "currentKillCount": 0
+                }
+            ],
+            "blueQueenKillTimes": [
+                5.98187256
+            ],
+            "goldQueenKillTimes": [
+                17.8623047
+            ],
+            "blueWarriorsUp": [
+                {
+                    "_time": 6.01519775,
+                    "_count": 1,
+                    "time": 6.01519775,
+                    "count": 1
+                }
+            ],
+            "goldWarriorsUp": [
+                {
+                    "_time": 25.8770142,
+                    "_count": 1,
+                    "time": 25.8770142,
+                    "count": 1
+                },
+                {
+                    "_time": 34.6748657,
+                    "_count": 0,
+                    "time": 34.6748657,
+                    "count": 0
+                },
+                {
+                    "_time": 40.79004,
+                    "_count": 1,
+                    "time": 40.79004,
+                    "count": 1
+                },
+                {
+                    "_time": 44.4724731,
+                    "_count": 0,
+                    "time": 44.4724731,
+                    "count": 0
+                },
+                {
+                    "_time": 55.7697144,
+                    "_count": 1,
+                    "time": 55.7697144,
+                    "count": 1
+                }
+            ],
+            "snailPosition": [
+                {
+                    "_time": 54.3034058,
+                    "_count": 0,
+                    "time": 54.3034058,
+                    "count": 0
+                }
+            ],
+            "blueBerryCount": [
+                {
+                    "_time": 1.84954834,
+                    "_count": 1,
+                    "time": 1.84954834,
+                    "count": 1
+                },
+                {
+                    "_time": 7.34820557,
+                    "_count": 2,
+                    "time": 7.34820557,
+                    "count": 2
+                },
+                {
+                    "_time": 7.614807,
+                    "_count": 3,
+                    "time": 7.614807,
+                    "count": 3
+                },
+                {
+                    "_time": 9.664307,
+                    "_count": 4,
+                    "time": 9.664307,
+                    "count": 4
+                },
+                {
+                    "_time": 11.680481,
+                    "_count": 5,
+                    "time": 11.680481,
+                    "count": 5
+                },
+                {
+                    "_time": 12.3469849,
+                    "_count": 6,
+                    "time": 12.3469849,
+                    "count": 6
+                },
+                {
+                    "_time": 15.84613,
+                    "_count": 7,
+                    "time": 15.84613,
+                    "count": 7
+                },
+                {
+                    "_time": 28.5930176,
+                    "_count": 8,
+                    "time": 28.5930176,
+                    "count": 8
+                },
+                {
+                    "_time": 34.0250244,
+                    "_count": 9,
+                    "time": 34.0250244,
+                    "count": 9
+                },
+                {
+                    "_time": 43.6560059,
+                    "_count": 10,
+                    "time": 43.6560059,
+                    "count": 10
+                },
+                {
+                    "_time": 54.4200439,
+                    "_count": 11,
+                    "time": 54.4200439,
+                    "count": 11
+                },
+                {
+                    "_time": 57.2360229,
+                    "_count": 12,
+                    "time": 57.2360229,
+                    "count": 12
+                }
+            ],
+            "goldBerryCount": [
+                {
+                    "_time": 2.8493042,
+                    "_count": 1,
+                    "time": 2.8493042,
+                    "count": 1
+                },
+                {
+                    "_time": 3.5491333,
+                    "_count": 2,
+                    "time": 3.5491333,
+                    "count": 2
+                },
+                {
+                    "_time": 6.081848,
+                    "_count": 3,
+                    "time": 6.081848,
+                    "count": 3
+                },
+                {
+                    "_time": 6.68170166,
+                    "_count": 4,
+                    "time": 6.68170166,
+                    "count": 4
+                },
+                {
+                    "_time": 11.263916,
+                    "_count": 5,
+                    "time": 11.263916,
+                    "count": 5
+                },
+                {
+                    "_time": 11.3805542,
+                    "_count": 6,
+                    "time": 11.3805542,
+                    "count": 6
+                },
+                {
+                    "_time": 15.529541,
+                    "_count": 7,
+                    "time": 15.529541,
+                    "count": 7
+                },
+                {
+                    "_time": 20.0950928,
+                    "_count": 8,
+                    "time": 20.0950928,
+                    "count": 8
+                },
+                {
+                    "_time": 31.2590332,
+                    "_count": 9,
+                    "time": 31.2590332,
+                    "count": 9
+                },
+                {
+                    "_time": 52.387207,
+                    "_count": 10,
+                    "time": 52.387207,
+                    "count": 10
+                }
+            ],
+            "gateControls": [
+                {
+                    "_id": 2359332,
+                    "_timeAsBlue": 11.597168,
+                    "_timeAsRed": 29.7927246,
+                    "id": 2359332,
+                    "timeAsBlue": 11.597168,
+                    "timeAsRed": 29.7927246
+                },
+                {
+                    "_id": 2359333,
+                    "_timeAsBlue": 8.164673,
+                    "_timeAsRed": 34.6748657,
+                    "id": 2359333,
+                    "timeAsBlue": 8.164673,
+                    "timeAsRed": 34.6748657
+                },
+                {
+                    "_id": 2359384,
+                    "_timeAsBlue": 37.190918,
+                    "_timeAsRed": 19.0286865,
+                    "id": 2359384,
+                    "timeAsBlue": 37.190918,
+                    "timeAsRed": 19.0286865
+                }
+            ],
+            "berriesNeeded": 12,
+            "totalGates": 3,
+            "blueSnailGatePos": -725.0029,
+            "goldSnailGatePos": 724.9797,
+            "snailDisengaged": true,
+            "headShotVictory": false,
+            "startTime": 350.691833,
+            "endTime": 407.927856,
+            "winCondition": 2,
+            "duration": 57.2360229
+        },
+        {
+            "playerStats": [
+                {
+                    "nickname": "cat",
+                    "actorNr": 1,
+                    "inputID": 0,
+                    "playerId": "5e1d3a6a43e7480659176023-0",
+                    "externalPlayerId": "5e1d3a6a43e7480659176023",
+                    "playerIndex": 0,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 16,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 2,
+                    "currentWorkerKillCount": 5,
+                    "currentQueenKillCount": 2,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 3,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 9,
+                    "totalQueenKillCount": 2,
+                    "totalWorkerKillCount": 5,
+                    "totalWarriorKillCount": 2,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 9
+                },
+                {
+                    "nickname": "free microwave",
+                    "actorNr": 8,
+                    "inputID": 0,
+                    "playerId": "5d9b7bd309fa48063ed27ff5-0",
+                    "externalPlayerId": "5d9b7bd309fa48063ed27ff5",
+                    "playerIndex": 1,
+                    "entityType": 2,
+                    "entitySkin": 1,
+                    "ping": 22,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 1,
+                    "currentQueenKillCount": 1,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 1,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 0,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 38.0907,
+                    "currentKillCount": 2
+                },
+                {
+                    "nickname": "Yeesh",
+                    "actorNr": 9,
+                    "inputID": 0,
+                    "playerId": "5da2506bf0ef6f0642d2f2de-0",
+                    "externalPlayerId": "5da2506bf0ef6f0642d2f2de",
+                    "playerIndex": 2,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 66,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 5,
+                    "totalBerryThrowIns": 4,
+                    "totalGlanceCount": 4,
+                    "totalSnailDistance": 2.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 2,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "prosive",
+                    "actorNr": 5,
+                    "inputID": 0,
+                    "playerId": "5e59880591f2ba06453547df-0",
+                    "externalPlayerId": "5e59880591f2ba06453547df",
+                    "playerIndex": 3,
+                    "entityType": 2,
+                    "entitySkin": 3,
+                    "ping": 16,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 1,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 17.7290039,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s",
+                    "actorNr": 13,
+                    "inputID": 0,
+                    "playerId": "5dfc3a3a43e748065997cbfc-0",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 4,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 2,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+                    "actorNr": 13,
+                    "inputID": 1,
+                    "playerId": "5dfc3a3a43e748065997cbfc-1",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 5,
+                    "entityType": 2,
+                    "entitySkin": 4,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 6,
+                    "totalBerryThrowIns": 6,
+                    "totalGlanceCount": 0,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 8.614563,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "AndresGP",
+                    "actorNr": 14,
+                    "inputID": 0,
+                    "playerId": "5da696898d03af061c366025-0",
+                    "externalPlayerId": "5da696898d03af061c366025",
+                    "playerIndex": 6,
+                    "entityType": 2,
+                    "entitySkin": 4,
+                    "ping": 33,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 2,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 0,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 0,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 49.8045044,
+                    "currentKillCount": 2
+                },
+                {
+                    "nickname": "moke",
+                    "actorNr": 15,
+                    "inputID": 0,
+                    "playerId": "5e0d95b02e48e2062b5611ed-0",
+                    "externalPlayerId": "5e0d95b02e48e2062b5611ed",
+                    "playerIndex": 7,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 33,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 3,
+                    "totalBerryThrowIns": 3,
+                    "totalGlanceCount": 4,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 6,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 5,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 4.89880371,
+                    "currentKillCount": 0
+                }
+            ],
+            "blueQueenKillTimes": [
+                6.631714,
+                26.0103149,
+                59.5188
+            ],
+            "goldQueenKillTimes": [
+                0.0
+            ],
+            "blueWarriorsUp": [
+                {
+                    "_time": 9.714294,
+                    "_count": 1,
+                    "time": 9.714294,
+                    "count": 1
+                },
+                {
+                    "_time": 21.4281,
+                    "_count": 2,
+                    "time": 21.4281,
+                    "count": 2
+                }
+            ],
+            "goldWarriorsUp": [
+                {
+                    "_time": 18.9953613,
+                    "_count": 1,
+                    "time": 18.9953613,
+                    "count": 1
+                },
+                {
+                    "_time": 32.3087769,
+                    "_count": 0,
+                    "time": 32.3087769,
+                    "count": 0
+                },
+                {
+                    "_time": 43.42273,
+                    "_count": 1,
+                    "time": 43.42273,
+                    "count": 1
+                },
+                {
+                    "_time": 48.3215332,
+                    "_count": 0,
+                    "time": 48.3215332,
+                    "count": 0
+                },
+                {
+                    "_time": 50.9042358,
+                    "_count": 1,
+                    "time": 50.9042358,
+                    "count": 1
+                },
+                {
+                    "_time": 55.10321,
+                    "_count": 2,
+                    "time": 55.10321,
+                    "count": 2
+                }
+            ],
+            "snailPosition": [
+                {
+                    "_time": 4.03234863,
+                    "_count": 0,
+                    "time": 4.03234863,
+                    "count": 0
+                },
+                {
+                    "_time": 51.1541748,
+                    "_count": -2,
+                    "time": 51.1541748,
+                    "count": -2
+                },
+                {
+                    "_time": 58.63568,
+                    "_count": -2,
+                    "time": 58.63568,
+                    "count": -2
+                }
+            ],
+            "blueBerryCount": [
+                {
+                    "_time": 35.0081177,
+                    "_count": 1,
+                    "time": 35.0081177,
+                    "count": 1
+                },
+                {
+                    "_time": 35.824585,
+                    "_count": 2,
+                    "time": 35.824585,
+                    "count": 2
+                },
+                {
+                    "_time": 36.9909668,
+                    "_count": 3,
+                    "time": 36.9909668,
+                    "count": 3
+                },
+                {
+                    "_time": 40.5067749,
+                    "_count": 4,
+                    "time": 40.5067749,
+                    "count": 4
+                },
+                {
+                    "_time": 46.32202,
+                    "_count": 5,
+                    "time": 46.32202,
+                    "count": 5
+                }
+            ],
+            "goldBerryCount": [
+                {
+                    "_time": 2.33276367,
+                    "_count": 1,
+                    "time": 2.33276367,
+                    "count": 1
+                },
+                {
+                    "_time": 4.2822876,
+                    "_count": 2,
+                    "time": 4.2822876,
+                    "count": 2
+                },
+                {
+                    "_time": 6.548401,
+                    "_count": 3,
+                    "time": 6.548401,
+                    "count": 3
+                },
+                {
+                    "_time": 9.031128,
+                    "_count": 4,
+                    "time": 9.031128,
+                    "count": 4
+                },
+                {
+                    "_time": 11.2472534,
+                    "_count": 5,
+                    "time": 11.2472534,
+                    "count": 5
+                },
+                {
+                    "_time": 16.4126587,
+                    "_count": 6,
+                    "time": 16.4126587,
+                    "count": 6
+                },
+                {
+                    "_time": 18.8120728,
+                    "_count": 7,
+                    "time": 18.8120728,
+                    "count": 7
+                },
+                {
+                    "_time": 20.7449341,
+                    "_count": 8,
+                    "time": 20.7449341,
+                    "count": 8
+                },
+                {
+                    "_time": 23.8108521,
+                    "_count": 9,
+                    "time": 23.8108521,
+                    "count": 9
+                },
+                {
+                    "_time": 26.74347,
+                    "_count": 10,
+                    "time": 26.74347,
+                    "count": 10
+                }
+            ],
+            "gateControls": [
+                {
+                    "_id": 2424903,
+                    "_timeAsBlue": 22.0446167,
+                    "_timeAsRed": 16.6625977,
+                    "id": 2424903,
+                    "timeAsBlue": 22.0446167,
+                    "timeAsRed": 16.6625977
+                },
+                {
+                    "_id": 2424904,
+                    "_timeAsBlue": 52.02063,
+                    "_timeAsRed": 1.73291016,
+                    "id": 2424904,
+                    "timeAsBlue": 52.02063,
+                    "timeAsRed": 1.73291016
+                },
+                {
+                    "_id": 2424905,
+                    "_timeAsBlue": 44.3391724,
+                    "_timeAsRed": 3.149231,
+                    "id": 2424905,
+                    "timeAsBlue": 44.3391724,
+                    "timeAsRed": 3.149231
+                },
+                {
+                    "_id": 2424906,
+                    "_timeAsBlue": 22.64447,
+                    "_timeAsRed": 26.87677,
+                    "id": 2424906,
+                    "timeAsBlue": 22.64447,
+                    "timeAsRed": 26.87677
+                }
+            ],
+            "berriesNeeded": 12,
+            "totalGates": 4,
+            "blueSnailGatePos": -945.000244,
+            "goldSnailGatePos": 944.9772,
+            "snailDisengaged": true,
+            "headShotVictory": false,
+            "startTime": 418.9585,
+            "endTime": 478.4773,
+            "winCondition": 1,
+            "duration": 59.5188
+        },
+        {
+            "playerStats": [
+                {
+                    "nickname": "cat",
+                    "actorNr": 1,
+                    "inputID": 0,
+                    "playerId": "5e1d3a6a43e7480659176023-0",
+                    "externalPlayerId": "5e1d3a6a43e7480659176023",
+                    "playerIndex": 0,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 17,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 5,
+                    "totalQueenKillCount": 2,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 7,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 3,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "free microwave",
+                    "actorNr": 8,
+                    "inputID": 0,
+                    "playerId": "5d9b7bd309fa48063ed27ff5-0",
+                    "externalPlayerId": "5d9b7bd309fa48063ed27ff5",
+                    "playerIndex": 1,
+                    "entityType": 1,
+                    "entitySkin": 1,
+                    "ping": 22,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 156.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 14.04657,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "Yeesh",
+                    "actorNr": 9,
+                    "inputID": 0,
+                    "playerId": "5da2506bf0ef6f0642d2f2de-0",
+                    "externalPlayerId": "5da2506bf0ef6f0642d2f2de",
+                    "playerIndex": 2,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 66,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 99.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 2,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 17.2957764,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "prosive",
+                    "actorNr": 5,
+                    "inputID": 0,
+                    "playerId": "5e59880591f2ba06453547df-0",
+                    "externalPlayerId": "5e59880591f2ba06453547df",
+                    "playerIndex": 3,
+                    "entityType": 2,
+                    "entitySkin": 3,
+                    "ping": 16,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 1,
+                    "currentWorkerKillCount": 1,
+                    "currentQueenKillCount": 1,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 3,
+                    "totalBerryThrowIns": 3,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 3.0,
+                    "totalSnailDeaths": 1,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 23.7108765,
+                    "currentKillCount": 3
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s",
+                    "actorNr": 13,
+                    "inputID": 0,
+                    "playerId": "5dfc3a3a43e748065997cbfc-0",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 4,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 48,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 2,
+                    "currentWorkerKillCount": 2,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 2,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 7,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 3,
+                    "totalWarriorKillCount": 3,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 3,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 4
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+                    "actorNr": 13,
+                    "inputID": 1,
+                    "playerId": "5dfc3a3a43e748065997cbfc-1",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 5,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 48,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 4,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 3,
+                    "timeSpentAsWarriorSeconds": 45.2389526,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "AndresGP",
+                    "actorNr": 14,
+                    "inputID": 0,
+                    "playerId": "5da696898d03af061c366025-0",
+                    "externalPlayerId": "5da696898d03af061c366025",
+                    "playerIndex": 6,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 33,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 1,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 1,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 42.1563721,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "moke",
+                    "actorNr": 15,
+                    "inputID": 0,
+                    "playerId": "5e0d95b02e48e2062b5611ed-0",
+                    "externalPlayerId": "5e0d95b02e48e2062b5611ed",
+                    "playerIndex": 7,
+                    "entityType": 2,
+                    "entitySkin": 2,
+                    "ping": 33,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 1,
+                    "currentWorkerKillCount": 1,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 5,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 0,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 61.5683,
+                    "currentKillCount": 2
+                }
+            ],
+            "blueQueenKillTimes": [
+                1.033081,
+                13.9465942
+            ],
+            "goldQueenKillTimes": [
+                6.665039,
+                58.8023071,
+                77.16449
+            ],
+            "blueWarriorsUp": [
+                {
+                    "_time": 4.64886475,
+                    "_count": 1,
+                    "time": 4.64886475,
+                    "count": 1
+                },
+                {
+                    "_time": 7.281555,
+                    "_count": 0,
+                    "time": 7.281555,
+                    "count": 0
+                },
+                {
+                    "_time": 9.614319,
+                    "_count": 1,
+                    "time": 9.614319,
+                    "count": 1
+                },
+                {
+                    "_time": 16.8792114,
+                    "_count": 2,
+                    "time": 16.8792114,
+                    "count": 2
+                },
+                {
+                    "_time": 21.04486,
+                    "_count": 1,
+                    "time": 21.04486,
+                    "count": 1
+                },
+                {
+                    "_time": 26.6768188,
+                    "_count": 2,
+                    "time": 26.6768188,
+                    "count": 2
+                },
+                {
+                    "_time": 40.72339,
+                    "_count": 1,
+                    "time": 40.72339,
+                    "count": 1
+                },
+                {
+                    "_time": 47.72168,
+                    "_count": 2,
+                    "time": 47.72168,
+                    "count": 2
+                },
+                {
+                    "_time": 51.6873779,
+                    "_count": 1,
+                    "time": 51.6873779,
+                    "count": 1
+                },
+                {
+                    "_time": 53.5869141,
+                    "_count": 0,
+                    "time": 53.5869141,
+                    "count": 0
+                },
+                {
+                    "_time": 61.085083,
+                    "_count": 1,
+                    "time": 61.085083,
+                    "count": 1
+                },
+                {
+                    "_time": 65.8006,
+                    "_count": 0,
+                    "time": 65.8006,
+                    "count": 0
+                }
+            ],
+            "goldWarriorsUp": [
+                {
+                    "_time": 15.5961914,
+                    "_count": 1,
+                    "time": 15.5961914,
+                    "count": 1
+                },
+                {
+                    "_time": 28.67633,
+                    "_count": 2,
+                    "time": 28.67633,
+                    "count": 2
+                },
+                {
+                    "_time": 39.84027,
+                    "_count": 3,
+                    "time": 39.84027,
+                    "count": 3
+                },
+                {
+                    "_time": 44.272522,
+                    "_count": 2,
+                    "time": 44.272522,
+                    "count": 2
+                },
+                {
+                    "_time": 57.8858643,
+                    "_count": 3,
+                    "time": 57.8858643,
+                    "count": 3
+                },
+                {
+                    "_time": 73.91528,
+                    "_count": 2,
+                    "time": 73.91528,
+                    "count": 2
+                }
+            ],
+            "snailPosition": [
+                {
+                    "_time": 1.74957275,
+                    "_count": 0,
+                    "time": 1.74957275,
+                    "count": 0
+                },
+                {
+                    "_time": 7.88140869,
+                    "_count": -137,
+                    "time": 7.88140869,
+                    "count": -137
+                },
+                {
+                    "_time": 16.4126587,
+                    "_count": -136,
+                    "time": 16.4126587,
+                    "count": -136
+                },
+                {
+                    "_time": 19.1286621,
+                    "_count": -135,
+                    "time": 19.1286621,
+                    "count": -135
+                },
+                {
+                    "_time": 20.1117554,
+                    "_count": -135,
+                    "time": 20.1117554,
+                    "count": -135
+                },
+                {
+                    "_time": 22.51117,
+                    "_count": -134,
+                    "time": 22.51117,
+                    "count": -134
+                },
+                {
+                    "_time": 23.3276367,
+                    "_count": -153,
+                    "time": 23.3276367,
+                    "count": -153
+                },
+                {
+                    "_time": 26.0269775,
+                    "_count": -153,
+                    "time": 26.0269775,
+                    "count": -153
+                },
+                {
+                    "_time": 32.2921143,
+                    "_count": -174,
+                    "time": 32.2921143,
+                    "count": -174
+                },
+                {
+                    "_time": 37.2409058,
+                    "_count": -251,
+                    "time": 37.2409058,
+                    "count": -251
+                },
+                {
+                    "_time": 38.7572021,
+                    "_count": -251,
+                    "time": 38.7572021,
+                    "count": -251
+                },
+                {
+                    "_time": 42.40631,
+                    "_count": -251,
+                    "time": 42.40631,
+                    "count": -251
+                },
+                {
+                    "_time": 77.08118,
+                    "_count": -251,
+                    "time": 77.08118,
+                    "count": -251
+                }
+            ],
+            "blueBerryCount": [],
+            "goldBerryCount": [
+                {
+                    "_time": 3.649109,
+                    "_count": 1,
+                    "time": 3.649109,
+                    "count": 1
+                },
+                {
+                    "_time": 6.23181152,
+                    "_count": 2,
+                    "time": 6.23181152,
+                    "count": 2
+                },
+                {
+                    "_time": 13.2301025,
+                    "_count": 3,
+                    "time": 13.2301025,
+                    "count": 3
+                },
+                {
+                    "_time": 13.3134155,
+                    "_count": 4,
+                    "time": 13.3134155,
+                    "count": 4
+                }
+            ],
+            "gateControls": [
+                {
+                    "_id": 2490404,
+                    "_timeAsBlue": 33.6251221,
+                    "_timeAsRed": 39.9402466,
+                    "id": 2490404,
+                    "timeAsBlue": 33.6251221,
+                    "timeAsRed": 39.9402466
+                },
+                {
+                    "_id": 4915238,
+                    "_timeAsBlue": 26.3269043,
+                    "_timeAsRed": 42.8728638,
+                    "id": 4915238,
+                    "timeAsBlue": 26.3269043,
+                    "timeAsRed": 42.8728638
+                },
+                {
+                    "_id": 2490441,
+                    "_timeAsBlue": 35.1747437,
+                    "_timeAsRed": 40.34015,
+                    "id": 2490441,
+                    "timeAsBlue": 35.1747437,
+                    "timeAsRed": 40.34015
+                }
+            ],
+            "berriesNeeded": 12,
+            "totalGates": 3,
+            "blueSnailGatePos": -725.0029,
+            "goldSnailGatePos": 724.9797,
+            "snailDisengaged": true,
+            "headShotVictory": false,
+            "startTime": 489.507935,
+            "endTime": 566.6724,
+            "winCondition": 1,
+            "duration": 77.16449
+        },
+        {
+            "playerStats": [
+                {
+                    "nickname": "cat",
+                    "actorNr": 1,
+                    "inputID": 0,
+                    "playerId": "5e1d3a6a43e7480659176023-0",
+                    "externalPlayerId": "5e1d3a6a43e7480659176023",
+                    "playerIndex": 0,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 17,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 3,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 2,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "free microwave",
+                    "actorNr": 8,
+                    "inputID": 0,
+                    "playerId": "5d9b7bd309fa48063ed27ff5-0",
+                    "externalPlayerId": "5d9b7bd309fa48063ed27ff5",
+                    "playerIndex": 1,
+                    "entityType": 1,
+                    "entitySkin": 1,
+                    "ping": 23,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 487.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 10,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 10,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "Yeesh",
+                    "actorNr": 9,
+                    "inputID": 0,
+                    "playerId": "5da2506bf0ef6f0642d2f2de-0",
+                    "externalPlayerId": "5da2506bf0ef6f0642d2f2de",
+                    "playerIndex": 2,
+                    "entityType": 2,
+                    "entitySkin": 2,
+                    "ping": 66,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 5,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 3,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 1,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 101.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 5,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 4,
+                    "timeSpentAsWarriorSeconds": 31.55896,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "prosive",
+                    "actorNr": 5,
+                    "inputID": 0,
+                    "playerId": "5e59880591f2ba06453547df-0",
+                    "externalPlayerId": "5e59880591f2ba06453547df",
+                    "playerIndex": 3,
+                    "entityType": 2,
+                    "entitySkin": 3,
+                    "ping": 16,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 2,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 3,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 42.2230225,
+                    "currentKillCount": 2
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s",
+                    "actorNr": 13,
+                    "inputID": 0,
+                    "playerId": "5dfc3a3a43e748065997cbfc-0",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 4,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 3,
+                    "currentWorkerKillCount": 6,
+                    "currentQueenKillCount": 2,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 18,
+                    "totalQueenKillCount": 3,
+                    "totalWorkerKillCount": 11,
+                    "totalWarriorKillCount": 4,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 7,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 11
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+                    "actorNr": 13,
+                    "inputID": 1,
+                    "playerId": "5dfc3a3a43e748065997cbfc-1",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 5,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 111.0442,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 111.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 2,
+                    "timeSpentAsWarriorSeconds": 62.368103,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "AndresGP",
+                    "actorNr": 14,
+                    "inputID": 0,
+                    "playerId": "5da696898d03af061c366025-0",
+                    "externalPlayerId": "5da696898d03af061c366025",
+                    "playerIndex": 6,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 33,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 5,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 2,
+                    "totalWarriorKillCount": 2,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 6,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 3,
+                    "mostKillsPerLife": 4,
+                    "timeSpentAsWarriorSeconds": 50.9542236,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "moke",
+                    "actorNr": 15,
+                    "inputID": 0,
+                    "playerId": "5e0d95b02e48e2062b5611ed-0",
+                    "externalPlayerId": "5e0d95b02e48e2062b5611ed",
+                    "playerIndex": 7,
+                    "entityType": 2,
+                    "entitySkin": 2,
+                    "ping": 33,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 1,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 1,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 2,
+                    "totalSnailDistance": 231.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 6,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 5,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 17.4624023,
+                    "currentKillCount": 1
+                }
+            ],
+            "blueQueenKillTimes": [
+                42.2563477
+            ],
+            "goldQueenKillTimes": [
+                14.5464478,
+                88.59503,
+                103.774658
+            ],
+            "blueWarriorsUp": [
+                {
+                    "_time": 14.4631348,
+                    "_count": 1,
+                    "time": 14.4631348,
+                    "count": 1
+                },
+                {
+                    "_time": 22.2112427,
+                    "_count": 0,
+                    "time": 22.2112427,
+                    "count": 0
+                },
+                {
+                    "_time": 28.8096313,
+                    "_count": 1,
+                    "time": 28.8096313,
+                    "count": 1
+                },
+                {
+                    "_time": 31.0257568,
+                    "_count": 2,
+                    "time": 31.0257568,
+                    "count": 2
+                },
+                {
+                    "_time": 34.1749878,
+                    "_count": 1,
+                    "time": 34.1749878,
+                    "count": 1
+                },
+                {
+                    "_time": 43.67267,
+                    "_count": 2,
+                    "time": 43.67267,
+                    "count": 2
+                },
+                {
+                    "_time": 52.3205566,
+                    "_count": 1,
+                    "time": 52.3205566,
+                    "count": 1
+                },
+                {
+                    "_time": 66.0672,
+                    "_count": 0,
+                    "time": 66.0672,
+                    "count": 0
+                },
+                {
+                    "_time": 73.61536,
+                    "_count": 1,
+                    "time": 73.61536,
+                    "count": 1
+                },
+                {
+                    "_time": 95.52667,
+                    "_count": 0,
+                    "time": 95.52667,
+                    "count": 0
+                },
+                {
+                    "_time": 99.9755859,
+                    "_count": 1,
+                    "time": 99.9755859,
+                    "count": 1
+                }
+            ],
+            "goldWarriorsUp": [
+                {
+                    "_time": 9.264404,
+                    "_count": 1,
+                    "time": 9.264404,
+                    "count": 1
+                },
+                {
+                    "_time": 19.9784546,
+                    "_count": 2,
+                    "time": 19.9784546,
+                    "count": 2
+                },
+                {
+                    "_time": 35.20807,
+                    "_count": 1,
+                    "time": 35.20807,
+                    "count": 1
+                },
+                {
+                    "_time": 51.4541,
+                    "_count": 2,
+                    "time": 51.4541,
+                    "count": 2
+                },
+                {
+                    "_time": 56.736145,
+                    "_count": 1,
+                    "time": 56.736145,
+                    "count": 1
+                },
+                {
+                    "_time": 57.6192627,
+                    "_count": 0,
+                    "time": 57.6192627,
+                    "count": 0
+                },
+                {
+                    "_time": 61.51831,
+                    "_count": 1,
+                    "time": 61.51831,
+                    "count": 1
+                },
+                {
+                    "_time": 65.68396,
+                    "_count": 0,
+                    "time": 65.68396,
+                    "count": 0
+                },
+                {
+                    "_time": 71.232605,
+                    "_count": 1,
+                    "time": 71.232605,
+                    "count": 1
+                },
+                {
+                    "_time": 82.94641,
+                    "_count": 2,
+                    "time": 82.94641,
+                    "count": 2
+                },
+                {
+                    "_time": 86.12897,
+                    "_count": 1,
+                    "time": 86.12897,
+                    "count": 1
+                },
+                {
+                    "_time": 90.4779053,
+                    "_count": 2,
+                    "time": 90.4779053,
+                    "count": 2
+                }
+            ],
+            "snailPosition": [
+                {
+                    "_time": 5.08209229,
+                    "_count": -101,
+                    "time": 5.08209229,
+                    "count": -101
+                },
+                {
+                    "_time": 20.0617676,
+                    "_count": -101,
+                    "time": 20.0617676,
+                    "count": -101
+                },
+                {
+                    "_time": 21.9279785,
+                    "_count": -101,
+                    "time": 21.9279785,
+                    "count": -101
+                },
+                {
+                    "_time": 30.5758667,
+                    "_count": 129,
+                    "time": 30.5758667,
+                    "count": 129
+                },
+                {
+                    "_time": 31.8922119,
+                    "_count": 129,
+                    "time": 31.8922119,
+                    "count": 129
+                },
+                {
+                    "_time": 32.8086548,
+                    "_count": 130,
+                    "time": 32.8086548,
+                    "count": 130
+                },
+                {
+                    "_time": 41.3399048,
+                    "_count": 55,
+                    "time": 41.3399048,
+                    "count": 55
+                },
+                {
+                    "_time": 53.55359,
+                    "_count": -142,
+                    "time": 53.55359,
+                    "count": -142
+                },
+                {
+                    "_time": 56.25293,
+                    "_count": -149,
+                    "time": 56.25293,
+                    "count": -149
+                },
+                {
+                    "_time": 64.76752,
+                    "_count": -219,
+                    "time": 64.76752,
+                    "count": -219
+                },
+                {
+                    "_time": 85.3125,
+                    "_count": -252,
+                    "time": 85.3125,
+                    "count": -252
+                },
+                {
+                    "_time": 93.61047,
+                    "_count": -357,
+                    "time": 93.61047,
+                    "count": -357
+                },
+                {
+                    "_time": 99.72565,
+                    "_count": -283,
+                    "time": 99.72565,
+                    "count": -283
+                },
+                {
+                    "_time": 101.491882,
+                    "_count": -283,
+                    "time": 101.491882,
+                    "count": -283
+                },
+                {
+                    "_time": 103.774658,
+                    "_count": -245,
+                    "time": 103.774658,
+                    "count": -245
+                }
+            ],
+            "blueBerryCount": [
+                {
+                    "_time": 86.44556,
+                    "_count": 1,
+                    "time": 86.44556,
+                    "count": 1
+                }
+            ],
+            "goldBerryCount": [
+                {
+                    "_time": 40.20685,
+                    "_count": 1,
+                    "time": 40.20685,
+                    "count": 1
+                }
+            ],
+            "gateControls": [
+                {
+                    "_id": 2818099,
+                    "_timeAsBlue": 63.2845459,
+                    "_timeAsRed": 37.1742554,
+                    "id": 2818099,
+                    "timeAsBlue": 63.2845459,
+                    "timeAsRed": 37.1742554
+                },
+                {
+                    "_id": 2555956,
+                    "_timeAsBlue": 39.1071167,
+                    "_timeAsRed": 57.8692,
+                    "id": 2555956,
+                    "timeAsBlue": 39.1071167,
+                    "timeAsRed": 57.8692
+                },
+                {
+                    "_id": 2555957,
+                    "_timeAsBlue": 42.572937,
+                    "_timeAsRed": 59.83539,
+                    "id": 2555957,
+                    "timeAsBlue": 42.572937,
+                    "timeAsRed": 59.83539
+                },
+                {
+                    "_id": 2555995,
+                    "_timeAsBlue": 28.2097778,
+                    "_timeAsRed": 71.28259,
+                    "id": 2555995,
+                    "timeAsBlue": 28.2097778,
+                    "timeAsRed": 71.28259
+                },
+                {
+                    "_id": 1966172,
+                    "_timeAsBlue": 47.97162,
+                    "_timeAsRed": 51.7873535,
+                    "id": 1966172,
+                    "timeAsBlue": 47.97162,
+                    "timeAsRed": 51.7873535
+                }
+            ],
+            "berriesNeeded": 12,
+            "totalGates": 5,
+            "blueSnailGatePos": -555.0049,
+            "goldSnailGatePos": 554.98175,
+            "snailDisengaged": true,
+            "headShotVictory": false,
+            "startTime": 577.703064,
+            "endTime": 681.4777,
+            "winCondition": 1,
+            "duration": 103.774658
+        },
+        {
+            "playerStats": [
+                {
+                    "nickname": "cat",
+                    "actorNr": 1,
+                    "inputID": 0,
+                    "playerId": "5e1d3a6a43e7480659176023-0",
+                    "externalPlayerId": "5e1d3a6a43e7480659176023",
+                    "playerIndex": 0,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 16,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 10,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 6,
+                    "totalWarriorKillCount": 3,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 5,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 3,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 7,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "free microwave",
+                    "actorNr": 8,
+                    "inputID": 0,
+                    "playerId": "5d9b7bd309fa48063ed27ff5-0",
+                    "externalPlayerId": "5d9b7bd309fa48063ed27ff5",
+                    "playerIndex": 1,
+                    "entityType": 1,
+                    "entitySkin": 1,
+                    "ping": 22,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 1,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 2,
+                    "totalQueenKillCount": 1,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 3,
+                    "totalBerryThrowIns": 3,
+                    "totalGlanceCount": 4,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 2,
+                    "mostKillsPerLife": 2,
+                    "timeSpentAsWarriorSeconds": 36.6077271,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "Yeesh",
+                    "actorNr": 9,
+                    "inputID": 0,
+                    "playerId": "5da2506bf0ef6f0642d2f2de-0",
+                    "externalPlayerId": "5da2506bf0ef6f0642d2f2de",
+                    "playerIndex": 2,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 66,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 5,
+                    "totalBerryThrowIns": 4,
+                    "totalGlanceCount": 7,
+                    "totalSnailDistance": 152.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 4,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "prosive",
+                    "actorNr": 5,
+                    "inputID": 0,
+                    "playerId": "5e59880591f2ba06453547df-0",
+                    "externalPlayerId": "5e59880591f2ba06453547df",
+                    "playerIndex": 3,
+                    "entityType": 2,
+                    "entitySkin": 3,
+                    "ping": 16,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 1,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 3,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 1,
+                    "currentGlanceCount": 6,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 4,
+                    "totalQueenKillCount": 3,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 1,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 1,
+                    "totalGlanceCount": 8,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 3,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 1,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 56.4028931,
+                    "currentKillCount": 4
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s",
+                    "actorNr": 13,
+                    "inputID": 0,
+                    "playerId": "5dfc3a3a43e748065997cbfc-0",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 4,
+                    "entityType": 3,
+                    "entitySkin": 0,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 9,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 7,
+                    "totalWarriorKillCount": 2,
+                    "totalBerryDeposits": 0,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 14,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 2,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 6,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "L[YOU]rd Fischi[YOU]s(1)",
+                    "actorNr": 13,
+                    "inputID": 1,
+                    "playerId": "5dfc3a3a43e748065997cbfc-1",
+                    "externalPlayerId": "5dfc3a3a43e748065997cbfc",
+                    "playerIndex": 5,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 50,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 1,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 1,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 5,
+                    "totalBerryThrowIns": 4,
+                    "totalGlanceCount": 6,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 1,
+                    "warriorAndQueenDeathCount": 1,
+                    "workerDeathCount": 0,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 50.15442,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "AndresGP",
+                    "actorNr": 14,
+                    "inputID": 0,
+                    "playerId": "5da696898d03af061c366025-0",
+                    "externalPlayerId": "5da696898d03af061c366025",
+                    "playerIndex": 6,
+                    "entityType": 1,
+                    "entitySkin": 4,
+                    "ping": 33,
+                    "team": 2,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 0,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 1,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 1,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 1,
+                    "totalBerryThrowIns": 0,
+                    "totalGlanceCount": 7,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 4,
+                    "warriorAndQueenDeathCount": 2,
+                    "workerDeathCount": 2,
+                    "mostKillsPerLife": 1,
+                    "timeSpentAsWarriorSeconds": 35.491333,
+                    "currentKillCount": 0
+                },
+                {
+                    "nickname": "moke",
+                    "actorNr": 15,
+                    "inputID": 0,
+                    "playerId": "5e0d95b02e48e2062b5611ed-0",
+                    "externalPlayerId": "5e0d95b02e48e2062b5611ed",
+                    "playerIndex": 7,
+                    "entityType": 1,
+                    "entitySkin": 2,
+                    "ping": 33,
+                    "team": 1,
+                    "dropped": false,
+                    "currentWarriorKillCount": 0,
+                    "currentWorkerKillCount": 0,
+                    "currentQueenKillCount": 0,
+                    "currentBerryDeposits": 0,
+                    "currentBerryThrowIns": 0,
+                    "currentGlanceCount": 1,
+                    "currentSnailDistance": 0.0,
+                    "startingSnailPos": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "totalKillCount": 0,
+                    "totalQueenKillCount": 0,
+                    "totalWorkerKillCount": 0,
+                    "totalWarriorKillCount": 0,
+                    "totalBerryDeposits": 5,
+                    "totalBerryThrowIns": 3,
+                    "totalGlanceCount": 3,
+                    "totalSnailDistance": 0.0,
+                    "totalSnailDeaths": 0,
+                    "totalDeathCount": 7,
+                    "warriorAndQueenDeathCount": 0,
+                    "workerDeathCount": 7,
+                    "mostKillsPerLife": 0,
+                    "timeSpentAsWarriorSeconds": 0.0,
+                    "currentKillCount": 0
+                }
+            ],
+            "blueQueenKillTimes": [
+                40.006897,
+                87.1453857
+            ],
+            "goldQueenKillTimes": [
+                64.25098,
+                79.763855,
+                88.8782959
+            ],
+            "blueWarriorsUp": [
+                {
+                    "_time": 8.997803,
+                    "_count": 1,
+                    "time": 8.997803,
+                    "count": 1
+                },
+                {
+                    "_time": 15.4628906,
+                    "_count": 2,
+                    "time": 15.4628906,
+                    "count": 2
+                },
+                {
+                    "_time": 26.42688,
+                    "_count": 1,
+                    "time": 26.42688,
+                    "count": 1
+                },
+                {
+                    "_time": 45.60553,
+                    "_count": 0,
+                    "time": 45.60553,
+                    "count": 0
+                },
+                {
+                    "_time": 53.836853,
+                    "_count": 1,
+                    "time": 53.836853,
+                    "count": 1
+                },
+                {
+                    "_time": 78.3642,
+                    "_count": 0,
+                    "time": 78.3642,
+                    "count": 0
+                }
+            ],
+            "goldWarriorsUp": [
+                {
+                    "_time": 8.53125,
+                    "_count": 1,
+                    "time": 8.53125,
+                    "count": 1
+                },
+                {
+                    "_time": 20.7116089,
+                    "_count": 0,
+                    "time": 20.7116089,
+                    "count": 0
+                },
+                {
+                    "_time": 25.27716,
+                    "_count": 1,
+                    "time": 25.27716,
+                    "count": 1
+                },
+                {
+                    "_time": 34.458252,
+                    "_count": 2,
+                    "time": 34.458252,
+                    "count": 2
+                },
+                {
+                    "_time": 39.2737427,
+                    "_count": 1,
+                    "time": 39.2737427,
+                    "count": 1
+                },
+                {
+                    "_time": 49.4712524,
+                    "_count": 2,
+                    "time": 49.4712524,
+                    "count": 2
+                },
+                {
+                    "_time": 75.43158,
+                    "_count": 1,
+                    "time": 75.43158,
+                    "count": 1
+                }
+            ],
+            "snailPosition": [
+                {
+                    "_time": 35.9078979,
+                    "_count": -149,
+                    "time": 35.9078979,
+                    "count": -149
+                },
+                {
+                    "_time": 44.0392456,
+                    "_count": -149,
+                    "time": 44.0392456,
+                    "count": -149
+                },
+                {
+                    "_time": 44.83905,
+                    "_count": -152,
+                    "time": 44.83905,
+                    "count": -152
+                },
+                {
+                    "_time": 86.09564,
+                    "_count": -152,
+                    "time": 86.09564,
+                    "count": -152
+                }
+            ],
+            "blueBerryCount": [
+                {
+                    "_time": 3.96569824,
+                    "_count": 1,
+                    "time": 3.96569824,
+                    "count": 1
+                },
+                {
+                    "_time": 4.61553955,
+                    "_count": 2,
+                    "time": 4.61553955,
+                    "count": 2
+                },
+                {
+                    "_time": 5.848572,
+                    "_count": 3,
+                    "time": 5.848572,
+                    "count": 3
+                },
+                {
+                    "_time": 26.9100952,
+                    "_count": 4,
+                    "time": 26.9100952,
+                    "count": 4
+                },
+                {
+                    "_time": 36.7410278,
+                    "_count": 5,
+                    "time": 36.7410278,
+                    "count": 5
+                },
+                {
+                    "_time": 46.1387329,
+                    "_count": 6,
+                    "time": 46.1387329,
+                    "count": 6
+                },
+                {
+                    "_time": 78.3642,
+                    "_count": 7,
+                    "time": 78.3642,
+                    "count": 7
+                },
+                {
+                    "_time": 79.3806152,
+                    "_count": 8,
+                    "time": 79.3806152,
+                    "count": 8
+                },
+                {
+                    "_time": 83.5296,
+                    "_count": 9,
+                    "time": 83.5296,
+                    "count": 9
+                }
+            ],
+            "goldBerryCount": [
+                {
+                    "_time": 3.81573486,
+                    "_count": 1,
+                    "time": 3.81573486,
+                    "count": 1
+                },
+                {
+                    "_time": 10.9140015,
+                    "_count": 2,
+                    "time": 10.9140015,
+                    "count": 2
+                },
+                {
+                    "_time": 11.597168,
+                    "_count": 3,
+                    "time": 11.597168,
+                    "count": 3
+                },
+                {
+                    "_time": 16.7625732,
+                    "_count": 4,
+                    "time": 16.7625732,
+                    "count": 4
+                },
+                {
+                    "_time": 32.59204,
+                    "_count": 5,
+                    "time": 32.59204,
+                    "count": 5
+                },
+                {
+                    "_time": 48.7047729,
+                    "_count": 6,
+                    "time": 48.7047729,
+                    "count": 6
+                },
+                {
+                    "_time": 53.6535645,
+                    "_count": 7,
+                    "time": 53.6535645,
+                    "count": 7
+                },
+                {
+                    "_time": 56.11963,
+                    "_count": 8,
+                    "time": 56.11963,
+                    "count": 8
+                },
+                {
+                    "_time": 60.4519043,
+                    "_count": 9,
+                    "time": 60.4519043,
+                    "count": 9
+                },
+                {
+                    "_time": 67.5168457,
+                    "_count": 10,
+                    "time": 67.5168457,
+                    "count": 10
+                },
+                {
+                    "_time": 81.69672,
+                    "_count": 11,
+                    "time": 81.69672,
+                    "count": 11
+                }
+            ],
+            "gateControls": [
+                {
+                    "_id": 2621511,
+                    "_timeAsBlue": 25.3937988,
+                    "_timeAsRed": 60.4685669,
+                    "id": 2621511,
+                    "timeAsBlue": 25.3937988,
+                    "timeAsRed": 60.4685669
+                },
+                {
+                    "_id": 2621512,
+                    "_timeAsBlue": 39.5570068,
+                    "_timeAsRed": 45.28894,
+                    "id": 2621512,
+                    "timeAsBlue": 39.5570068,
+                    "timeAsRed": 45.28894
+                },
+                {
+                    "_id": 2621513,
+                    "_timeAsBlue": 59.7854,
+                    "_timeAsRed": 28.02649,
+                    "id": 2621513,
+                    "timeAsBlue": 59.7854,
+                    "timeAsRed": 28.02649
+                }
+            ],
+            "berriesNeeded": 12,
+            "totalGates": 3,
+            "blueSnailGatePos": -745.0027,
+            "goldSnailGatePos": 744.979431,
+            "snailDisengaged": true,
+            "headShotVictory": false,
+            "startTime": 692.508362,
+            "endTime": 781.386658,
+            "winCondition": 1,
+            "duration": 88.8782959
+        }
+    ]
+}
