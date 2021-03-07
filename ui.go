@@ -35,6 +35,7 @@ func ShowAdvancedStats(app *fyne.App, data stats.StatsJSON) {
 	controls := container.NewHBox(layout.NewSpacer(), prevButton, nextButton, layout.NewSpacer())
 	cont.Add(advStatsCanvas)
 	cont.Add(controls)
+	w.CenterOnScreen()
 	w.SetContent(cont)
 	w.Show()
 }
