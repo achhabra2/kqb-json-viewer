@@ -17,10 +17,12 @@ func ShowAdvancedStats(app *fyne.App, data stats.StatsJSON) {
 	advStatsPlot := stats.PlotStats(data)
 	objStatsPlot := stats.PlotObjectiveStats(data)
 	advStatsCanvas := canvas.NewImageFromImage(advStatsPlot)
+	advStatsCanvas.SetMinSize(fyne.NewSize(1280, 720))
 	objStatsCanvas := canvas.NewImageFromImage(objStatsPlot)
+	objStatsCanvas.SetMinSize(fyne.NewSize(1280, 720))
 
-	advStatsCanvas.FillMode = canvas.ImageFillOriginal
-	objStatsCanvas.FillMode = canvas.ImageFillOriginal
+	advStatsCanvas.FillMode = canvas.ImageFillContain
+	objStatsCanvas.FillMode = canvas.ImageFillContain
 	cont := container.NewVBox()
 	nextButton := widget.NewButtonWithIcon("Military", theme.MediaSkipNextIcon(), func() {
 		cont.Objects[0] = advStatsCanvas

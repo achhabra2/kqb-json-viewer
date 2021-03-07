@@ -14,6 +14,8 @@ import (
 const dpi = 96
 
 func PlotStats(data StatsJSON) image.Image {
+	// fontBytes, _ := ioutil.ReadFile("./fonit/pirulenrg.ttf")
+	// fontTtf, _ := truetype.Parse(fontBytes)
 	stats := data.AdvancedStats()
 
 	labels := make([]string, 8)
@@ -45,7 +47,6 @@ func PlotStats(data StatsJSON) image.Image {
 	p.Title.Font.Size = vg.Points(20)
 	p.Y.Label.Text = "Count"
 	p.Y.Label.Font.Size = vg.Points(16)
-
 	w := vg.Points(20)
 
 	barsA, err := plotter.NewBarChart(QueenKills, w)

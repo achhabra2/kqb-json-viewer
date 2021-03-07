@@ -13,6 +13,7 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
@@ -109,6 +110,7 @@ func main() {
 
 	w.SetContent(cont)
 	w.CenterOnScreen()
+	go UpdateCheckUI(w)
 	w.ShowAndRun()
 }
 
@@ -157,5 +159,26 @@ func getTeam(team int) string {
 		return "Blue"
 	default:
 		return ""
+	}
+}
+
+func UpdateCheckUI(w fyne.Window) {
+	shouldUpdate, latestVersion := checkForUpdate()
+	if shouldUpdate {
+		updateMessage := fmt.Sprintf("New Version Available, would you like to update to v%s", latestVersion)
+		confirmDialog := dialog.NewConfirm("Update Checker", updateMessage, func(action bool) {
+			if action {
+				log.Println("Update clicked")
+				updated := doSelfUpdate()
+				if updated {
+					updatedDialog := dialog.NewInformation("Update Status", "Update Succeeded, please restart", w)
+					updatedDialog.Show()
+				} else {
+					updatedDialog := dialog.NewInformation("Update Status", "Update Failed", w)
+					updatedDialog.Show()
+				}
+			}
+		}, w)
+		confirmDialog.Show()
 	}
 }
