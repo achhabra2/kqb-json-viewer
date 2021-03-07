@@ -208,21 +208,49 @@ func (statJson *StatsJSON) MapsWon() map[string]int {
 	return output
 }
 
-func (statJson *StatsJSON) AdvancedStats() map[string]map[string]int {
-	output := make(map[string]map[string]int)
+func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
+	goldStats := make(map[string]map[string]int)
+	blueStats := make(map[string]map[string]int)
 
 	for _, player := range statJson.PlayerMatchStats {
 		playerMap := make(map[string]int)
-		output[player.Nickname] = playerMap
+		if player.Team == 1 {
+			goldStats[player.Nickname] = playerMap
+		} else {
+			blueStats[player.Nickname] = playerMap
+		}
 	}
 	for _, game := range statJson.Games {
 		for _, player := range game.PlayerStats {
-			output[player.Nickname]["QueenKills"] += player.TotalQueenKillCount
-			output[player.Nickname]["WarriorKills"] += player.TotalWarriorKillCount
-			output[player.Nickname]["WorkerKills"] += player.TotalWorkerKillCount
-			output[player.Nickname]["WarriorDeaths"] += player.WarriorAndQueenDeathCount
-			output[player.Nickname]["WorkerDeaths"] += player.WorkerDeathCount
+			if player.Team == 1 {
+				goldStats[player.Nickname]["QueenKills"] += player.TotalQueenKillCount
+				goldStats[player.Nickname]["WarriorKills"] += player.TotalWarriorKillCount
+				goldStats[player.Nickname]["WorkerKills"] += player.TotalWorkerKillCount
+				goldStats[player.Nickname]["WarriorDeaths"] += player.WarriorAndQueenDeathCount
+				goldStats[player.Nickname]["WorkerDeaths"] += player.WorkerDeathCount
+				goldStats[player.Nickname]["Team"] += player.Team
+				goldStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
+				goldStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
+				goldStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
+				goldStats[player.Nickname]["EntityType"] += player.EntityType
+				goldStats[player.Nickname]["Snail"] += int(player.TotalSnailDistance)
+			} else {
+				blueStats[player.Nickname]["QueenKills"] += player.TotalQueenKillCount
+				blueStats[player.Nickname]["WarriorKills"] += player.TotalWarriorKillCount
+				blueStats[player.Nickname]["WorkerKills"] += player.TotalWorkerKillCount
+				blueStats[player.Nickname]["WarriorDeaths"] += player.WarriorAndQueenDeathCount
+				blueStats[player.Nickname]["WorkerDeaths"] += player.WorkerDeathCount
+				blueStats[player.Nickname]["Team"] += player.Team
+				blueStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
+				blueStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
+				blueStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
+				blueStats[player.Nickname]["EntityType"] += player.EntityType
+				blueStats[player.Nickname]["Snail"] += int(player.TotalSnailDistance)
+			}
 		}
 	}
+	output := make([]map[string]map[string]int, 2)
+	output[0] = goldStats
+	output[1] = blueStats
 	return output
 }
