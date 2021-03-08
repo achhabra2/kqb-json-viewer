@@ -26,13 +26,27 @@ func ListStatFiles() []string {
 	}
 	files, err := ioutil.ReadDir(statsPath)
 	if err != nil {
+		// could not read KQB stats directory
 		log.Fatal(err)
+
+		// As an error path check the current directory for json files
+		statsPath, err = os.Getwd()
+		if err != nil {
+			log.Fatal(err)
+		}
+		files, err = ioutil.ReadDir(statsPath)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	files = sortFiles(files)
 	var fileNames []string
 	for _, file := range files {
-		fullPath := filepath.Join(statsPath, file.Name())
-		fileNames = append(fileNames, fullPath)
+		// Only care about json files
+		if filepath.Ext(file.Name()) == ".json" {
+			fullPath := filepath.Join(statsPath, file.Name())
+			fileNames = append(fileNames, fullPath)
+		}
 	}
 	return fileNames
 }
@@ -56,7 +70,4 @@ func ReadJson(file string) StatsJSON {
 	}
 
 	return statsJSON
-	// for _, player := range statsJson.PlayerMatchStats {
-	// 	fmt.Println(player.Nickname)
-	// }
 }
