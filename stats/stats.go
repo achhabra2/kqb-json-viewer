@@ -27,7 +27,7 @@ func ListStatFiles() []string {
 	files, err := ioutil.ReadDir(statsPath)
 	if err != nil {
 		// could not read KQB stats directory
-		log.Fatal(err)
+		log.Println(err)
 
 		// As an error path check the current directory for json files
 		statsPath, err = os.Getwd()

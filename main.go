@@ -59,11 +59,12 @@ func main() {
 	})
 
 	upload := widget.NewButton("Upload", func() {
+		ShowUploadWindow(a)
 	})
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
 		selectedData := stats.ReadJson(trimmedMap[combo.Selected])
-		ShowAdvancedStats(&a, selectedData)
+		ShowAdvancedStats(a, selectedData)
 	})
 
 	nextButton := widget.NewButtonWithIcon("Next", theme.MediaSkipNextIcon(), func() {
@@ -97,9 +98,7 @@ func main() {
 		}
 	})
 
-	refreshButton := widget.NewButtonWithIcon("Refresh", theme.ViewRefreshIcon(), func() {
-	})
-	controls := container.NewHBox(layout.NewSpacer(), openButton, refreshButton, combo, prevButton, nextButton, advancedStatsButton, layout.NewSpacer())
+	controls := container.NewHBox(layout.NewSpacer(), openButton, combo, prevButton, nextButton, advancedStatsButton, layout.NewSpacer())
 	cont.Add(controls)
 	cont.Add(timeWidget)
 	cont.Add(players)

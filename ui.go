@@ -10,8 +10,8 @@ import (
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
-func ShowAdvancedStats(app *fyne.App, data stats.StatsJSON) {
-	a := *app
+func ShowAdvancedStats(a fyne.App, data stats.StatsJSON) {
+	// a := *app
 	w := a.NewWindow("Advanced Stats")
 
 	advStatsPlot := stats.PlotStats(data)

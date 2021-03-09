@@ -1,0 +1,152 @@
+{
+    "count": 841,
+    "next": "https://kqb.buzz/api/matches/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "id": 9999,
+            "home": {
+                "id": 1004,
+                "name": "Quaranqueen",
+                "is_active": false,
+                "wins": 2,
+                "losses": 6,
+                "members": [
+                    "Broodwich",
+                    "dinofairy",
+                    "Mnnj12",
+                    "smash",
+                    "Bennnnny50"
+                ],
+                "dynasty": null
+            },
+            "away": {
+                "id": 990,
+                "name": "Humble Bumble",
+                "is_active": false,
+                "wins": 9,
+                "losses": 0,
+                "members": [
+                    "sklover",
+                    "abomb",
+                    "WWWebby",
+                    "Arguas",
+                    "dien"
+                ],
+                "dynasty": null
+            },
+            "circuit": {
+                "id": 19,
+                "season": {
+                    "id": 4,
+                    "name": "Spring 2020",
+                    "league": {
+                        "name": "Indy Gaming League",
+                        "_href": "https://kqb.buzz/api/leagues/1/"
+                    }
+                },
+                "region": "W",
+                "tier": "2",
+                "name": null,
+                "verbose_name": "Tier 2 West"
+            },
+            "round": {
+                "number": "0.00",
+                "name": "Week 0"
+            },
+            "start_time": null,
+            "time_until": null,
+            "scheduled": false,
+            "primary_caster": {
+                "name": "*AG*",
+                "bio_link": "Meet AG",
+                "stream_link": "https://twitch.tv/AaronG83"
+            },
+            "secondary_casters": [],
+            "result": {
+                "status": "Completed",
+                "winner": {
+                    "id": 990,
+                    "name": "Humble Bumble",
+                    "is_active": false,
+                    "wins": 9,
+                    "losses": 0,
+                    "circuit_abbrev": "2W"
+                },
+                "loser": {
+                    "id": 1004,
+                    "name": "Quaranqueen",
+                    "is_active": false,
+                    "wins": 2,
+                    "losses": 6,
+                    "circuit_abbrev": "2W"
+                },
+                "sets": [
+                    {
+                        "number": 1,
+                        "winner": {
+                            "id": 1004,
+                            "name": "Quaranqueen",
+                            "is_active": false,
+                            "wins": 2,
+                            "losses": 6,
+                            "circuit_abbrev": "2W"
+                        },
+                        "loser": {
+                            "id": 990,
+                            "name": "Humble Bumble",
+                            "is_active": false,
+                            "wins": 9,
+                            "losses": 0,
+                            "circuit_abbrev": "2W"
+                        }
+                    },
+                    {
+                        "number": 2,
+                        "winner": {
+                            "id": 1004,
+                            "name": "Quaranqueen",
+                            "is_active": false,
+                            "wins": 2,
+                            "losses": 6,
+                            "circuit_abbrev": "2W"
+                        },
+                        "loser": {
+                            "id": 990,
+                            "name": "Humble Bumble",
+                            "is_active": false,
+                            "wins": 9,
+                            "losses": 0,
+                            "circuit_abbrev": "2W"
+                        }
+                    },
+                    {
+                        "number": 3,
+                        "winner": {
+                            "id": 1004,
+                            "name": "Quaranqueen",
+                            "is_active": false,
+                            "wins": 2,
+                            "losses": 6,
+                            "circuit_abbrev": "2W"
+                        },
+                        "loser": {
+                            "id": 990,
+                            "name": "Humble Bumble",
+                            "is_active": false,
+                            "wins": 9,
+                            "losses": 0,
+                            "circuit_abbrev": "2W"
+                        }
+                    }
+                ],
+                "set_count": {
+                    "home": 3,
+                    "away": 0,
+                    "total": 3
+                }
+            },
+            "vod_link": ""
+        }
+    ]
+}
