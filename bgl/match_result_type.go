@@ -1,6 +1,8 @@
 package bgl
 
-type BGLMatchResult struct {
+// MatchResult This should be the data returned from
+// https://kqb.buzz/api/matches/
+type MatchResult struct {
 	Count    int         `json:"count"`
 	Next     string      `json:"next"`
 	Previous interface{} `json:"previous"`
@@ -97,4 +99,33 @@ type BGLMatchResult struct {
 		} `json:"result"`
 		VodLink string `json:"vod_link"`
 	} `json:"results"`
+}
+
+// ResultSubmission is the data we are sending back to
+// https://kqb.buzz/api/matches/
+type ResultSubmission struct {
+	ID     int `json:"ID"`
+	Result struct {
+		Status string `json:"status"`
+		Winner struct {
+			ID int `json:"id"`
+		} `json:"winner"`
+		Loser struct {
+			ID int `json:"id"`
+		} `json:"loser"`
+		Sets []struct {
+			Number int `json:"number"`
+			Winner struct {
+				ID int `json:"id"`
+			} `json:"winner"`
+			Loser struct {
+				ID int `json:"id"`
+			} `json:"loser"`
+		} `json:"sets"`
+		SetCount struct {
+			Home  int `json:"home"`
+			Away  int `json:"away"`
+			Total int `json:"total"`
+		} `json:"set_count"`
+	} `json:"result"`
 }

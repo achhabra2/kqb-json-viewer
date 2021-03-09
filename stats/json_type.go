@@ -208,6 +208,15 @@ func (statJson *StatsJSON) MapsWon() map[string]int {
 	return output
 }
 
+func (statJson *StatsJSON) Winner() string {
+	mapsWon := statJson.MapsWon()
+	if mapsWon["blue"] == 3 {
+		return "Blue"
+	} else {
+		return "Gold"
+	}
+}
+
 func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 	goldStats := make(map[string]map[string]int)
 	blueStats := make(map[string]map[string]int)

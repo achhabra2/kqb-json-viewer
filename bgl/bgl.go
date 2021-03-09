@@ -13,7 +13,7 @@ type BGLData struct {
 	Matches     map[string]int
 	Teams       map[string]int
 	Players     map[string]int
-	matchResult BGLMatchResult
+	matchResult MatchResult
 }
 
 func (b *BGLData) LoadCurrentMatches() {
@@ -85,4 +85,31 @@ func (b *BGLData) GetTeamNames() []string {
 		teams = append(teams, name)
 	}
 	return teams
+}
+
+func (b *BGLData) GetMe() error {
+	// url := "https://kqb.buzz/api/me/?format=json"
+	// method := "GET"
+
+	// client := &http.Client{}
+	// req, err := http.NewRequest(method, url, nil)
+
+	// if err != nil {
+	// 	log.Println(err)
+	// 	return err
+	// }
+	// req.Header.Add("Authorization", "Token "+b.Token)
+
+	// res, err := client.Do(req)
+	// if err != nil {
+	// 	log.Println(err)
+	// 	return err
+	// }
+
+	// if res.StatusCode != 200 {
+	// 	return errors.New("Invalid status code")
+	// }
+	// defer res.Body.Close()
+
+	return nil
 }

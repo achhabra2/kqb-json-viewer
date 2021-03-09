@@ -30,6 +30,13 @@ type KQBApp struct {
 func (k *KQBApp) ShowMainWindow() {
 	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
 	// a.SetIcon(resourceLogoPng)
+	about := fyne.NewMenuItem("About", func() {
+		aboutMessage := fmt.Sprintf("kqb-json-viewer version %s \n by Prosive", version)
+		dialog := dialog.NewInformation("About", aboutMessage, k.w)
+		dialog.Show()
+	})
+	fileMenu := fyne.NewMenu("File", about)
+	mainMenu := fyne.NewMainMenu(fileMenu)
 	mapsWon := k.selectedData.MapsWon()
 	blueMapsLabel := widget.NewLabelWithStyle("Blue Maps", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	goldMapsLabel := widget.NewLabelWithStyle("Gold Maps", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
@@ -61,7 +68,7 @@ func (k *KQBApp) ShowMainWindow() {
 	})
 
 	upload := widget.NewButton("Upload", func() {
-		ShowUploadWindow(k.a)
+		ShowUploadWindow(k.a, k.selectedData)
 	})
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
@@ -110,6 +117,7 @@ func (k *KQBApp) ShowMainWindow() {
 	combo.SetSelectedIndex(0)
 
 	k.w.SetContent(cont)
+	k.w.SetMainMenu(mainMenu)
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
 	k.w.ShowAndRun()
@@ -171,13 +179,14 @@ func (k *KQBApp) ShowAdvancedStats() {
 func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	data := k.selectedData
 	nameCont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(1))
-	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(5))
+	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(6))
 	nameCont.Add(widget.NewLabelWithStyle("Name", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Team", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	cont.Add(widget.NewLabelWithStyle("Entity", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	sort.Slice(data.PlayerMatchStats, func(i, j int) bool {
 		return data.PlayerMatchStats[i].Team < data.PlayerMatchStats[j].Team
 	})
@@ -188,12 +197,14 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 		berries := strconv.Itoa(player.Berries)
 		snail := strconv.FormatFloat(player.Snail, 'f', 0, 64)
 		team := getTeam(player.Team)
+		entity := getEntity(player.EntityType)
 		nameCont.Add(widget.NewLabel(name))
 		cont.Add(widget.NewLabel(kills))
 		cont.Add(widget.NewLabel(deaths))
 		cont.Add(widget.NewLabel(berries))
 		cont.Add(widget.NewLabel(snail))
 		cont.Add(widget.NewLabel(team))
+		cont.Add(widget.NewLabel(entity))
 	}
 	playerContainer := container.NewHBox(layout.NewSpacer(), nameCont, cont, layout.NewSpacer())
 	return playerContainer
@@ -214,5 +225,14 @@ func getTeam(team int) string {
 		return "Blue"
 	default:
 		return ""
+	}
+}
+
+func getEntity(entity int) string {
+	switch entity {
+	case 3:
+		return "Queen"
+	default:
+		return "Worker"
 	}
 }
