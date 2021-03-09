@@ -10,7 +10,7 @@ It provides an easy way to see at a glance stats, and to view some advanced char
 The easiest way to use this package is to download a pre-built release. Find the latest release for your operating system [here](https://github.com/achhabra2/kqb-json-viewer/releases). 
 
 ### Running Locally From Source
-To run and build locally you will need to have Golang already installed. The rest is pretty straightforward. 
+To run and build locally you will need to have [Golang](https://golang.org/dl/) already installed. The rest is pretty straightforward. 
 ```
 git clone https://github.com/achhabra2/kqb-json-viewer.git
 cd kqb-json-viewer
@@ -18,8 +18,10 @@ go run .
 ```
 
 ### Building Locally From Source
+Requires gcc compiler.  For Windows use [MinGW](http://www.mingw.org/).
 ```
 git clone https://github.com/achhabra2/kqb-json-viewer.git
+cd kqb-json-viewer
 go build .
 go get fyne.io/fyne/v2/cmd/fyne
 ```
