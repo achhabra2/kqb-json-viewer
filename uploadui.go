@@ -27,20 +27,31 @@ type Uploader struct {
 	TeamMap       map[string]string
 	bgl           bgl.BGLData
 	selectedMatch string
+	OnSuccess     func()
+	OnFail        func()
+	set           bgl.Set
 }
 
-func (u *Uploader) ShowUploadWindow() {
+func (u *Uploader) ShowUploadWindow() *fyne.Container {
 	header := widget.NewLabelWithStyle("BGL Stats Uploader", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	separator := widget.NewSeparator()
 	cont := container.NewVBox(header, separator)
 	u.c = cont
-	tokenForm := u.BuildTokenForm()
-	cont.Add(tokenForm)
+	if u.BGLToken == "" {
+		tokenForm := u.BuildTokenForm()
+		cont.Add(tokenForm)
+	} else if u.selectedMatch == "" {
+		matchForm := u.BuildMatchForm()
+		cont.Add(matchForm)
+	} else if u.TeamMap["Blue"] == "" || u.TeamMap["Gold"] == "" {
+		teamForm := u.BuildTeamForm()
+		cont.Add(teamForm)
+	} else {
+		playerForm := u.BuildPlayerForm()
+		cont.Add(playerForm)
+	}
 	cont.Add(layout.NewSpacer())
-	u.w.SetContent(u.c)
-	u.w.Resize(fyne.NewSize(500, 500))
-	u.w.CenterOnScreen()
-	u.w.Show()
+	return cont
 }
 
 func (u *Uploader) BuildTokenForm() *widget.Form {
@@ -71,7 +82,7 @@ func (u *Uploader) BuildTokenForm() *widget.Form {
 			}
 		},
 		OnCancel: func() {
-			u.w.Close()
+			u.OnFail()
 		},
 	}
 
@@ -112,7 +123,7 @@ func (u *Uploader) BuildTeamForm() *widget.Form {
 			}
 		},
 		OnCancel: func() {
-			u.w.Close()
+			u.OnFail()
 		},
 	}
 
@@ -136,11 +147,11 @@ func (u *Uploader) BuildPlayerForm() *widget.Form {
 				errorDialog := dialog.NewInformation("Input Error", "Duplicate entries found, please correct the information and try again. ", u.w)
 				errorDialog.Show()
 			} else {
-				u.HandleUpload()
+				u.HandleSubmit()
 			}
 		},
 		OnCancel: func() {
-			u.w.Close()
+			u.OnFail()
 		},
 	}
 
@@ -171,7 +182,7 @@ func (u *Uploader) BuildMatchForm() *widget.Form {
 			}
 		},
 		OnCancel: func() {
-			u.w.Close()
+			u.OnFail()
 		},
 	}
 	return form
@@ -180,26 +191,6 @@ func (u *Uploader) BuildMatchForm() *widget.Form {
 func (u *Uploader) ShowLoadingIndicator() {
 	progress := widget.NewProgressBarInfinite()
 	u.c.Objects[2] = progress
-}
-
-func ShowUploadWindow(a fyne.App, data stats.StatsJSON) {
-	window := a.NewWindow("BGL Uploader")
-	players := data.Players()
-	BGLPlayers := []string{"BGL 1", "BGL 2", "BGL 3", "BGL 4"}
-	BGLTeams := []string{"BGL Team 1", "BGL Team 2"}
-	BGLMatches := []string{"Match 1", "Match 2", "Match 3"}
-	u := &Uploader{
-		a:          a,
-		w:          window,
-		Players:    players,
-		BGLPlayers: BGLPlayers,
-		BGLTeams:   BGLTeams,
-		PlayerMap:  make(map[string]string),
-		TeamMap:    make(map[string]string),
-		BGLMatches: BGLMatches,
-		data:       data,
-	}
-	u.ShowUploadWindow()
 }
 
 func (u *Uploader) ValidateParams() bool {
@@ -223,8 +214,34 @@ func (u *Uploader) ValidateParams() bool {
 	}
 }
 
-func (u *Uploader) HandleUpload() {
+func (u *Uploader) HandleSubmit() {
+	// TODO - Come up with final set JSON
+	// matchID := u.bgl.Matches[u.selectedMatch]
+	goldTeamName := u.TeamMap["Gold"]
+	blueTeamName := u.TeamMap["Blue"]
+	goldTeamID := u.bgl.Teams[goldTeamName]
+	blueTeamID := u.bgl.Teams[blueTeamName]
 
+	winner := bgl.TeamInfo{}
+	loser := bgl.TeamInfo{}
+
+	switch u.data.Winner() {
+	case "Blue":
+		winner.ID = blueTeamID
+		loser.ID = goldTeamID
+	case "Gold":
+		winner.ID = goldTeamID
+		loser.ID = blueTeamID
+	default:
+		break
+	}
+
+	submissionSet := bgl.Set{
+		Winner: winner,
+		Loser:  loser,
+	}
+	u.set = submissionSet
+	u.OnSuccess()
 }
 
 func (u *Uploader) IsValidToken() bool {

@@ -13,6 +13,8 @@ type BGLData struct {
 	Matches     map[string]int
 	Teams       map[string]int
 	Players     map[string]int
+	HomeID      int
+	AwayID      int
 	matchResult MatchResult
 }
 
@@ -74,6 +76,8 @@ func (b *BGLData) LoadTeamsForMatch(match string) {
 		if result.ID == matchID {
 			teams[result.Away.Name] = result.Away.ID
 			teams[result.Home.Name] = result.Home.ID
+			b.HomeID = result.Home.ID
+			b.AwayID = result.Away.ID
 		}
 	}
 	b.Teams = teams

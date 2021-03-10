@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -17,17 +18,24 @@ import (
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	"github.com/achhabra2/kqb-json-viewer/bgl"
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
 type KQBApp struct {
-	files        []string
-	selectedData stats.StatsJSON
-	a            fyne.App
-	w            fyne.Window
+	files          []string
+	selectedData   stats.StatsJSON
+	a              fyne.App
+	w              fyne.Window
+	mainContainer  *container.Split
+	splitContainer *fyne.Container
+	u              *Uploader
+	submission     bgl.Result
+	subData        []stats.StatsJSON
 }
 
 func (k *KQBApp) ShowMainWindow() {
+	k.u = &Uploader{}
 	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
 	// a.SetIcon(resourceLogoPng)
 	about := fyne.NewMenuItem("About", func() {
@@ -67,8 +75,8 @@ func (k *KQBApp) ShowMainWindow() {
 		cont.Refresh()
 	})
 
-	upload := widget.NewButton("Upload", func() {
-		ShowUploadWindow(k.a, k.selectedData)
+	upload := widget.NewButton("Upload Match Result", func() {
+		k.ShowUploadWindow()
 	})
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
@@ -115,8 +123,11 @@ func (k *KQBApp) ShowMainWindow() {
 	cont.Add(upload)
 
 	combo.SetSelectedIndex(0)
-
-	k.w.SetContent(cont)
+	trailingContainer := container.NewVBox(layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer())
+	mainContainer := container.NewHSplit(cont, trailingContainer)
+	k.mainContainer = mainContainer
+	k.splitContainer = trailingContainer
+	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
@@ -186,7 +197,7 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Team", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	cont.Add(widget.NewLabelWithStyle("Entity", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	cont.Add(widget.NewLabelWithStyle("Type", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	sort.Slice(data.PlayerMatchStats, func(i, j int) bool {
 		return data.PlayerMatchStats[i].Team < data.PlayerMatchStats[j].Team
 	})
@@ -208,6 +219,113 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	}
 	playerContainer := container.NewHBox(layout.NewSpacer(), nameCont, cont, layout.NewSpacer())
 	return playerContainer
+}
+
+func (k *KQBApp) ShowUploadWindow() {
+	if k.u.BGLToken == "" {
+		players := k.selectedData.Players()
+		BGLPlayers := []string{"BGL 1", "BGL 2", "BGL 3", "BGL 4"}
+		BGLTeams := []string{"BGL Team 1", "BGL Team 2"}
+		BGLMatches := []string{"Match 1", "Match 2", "Match 3"}
+		u := &Uploader{
+			a:          k.a,
+			w:          k.w,
+			Players:    players,
+			BGLPlayers: BGLPlayers,
+			BGLTeams:   BGLTeams,
+			PlayerMap:  make(map[string]string),
+			TeamMap:    make(map[string]string),
+			BGLMatches: BGLMatches,
+			data:       k.selectedData,
+			OnSuccess:  k.OnSetSuccess,
+			OnFail:     k.OnSetFail,
+		}
+
+		uploadContainer := u.ShowUploadWindow()
+		k.splitContainer.Objects[0] = uploadContainer
+		k.u = u
+	} else {
+		uploadContainer := k.u.ShowUploadWindow()
+		k.splitContainer.Objects[0] = uploadContainer
+	}
+}
+
+func (k *KQBApp) OnSetSuccess() {
+	if k.submission.ID == 0 {
+		matchID := k.u.bgl.Matches[k.u.selectedMatch]
+		k.submission = bgl.Result{
+			ID:     matchID,
+			Status: "Completed",
+			Sets:   []bgl.Set{k.u.set},
+		}
+		k.submission.Sets[0].Number = 1
+	} else {
+		k.submission.Sets = append(k.submission.Sets, k.u.set)
+		sLen := len(k.submission.Sets)
+		k.submission.Sets[sLen-1].Number = sLen
+	}
+	k.subData = append(k.subData, k.u.data)
+	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	k.splitContainer.Objects[1] = k.ShowInputSets()
+}
+
+func (k *KQBApp) OnSetCompletion() {
+	setCount := bgl.SetCount{
+		Total: len(k.submission.Sets),
+	}
+	homeSets := 0
+	for _, set := range k.submission.Sets {
+		if set.Winner.ID == k.u.bgl.HomeID {
+			homeSets++
+		}
+	}
+	setCount.Away = setCount.Total - homeSets
+	setCount.Home = homeSets
+
+	if setCount.Home > setCount.Away {
+		k.submission.Winner.ID = k.u.bgl.HomeID
+		k.submission.Loser.ID = k.u.bgl.AwayID
+	} else {
+		k.submission.Loser.ID = k.u.bgl.HomeID
+		k.submission.Winner.ID = k.u.bgl.AwayID
+	}
+	k.submission.SetCount = setCount
+	output, _ := json.MarshalIndent(k.submission, "  ", "    ")
+	fmt.Printf(string(output))
+}
+
+func (k *KQBApp) OnSetFail() {
+	k.splitContainer.Objects[0] = layout.NewSpacer()
+}
+
+func (k *KQBApp) ShowInputSets() *fyne.Container {
+	base := container.NewVBox()
+	if len(k.submission.Sets) > 0 {
+		base.Add(widget.NewLabelWithStyle("Queued for Upload", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+		base.Add(widget.NewSeparator())
+		cont := container.NewGridWithColumns(3,
+			widget.NewLabel("Set"),
+			widget.NewLabel("Winner"),
+			widget.NewLabel("Loser"),
+		)
+		for idx, set := range k.submission.Sets {
+			label := widget.NewLabel(strconv.Itoa(idx + 1))
+			winner := widget.NewLabel(strconv.Itoa(set.Winner.ID))
+			loser := widget.NewLabel(strconv.Itoa(set.Loser.ID))
+			cont.Add(label)
+			cont.Add(winner)
+			cont.Add(loser)
+		}
+
+		base.Add(cont)
+		if len(k.submission.Sets) >= 3 {
+			uploadAction := widget.NewButton("Submit Match Results", func() {
+				k.OnSetCompletion()
+			})
+			base.Add(uploadAction)
+		}
+	}
+	return base
 }
 
 func getTimeString(file string) string {
