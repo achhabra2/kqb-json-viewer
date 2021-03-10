@@ -1,5 +1,26 @@
 package stats
 
+var WINCONDITIONS map[int]string = map[int]string{
+	1: "Mil",
+	2: "Snail",
+	3: "Eco",
+}
+
+var MAPNAMES map[int]string = map[int]string{
+	2:  "Pod",
+	4:  "BQK",
+	7:  "Helix",
+	11: "Tally",
+	14: "Spire",
+	15: "Split",
+	17: "Nest",
+}
+
+var TEAMNUMBER map[int]string = map[int]string{
+	1: "Gold",
+	2: "Blue",
+}
+
 type StatsJSON struct {
 	PlayerMatchStats []struct {
 		Nickname               string  `json:"nickname"`
@@ -262,4 +283,28 @@ func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 	output[0] = goldStats
 	output[1] = blueStats
 	return output
+}
+
+func (stat *StatsJSON) WinCons() []string {
+	winCons := make([]string, 0)
+	for _, con := range stat.WinConditions {
+		winCons = append(winCons, WINCONDITIONS[con])
+	}
+	return winCons
+}
+
+func (stat *StatsJSON) MapList() []string {
+	mapList := make([]string, 0)
+	for _, mapID := range stat.MapPool {
+		mapList = append(mapList, MAPNAMES[mapID])
+	}
+	return mapList
+}
+
+func (stat *StatsJSON) TeamWinners() []string {
+	teamList := make([]string, 0)
+	for _, winner := range stat.GameWinners {
+		teamList = append(teamList, TEAMNUMBER[winner])
+	}
+	return teamList
 }

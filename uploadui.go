@@ -64,7 +64,7 @@ func (u *Uploader) BuildTokenForm() *widget.Form {
 		OnSubmit: func() {
 			u.BGLToken = entry.Text
 			if u.BGLToken == "" {
-				errorDialog := dialog.NewInformation("Input Error", "Please enter a valid Token", u.w)
+				errorDialog := dialog.NewInformation("Token Input Error", "Please enter a valid Token", u.w)
 				errorDialog.Show()
 				return
 			} else {
@@ -76,7 +76,7 @@ func (u *Uploader) BuildTokenForm() *widget.Form {
 					u.c.Objects[2] = u.BuildMatchForm()
 				} else {
 					u.c.Objects[2] = u.BuildTokenForm()
-					errorDialog := dialog.NewInformation("Token Error", "Invalid Token, Please try again", u.w)
+					errorDialog := dialog.NewInformation("Token Validation Error", "Invalid Token, Please try again", u.w)
 					errorDialog.Show()
 					return
 				}
@@ -116,6 +116,9 @@ func (u *Uploader) BuildTeamForm() *widget.Form {
 			if u.ValidateParams() {
 				errorDialog := dialog.NewInformation("Input Error", "Duplicate entries found, please correct the information and try again. ", u.w)
 				errorDialog.Show()
+			} else if !u.IsTeamFormFilled() {
+				errorDialog := dialog.NewInformation("Input Error", "Make a selection for both teams. ", u.w)
+				errorDialog.Show()
 			} else {
 				log.Println(u.TeamMap)
 				u.bgl.LoadPlayersForMatch(u.selectedMatch)
@@ -146,6 +149,9 @@ func (u *Uploader) BuildPlayerForm() *widget.Form {
 			fmt.Println(u.PlayerMap)
 			if u.ValidateParams() {
 				errorDialog := dialog.NewInformation("Input Error", "Duplicate entries found, please correct the information and try again. ", u.w)
+				errorDialog.Show()
+			} else if !u.IsPlayerFormFilled() {
+				errorDialog := dialog.NewInformation("Input Error", "Make a selection for all players. ", u.w)
 				errorDialog.Show()
 			} else {
 				u.HandleSubmit()
@@ -197,12 +203,6 @@ func (u *Uploader) ShowLoadingIndicator() {
 func (u *Uploader) ValidateParams() bool {
 	selectedPlayers := make([]string, 0)
 	selectedTeams := make([]string, 0)
-	// if len(u.PlayerMap) != 0 && len(u.PlayerMap) < 8 {
-	// 	return true
-	// }
-	if len(u.TeamMap) < 2 {
-		return true
-	}
 
 	for _, name := range u.PlayerMap {
 		selectedPlayers = append(selectedPlayers, name)
@@ -219,6 +219,20 @@ func (u *Uploader) ValidateParams() bool {
 	} else {
 		return false
 	}
+}
+
+func (u *Uploader) IsPlayerFormFilled() bool {
+	if len(u.PlayerMap) < 8 {
+		return false
+	}
+	return true
+}
+
+func (u *Uploader) IsTeamFormFilled() bool {
+	if len(u.TeamMap) < 2 {
+		return false
+	}
+	return true
 }
 
 func (u *Uploader) HandleSubmit() {

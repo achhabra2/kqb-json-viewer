@@ -41,6 +41,7 @@ type KQBApp struct {
 func (k *KQBApp) ShowMainWindow() {
 	k.u = &Uploader{}
 	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
+	timeContainer := container.NewHBox(layout.NewSpacer(), timeWidget, layout.NewSpacer())
 	// a.SetIcon(resourceLogoPng)
 	about := fyne.NewMenuItem("About", func() {
 		aboutMessage := fmt.Sprintf("kqb-json-viewer version %s \n by Prosive", version)
@@ -49,13 +50,8 @@ func (k *KQBApp) ShowMainWindow() {
 	})
 	fileMenu := fyne.NewMenu("File", about)
 	mainMenu := fyne.NewMainMenu(fileMenu)
-	mapsWon := k.selectedData.MapsWon()
-	blueMapsLabel := widget.NewLabelWithStyle("Blue Maps", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
-	goldMapsLabel := widget.NewLabelWithStyle("Gold Maps", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
-	blueMaps := widget.NewLabelWithStyle(strconv.Itoa(mapsWon["blue"]), fyne.TextAlignCenter, fyne.TextStyle{})
-	goldMaps := widget.NewLabelWithStyle(strconv.Itoa(mapsWon["gold"]), fyne.TextAlignCenter, fyne.TextStyle{})
 
-	mapsContainer := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(2), goldMapsLabel, blueMapsLabel, goldMaps, blueMaps)
+	mapsContainer := k.BuildMapTable()
 	players := k.BuildPlayerUI()
 	trimmedMap := make(map[string]string)
 	var trimmed []string
@@ -74,11 +70,10 @@ func (k *KQBApp) ShowMainWindow() {
 		}
 		timeWidget = widget.NewLabel(getTimeString(trimmedMap[value]))
 		players = k.BuildPlayerUI()
-		mapsWon = k.selectedData.MapsWon()
-		blueMaps.SetText(strconv.Itoa(mapsWon["blue"]))
-		goldMaps.SetText(strconv.Itoa(mapsWon["gold"]))
-		cont.Objects[1] = timeWidget
+
+		timeContainer.Objects[1] = timeWidget
 		cont.Objects[2] = players
+		cont.Objects[3] = k.BuildMapTable()
 		cont.Refresh()
 	})
 
@@ -124,7 +119,7 @@ func (k *KQBApp) ShowMainWindow() {
 
 	controls := container.NewHBox(layout.NewSpacer(), openButton, combo, prevButton, nextButton, advancedStatsButton, layout.NewSpacer())
 	cont.Add(controls)
-	cont.Add(timeWidget)
+	cont.Add(timeContainer)
 	cont.Add(players)
 	cont.Add(mapsContainer)
 	cont.Add(upload)
@@ -205,7 +200,7 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	// cont.Add(widget.NewLabelWithStyle("Team", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+
 	cont.Add(widget.NewLabelWithStyle("Type", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	sort.Slice(data.PlayerMatchStats, func(i, j int) bool {
 		return data.PlayerMatchStats[i].Team < data.PlayerMatchStats[j].Team
@@ -224,17 +219,23 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 		berries := strconv.Itoa(player.Berries)
 		snail := strconv.FormatFloat(player.Snail, 'f', 0, 64)
 		entity := getEntity(player.EntityType)
-		nameCont.Add(canvas.NewText(name, col))
+		nameLabel := canvas.NewText(name, col)
+		if k.selectedData.Winner() == team {
+			nameLabel.TextStyle = fyne.TextStyle{Bold: true}
+		}
+		nameCont.Add(nameLabel)
 		cont.Add(widget.NewLabel(kills))
 		cont.Add(widget.NewLabel(deaths))
 		cont.Add(widget.NewLabel(berries))
 		cont.Add(widget.NewLabel(snail))
-		//	cont.Add(canvas.NewText(team, col))
+
 		cont.Add(widget.NewLabel(entity))
 	}
 	playerContainer := container.NewHBox(layout.NewSpacer(), nameCont, cont, layout.NewSpacer())
-	mainCont := container.NewPadded(playerContainer)
-	return mainCont
+	headerLabel := widget.NewLabelWithStyle("Player Info", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	headerSeparator := widget.NewSeparator()
+	wrapperContainer := container.NewVBox(headerLabel, headerSeparator, playerContainer)
+	return wrapperContainer
 }
 
 func (k *KQBApp) ShowUploadWindow() {
@@ -383,6 +384,40 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 		base.Add(resetAction)
 	}
 	return base
+}
+
+func (k *KQBApp) BuildMapTable() *fyne.Container {
+	mapLabel := widget.NewLabelWithStyle("Map", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	winConLabel := widget.NewLabelWithStyle("Win Con", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	winnerLabel := widget.NewLabelWithStyle("Winner", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+
+	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(3), mapLabel, winConLabel, winnerLabel)
+	teamWinners := k.selectedData.TeamWinners()
+	mapList := k.selectedData.MapList()
+
+	for idx, winCon := range k.selectedData.WinCons() {
+		var col color.RGBA
+		team := teamWinners[idx]
+		if team == "Blue" {
+			col = blueColor
+		} else {
+			col = goldColor
+		}
+		mLabel := widget.NewLabel(mapList[idx])
+		conLabel := widget.NewLabel(winCon)
+		wonLabel := canvas.NewText(team, col)
+		if k.selectedData.Winner() == team {
+			wonLabel.TextStyle = fyne.TextStyle{Bold: true}
+		}
+		cont.Add(mLabel)
+		cont.Add(conLabel)
+		cont.Add(wonLabel)
+	}
+	mapWrapper := container.NewHBox(layout.NewSpacer(), cont, layout.NewSpacer())
+	headerLabel := widget.NewLabelWithStyle("Map Details", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	headerSeparator := widget.NewSeparator()
+	wrapperContainer := container.NewVBox(headerLabel, headerSeparator, mapWrapper)
+	return wrapperContainer
 }
 
 func (k *KQBApp) ResetUploader() {

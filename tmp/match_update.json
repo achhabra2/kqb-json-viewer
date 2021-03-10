@@ -1,0 +1,49 @@
+{
+      "id": 356898,
+      "status": "Completed",
+      "winner": {
+          "id": 719
+      },
+      "loser": {
+          "id": 707
+      },
+      "sets": [
+          {
+              "number": 1,
+              "winner": {
+                  "id": 719,
+                  "name": "SKOOMA SNAIL GANG"
+              },
+              "loser": {
+                  "id": 707,
+                  "name": "Scrub Gaming"
+              }
+          },
+          {
+              "number": 2,
+              "winner": {
+                  "id": 719,
+                  "name": "SKOOMA SNAIL GANG"
+              },
+              "loser": {
+                  "id": 707,
+                  "name": "Scrub Gaming"
+              }
+          },
+          {
+              "number": 3,
+              "winner": {
+                  "id": 719,
+                  "name": "SKOOMA SNAIL GANG"
+              },
+              "loser": {
+                  "id": 707,
+                  "name": "Scrub Gaming"
+              }
+          }
+      ],
+      "set_count": {
+          "home": 3,
+          "total": 3
+      }
+  }
