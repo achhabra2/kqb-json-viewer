@@ -47,6 +47,7 @@ func (u *Uploader) ShowUploadWindow() *fyne.Container {
 		teamForm := u.BuildTeamForm()
 		cont.Add(teamForm)
 	} else {
+		u.PlayerMap = make(map[string]string)
 		playerForm := u.BuildPlayerForm()
 		cont.Add(playerForm)
 	}

@@ -65,6 +65,9 @@ func (k *KQBApp) ShowMainWindow() {
 	combo := widget.NewSelect(trimmed, func(value string) {
 		log.Println("Select file", value)
 		k.selectedData = stats.ReadJson(trimmedMap[value])
+		if k.u.BGLToken != "" {
+			k.u.data = k.selectedData
+		}
 		timeWidget = widget.NewLabel(getTimeString(trimmedMap[value]))
 		players = k.BuildPlayerUI()
 		mapsWon = k.selectedData.MapsWon()
@@ -245,6 +248,7 @@ func (k *KQBApp) ShowUploadWindow() {
 		k.splitContainer.Objects[0] = uploadContainer
 		k.u = u
 	} else {
+		k.u.Players = k.selectedData.Players()
 		uploadContainer := k.u.ShowUploadWindow()
 		k.splitContainer.Objects[0] = uploadContainer
 	}
@@ -295,7 +299,7 @@ func (k *KQBApp) OnSetCompletion() {
 }
 
 func (k *KQBApp) OnSetFail() {
-	k.splitContainer.Objects[0] = layout.NewSpacer()
+	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 }
 
 func (k *KQBApp) ShowInputSets() *fyne.Container {
