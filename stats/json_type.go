@@ -2,8 +2,8 @@ package stats
 
 var WINCONDITIONS map[int]string = map[int]string{
 	1: "Mil",
-	2: "Snail",
-	3: "Eco",
+	2: "Eco",
+	3: "Snail",
 }
 
 var MAPNAMES map[int]string = map[int]string{
