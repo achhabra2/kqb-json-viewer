@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
 type BGLData struct {
@@ -15,6 +17,8 @@ type BGLData struct {
 	Players     map[string]int
 	HomeID      int
 	AwayID      int
+	HomeName    string
+	AwayName    string
 	matchResult MatchResult
 }
 
@@ -77,7 +81,9 @@ func (b *BGLData) LoadTeamsForMatch(match string) {
 			teams[result.Away.Name] = result.Away.ID
 			teams[result.Home.Name] = result.Home.ID
 			b.HomeID = result.Home.ID
+			b.HomeName = result.Home.Name
 			b.AwayID = result.Away.ID
+			b.AwayName = result.Away.Name
 		}
 	}
 	b.Teams = teams
@@ -116,4 +122,49 @@ func (b *BGLData) GetMe() error {
 	// defer res.Body.Close()
 
 	return nil
+}
+
+func (b *BGLData) HandleMatchUpdate(result Result) error {
+	wd, _ := os.Getwd()
+	outPath := filepath.Join(wd, "/tmp/match_update.json")
+	output, err := json.MarshalIndent(result, "  ", "    ")
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile(outPath, output, 0644)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (b *BGLData) SaveRawOutput(final FinalOutput) error {
+	wd, _ := os.Getwd()
+	outPath := filepath.Join(wd, "/tmp/match_output.json")
+	output, err := json.MarshalIndent(final, "  ", "    ")
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile(outPath, output, 0644)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+type BGLMap struct {
+	PlayerNames map[string]string `json:"player_names"`
+	TeamNames   map[string]string `json:"team_names"`
+	PlayerIDs   map[string]int    `json:"player_ids"`
+	TeamIDs     map[string]int    `json:"team_ids"`
+}
+
+type SetMap struct {
+	Raw    stats.StatsJSON `json:"raw"`
+	BGLMap BGLMap          `json:"bgl_map"`
+}
+
+type FinalOutput struct {
+	MatchID int      `json:"match_id"`
+	Sets    []SetMap `json:"sets"`
 }

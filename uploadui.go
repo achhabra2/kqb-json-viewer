@@ -197,6 +197,12 @@ func (u *Uploader) ShowLoadingIndicator() {
 func (u *Uploader) ValidateParams() bool {
 	selectedPlayers := make([]string, 0)
 	selectedTeams := make([]string, 0)
+	// if len(u.PlayerMap) != 0 && len(u.PlayerMap) < 8 {
+	// 	return true
+	// }
+	if len(u.TeamMap) < 2 {
+		return true
+	}
 
 	for _, name := range u.PlayerMap {
 		selectedPlayers = append(selectedPlayers, name)
@@ -229,10 +235,14 @@ func (u *Uploader) HandleSubmit() {
 	switch u.data.Winner() {
 	case "Blue":
 		winner.ID = blueTeamID
+		winner.Name = blueTeamName
 		loser.ID = goldTeamID
+		loser.Name = goldTeamName
 	case "Gold":
 		winner.ID = goldTeamID
+		winner.Name = goldTeamName
 		loser.ID = blueTeamID
+		loser.Name = blueTeamName
 	default:
 		break
 	}
@@ -252,6 +262,22 @@ func (u *Uploader) IsValidToken() bool {
 	} else {
 		return true
 	}
+}
+
+func (u *Uploader) GetPlayerMapByID() map[string]int {
+	output := make(map[string]int)
+	for key, val := range u.PlayerMap {
+		output[key] = u.bgl.Players[val]
+	}
+	return output
+}
+
+func (u *Uploader) GetTeamMapByID() map[string]int {
+	output := make(map[string]int)
+	for key, val := range u.TeamMap {
+		output[key] = u.bgl.Teams[val]
+	}
+	return output
 }
 
 func findDuplicates(array []string) bool {

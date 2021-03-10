@@ -1,8 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"image/color"
 	"log"
 	"os"
 	"os/exec"
@@ -10,6 +10,7 @@ import (
 	"runtime"
 	"sort"
 	"strconv"
+	"strings"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
@@ -22,6 +23,9 @@ import (
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
+var goldColor = color.RGBA{255, 179, 0, 1}
+var blueColor = color.RGBA{43, 93, 255, 1}
+
 type KQBApp struct {
 	files          []string
 	selectedData   stats.StatsJSON
@@ -31,7 +35,7 @@ type KQBApp struct {
 	splitContainer *fyne.Container
 	u              *Uploader
 	submission     bgl.Result
-	subData        []stats.StatsJSON
+	subData        []bgl.SetMap
 }
 
 func (k *KQBApp) ShowMainWindow() {
@@ -78,7 +82,7 @@ func (k *KQBApp) ShowMainWindow() {
 		cont.Refresh()
 	})
 
-	upload := widget.NewButton("Upload Match Result", func() {
+	upload := widget.NewButton("Add Set to Match Result", func() {
 		k.ShowUploadWindow()
 	})
 
@@ -127,12 +131,14 @@ func (k *KQBApp) ShowMainWindow() {
 
 	combo.SetSelectedIndex(0)
 	trailingContainer := container.NewVBox(layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer())
-	mainContainer := container.NewHSplit(cont, trailingContainer)
+	vSplitContainer := container.NewVScroll(trailingContainer)
+	mainContainer := container.NewHSplit(cont, vSplitContainer)
 	k.mainContainer = mainContainer
 	k.splitContainer = trailingContainer
 	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
 	k.w.CenterOnScreen()
+	k.w.Resize(fyne.NewSize(600, 600))
 	go k.UpdateCheckUI()
 	k.w.ShowAndRun()
 }
@@ -193,35 +199,42 @@ func (k *KQBApp) ShowAdvancedStats() {
 func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	data := k.selectedData
 	nameCont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(1))
-	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(6))
+	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(5))
 	nameCont.Add(widget.NewLabelWithStyle("Name", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	cont.Add(widget.NewLabelWithStyle("Team", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	// cont.Add(widget.NewLabelWithStyle("Team", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Type", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	sort.Slice(data.PlayerMatchStats, func(i, j int) bool {
 		return data.PlayerMatchStats[i].Team < data.PlayerMatchStats[j].Team
 	})
 	for _, player := range data.PlayerMatchStats {
+		var col color.RGBA
+		team := getTeam(player.Team)
+		if team == "Blue" {
+			col = blueColor
+		} else {
+			col = goldColor
+		}
 		name := player.Nickname
 		kills := strconv.Itoa(player.Kills)
 		deaths := strconv.Itoa(player.Deaths)
 		berries := strconv.Itoa(player.Berries)
 		snail := strconv.FormatFloat(player.Snail, 'f', 0, 64)
-		team := getTeam(player.Team)
 		entity := getEntity(player.EntityType)
-		nameCont.Add(widget.NewLabel(name))
+		nameCont.Add(canvas.NewText(name, col))
 		cont.Add(widget.NewLabel(kills))
 		cont.Add(widget.NewLabel(deaths))
 		cont.Add(widget.NewLabel(berries))
 		cont.Add(widget.NewLabel(snail))
-		cont.Add(widget.NewLabel(team))
+		//	cont.Add(canvas.NewText(team, col))
 		cont.Add(widget.NewLabel(entity))
 	}
 	playerContainer := container.NewHBox(layout.NewSpacer(), nameCont, cont, layout.NewSpacer())
-	return playerContainer
+	mainCont := container.NewPadded(playerContainer)
+	return mainCont
 }
 
 func (k *KQBApp) ShowUploadWindow() {
@@ -251,7 +264,9 @@ func (k *KQBApp) ShowUploadWindow() {
 		k.u.Players = k.selectedData.Players()
 		uploadContainer := k.u.ShowUploadWindow()
 		k.splitContainer.Objects[0] = uploadContainer
+		k.splitContainer.Objects[1] = layout.NewSpacer()
 	}
+	k.w.Resize(fyne.NewSize(900, 600))
 }
 
 func (k *KQBApp) OnSetSuccess() {
@@ -268,7 +283,16 @@ func (k *KQBApp) OnSetSuccess() {
 		sLen := len(k.submission.Sets)
 		k.submission.Sets[sLen-1].Number = sLen
 	}
-	k.subData = append(k.subData, k.u.data)
+	k.subData = append(k.subData,
+		bgl.SetMap{
+			BGLMap: bgl.BGLMap{
+				PlayerIDs:   k.u.GetPlayerMapByID(),
+				TeamIDs:     k.u.GetTeamMapByID(),
+				PlayerNames: k.u.PlayerMap,
+				TeamNames:   k.u.TeamMap,
+			},
+			Raw: k.u.data,
+		})
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()
 }
@@ -294,12 +318,36 @@ func (k *KQBApp) OnSetCompletion() {
 		k.submission.Winner.ID = k.u.bgl.AwayID
 	}
 	k.submission.SetCount = setCount
-	output, _ := json.MarshalIndent(k.submission, "  ", "    ")
-	fmt.Printf(string(output))
+
+	loadingDiag := dialog.NewProgressInfinite("Match Results Upload", "Sending results to BGL", k.w)
+	loadingDiag.Show()
+	err := k.u.bgl.HandleMatchUpdate(k.submission)
+	if err != nil {
+		loadingDiag.Hide()
+		dialog := dialog.NewInformation("Error", err.Error(), k.w)
+		dialog.Show()
+		return
+	}
+
+	finalOuput := bgl.FinalOutput{
+		MatchID: k.u.bgl.Matches[k.u.selectedMatch],
+		Sets:    k.subData,
+	}
+	k.u.bgl.SaveRawOutput(finalOuput)
+	if err != nil {
+		loadingDiag.Hide()
+		dialog := dialog.NewInformation("Error", err.Error(), k.w)
+		dialog.Show()
+		return
+	}
+	loadingDiag.Hide()
+	successDiag := dialog.NewInformation("Upload Success", "Match Upload Successful", k.w)
+	successDiag.Show()
+	k.ResetUploader()
 }
 
 func (k *KQBApp) OnSetFail() {
-	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select a set to continue...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 }
 
 func (k *KQBApp) ShowInputSets() *fyne.Container {
@@ -314,8 +362,8 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 		)
 		for idx, set := range k.submission.Sets {
 			label := widget.NewLabel(strconv.Itoa(idx + 1))
-			winner := widget.NewLabel(strconv.Itoa(set.Winner.ID))
-			loser := widget.NewLabel(strconv.Itoa(set.Loser.ID))
+			winner := widget.NewLabel(formatTeamName(set.Winner.Name))
+			loser := widget.NewLabel(formatTeamName(set.Loser.Name))
 			cont.Add(label)
 			cont.Add(winner)
 			cont.Add(loser)
@@ -326,10 +374,25 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 			uploadAction := widget.NewButton("Submit Match Results", func() {
 				k.OnSetCompletion()
 			})
+			uploadAction.Importance = widget.HighImportance
 			base.Add(uploadAction)
 		}
+		resetAction := widget.NewButton("Reset Upload Form", func() {
+			k.ResetUploader()
+		})
+		base.Add(resetAction)
 	}
 	return base
+}
+
+func (k *KQBApp) ResetUploader() {
+	for idx, _ := range k.splitContainer.Objects {
+		k.splitContainer.Objects[idx] = layout.NewSpacer()
+	}
+	k.u = &Uploader{}
+	k.submission = bgl.Result{}
+	k.subData = []bgl.SetMap{}
+	k.w.Resize(fyne.NewSize(600, 600))
 }
 
 func getTimeString(file string) string {
@@ -357,4 +420,13 @@ func getEntity(entity int) string {
 	default:
 		return "Worker"
 	}
+}
+
+func formatTeamName(input string) string {
+	words := strings.Fields(input)
+	output := ""
+	for _, word := range words {
+		output += strings.ToUpper(string(word[0]))
+	}
+	return output
 }
