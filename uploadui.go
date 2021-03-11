@@ -59,7 +59,7 @@ func (u *Uploader) ShowUploadWindow() *fyne.Container {
 
 func (u *Uploader) BuildTokenForm() *widget.Form {
 	entry := widget.NewEntry()
-
+	entry.SetText(u.a.Preferences().String("BGL_TOKEN"))
 	form := &widget.Form{
 		Items: []*widget.FormItem{ // we can specify items in the constructor
 			{Text: "BGL Token", Widget: entry}},
@@ -73,10 +73,12 @@ func (u *Uploader) BuildTokenForm() *widget.Form {
 				u.bgl = bgl.BGLData{Token: u.BGLToken}
 				u.ShowLoadingIndicator()
 				if u.IsValidToken() {
+					u.a.Preferences().SetString("BGL_TOKEN", u.BGLToken)
 					u.bgl.LoadCurrentMatches()
 					u.BGLMatches = u.bgl.GetMatchNames()
 					u.c.Objects[2] = u.BuildMatchForm()
 				} else {
+					u.a.Preferences().RemoveValue("BGL_TOKEN")
 					u.c.Objects[2] = u.BuildTokenForm()
 					errorDialog := dialog.NewInformation("Token Validation Error", "Invalid Token, Please try again", u.w)
 					errorDialog.Show()

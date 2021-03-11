@@ -9,7 +9,7 @@ func main() {
 	names := stats.ListStatFiles()
 	data := stats.ReadJson(names[0])
 
-	a := app.New()
+	a := app.NewWithID("com.kqb-json-viewer.app")
 	w := a.NewWindow("KQB JSON Viewer")
 
 	kqbApp := KQBApp{
