@@ -2,13 +2,18 @@ package bgl
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 	"path/filepath"
 
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
+
+const API_BASE_URL = "https://api-staging.beegame.gg/"
+const PROD_BASE_URL = "https://api.beegame.gg/v1/"
 
 type BGLData struct {
 	Token       string
@@ -22,16 +27,18 @@ type BGLData struct {
 	matchResult MatchResult
 }
 
-func (b *BGLData) LoadCurrentMatches() {
+func (b *BGLData) LoadCurrentMatchesLocal() error {
 	dir, _ := os.Getwd()
 	file := filepath.Join(dir, "/fixtures/match_result.json")
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
-		log.Fatal("Could not read json file", err)
+		log.Println("Could not read json file", err)
+		return err
 	}
 	err = json.Unmarshal(data, &b.matchResult)
 	if err != nil {
-		log.Fatal("Could not parse json file", err)
+		log.Println("Could not parse json file", err)
+		return err
 	}
 
 	b.Matches = make(map[string]int)
@@ -39,6 +46,7 @@ func (b *BGLData) LoadCurrentMatches() {
 		key := result.Away.Name + " @ " + result.Home.Name
 		b.Matches[key] = result.ID
 	}
+	return nil
 }
 
 func (b *BGLData) GetMatchNames() []string {
@@ -148,6 +156,45 @@ func (b *BGLData) SaveRawOutput(final FinalOutput) error {
 	err = ioutil.WriteFile(outPath, output, 0644)
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+func (b *BGLData) LoadCurrentMatches() error {
+	url := API_BASE_URL + "matches/?format=json&limit=5"
+	method := "GET"
+
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url, nil)
+
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	req.Header.Add("Cookie", "__cfduid=d46fd59ede62ad09e5ddee89c282995271615360046")
+
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	// fmt.Println(string(body))
+	err = json.Unmarshal(body, &b.matchResult)
+	if err != nil {
+		return err
+	}
+
+	b.Matches = make(map[string]int)
+	for _, result := range b.matchResult.Results {
+		key := result.Away.Name + " @ " + result.Home.Name
+		b.Matches[key] = result.ID
 	}
 	return nil
 }

@@ -132,8 +132,9 @@ func (k *KQBApp) ShowMainWindow() {
 	k.splitContainer = trailingContainer
 	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
-	k.w.CenterOnScreen()
+	k.w.SetPadded(true)
 	k.w.Resize(fyne.NewSize(600, 600))
+	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
 	k.w.ShowAndRun()
 }
@@ -177,11 +178,11 @@ func (k *KQBApp) ShowAdvancedStats() {
 	cont := container.NewVBox()
 	nextButton := widget.NewButtonWithIcon("Military", theme.MediaSkipNextIcon(), func() {
 		cont.Objects[0] = advStatsCanvas
-		cont.Refresh()
+		//		cont.Refresh()
 	})
 	prevButton := widget.NewButtonWithIcon("Objective", theme.MediaSkipPreviousIcon(), func() {
 		cont.Objects[0] = objStatsCanvas
-		cont.Refresh()
+		//		cont.Refresh()
 	})
 	controls := container.NewHBox(layout.NewSpacer(), prevButton, nextButton, layout.NewSpacer())
 	cont.Add(advStatsCanvas)

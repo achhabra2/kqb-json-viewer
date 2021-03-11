@@ -67,7 +67,7 @@ type PrimaryCaster struct {
 }
 
 type Result struct {
-	ID       int      `json:"id,omitempty"`
+	ID       int      `json:"match,omitempty"`
 	Status   string   `json:"status,omitempty"`
 	Winner   TeamInfo `json:"winner,omitempty"`
 	Loser    TeamInfo `json:"loser,omitempty"`
