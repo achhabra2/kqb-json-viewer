@@ -2,9 +2,11 @@ package stats
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
 	"sort"
@@ -70,4 +72,33 @@ func ReadJson(file string) StatsJSON {
 	}
 
 	return statsJSON
+}
+
+func OpenStatDirectory() {
+	homeDir, _ := os.UserHomeDir()
+	var statsPath string
+	switch runtime.GOOS {
+	case "windows":
+		statsPath = filepath.Join(homeDir, WindowsDirectory)
+	case "darwin":
+		statsPath = filepath.Join(homeDir, MacDirectory)
+	default:
+		statsPath = filepath.Join(homeDir, WindowsDirectory)
+	}
+
+	var err error
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", statsPath).Start()
+	case "windows":
+		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", statsPath).Start()
+	case "darwin":
+		err = exec.Command("open", statsPath).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		log.Println(err)
+	}
+
 }

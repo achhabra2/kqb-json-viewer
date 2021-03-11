@@ -14,22 +14,23 @@ import (
 )
 
 type Uploader struct {
-	BGLToken      string
-	a             fyne.App
-	w             fyne.Window
-	c             *fyne.Container
-	data          stats.StatsJSON
-	BGLPlayers    []string
-	Players       []string
-	BGLTeams      []string
-	BGLMatches    []string
-	PlayerMap     map[string]string
-	TeamMap       map[string]string
-	bgl           bgl.BGLData
-	selectedMatch string
-	OnSuccess     func()
-	OnFail        func()
-	set           bgl.Set
+	BGLToken         string
+	a                fyne.App
+	w                fyne.Window
+	c                *fyne.Container
+	data             stats.StatsJSON
+	BGLPlayers       []string
+	Players          []string
+	BGLTeams         []string
+	BGLMatches       []string
+	PlayerMap        map[string]string
+	PlayerMapHistory map[string]string
+	TeamMap          map[string]string
+	bgl              bgl.BGLData
+	selectedMatch    string
+	OnSuccess        func()
+	OnFail           func()
+	set              bgl.Set
 }
 
 func (u *Uploader) ShowUploadWindow() *fyne.Container {
@@ -47,6 +48,7 @@ func (u *Uploader) ShowUploadWindow() *fyne.Container {
 		teamForm := u.BuildTeamForm()
 		cont.Add(teamForm)
 	} else {
+		u.PlayerMapHistory = u.PlayerMap
 		u.PlayerMap = make(map[string]string)
 		playerForm := u.BuildPlayerForm()
 		cont.Add(playerForm)
@@ -140,6 +142,10 @@ func (u *Uploader) BuildPlayerForm() *widget.Form {
 	for idx, name := range u.Players {
 		fmt.Println(idx, name)
 		combo := widget.NewSelect(u.BGLPlayers, u.playerCallback(name))
+		if u.PlayerMapHistory[name] != "" {
+			combo.SetSelected(u.PlayerMapHistory[name])
+			// u.PlayerMap[name] = u.PlayerMapHistory[name]
+		}
 		item := widget.NewFormItem(name, combo)
 		formItems[idx] = item
 	}

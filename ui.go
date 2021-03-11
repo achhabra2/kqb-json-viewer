@@ -48,7 +48,10 @@ func (k *KQBApp) ShowMainWindow() {
 		dialog := dialog.NewInformation("About", aboutMessage, k.w)
 		dialog.Show()
 	})
-	fileMenu := fyne.NewMenu("File", about)
+	openDirectory := fyne.NewMenuItem("Open Stats Folder", func() {
+		stats.OpenStatDirectory()
+	})
+	fileMenu := fyne.NewMenu("File", about, openDirectory)
 	mainMenu := fyne.NewMainMenu(fileMenu)
 
 	mapsContainer := k.BuildMapTable()

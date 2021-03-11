@@ -2,14 +2,13 @@ package bgl
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
-
-	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
 const API_BASE_URL = "https://api-staging.beegame.gg/"
@@ -25,6 +24,7 @@ type BGLData struct {
 	HomeName    string
 	AwayName    string
 	matchResult MatchResult
+	User        User
 }
 
 func (b *BGLData) LoadCurrentMatchesLocal() error {
@@ -106,28 +106,39 @@ func (b *BGLData) GetTeamNames() []string {
 }
 
 func (b *BGLData) GetMe() error {
-	// url := "https://kqb.buzz/api/me/?format=json"
-	// method := "GET"
+	url := API_BASE_URL + "me/?format=json"
+	method := "GET"
 
-	// client := &http.Client{}
-	// req, err := http.NewRequest(method, url, nil)
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url, nil)
 
-	// if err != nil {
-	// 	log.Println(err)
-	// 	return err
-	// }
-	// req.Header.Add("Authorization", "Token "+b.Token)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	req.Header.Add("Authorization", "Token "+b.Token)
 
-	// res, err := client.Do(req)
-	// if err != nil {
-	// 	log.Println(err)
-	// 	return err
-	// }
+	res, err := client.Do(req)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
 
-	// if res.StatusCode != 200 {
-	// 	return errors.New("Invalid status code")
-	// }
-	// defer res.Body.Close()
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	// fmt.Println(string(body))
+	err = json.Unmarshal(body, &b.User)
+	if err != nil {
+		return err
+	}
+
+	if res.StatusCode != 200 {
+		return errors.New("Invalid status code")
+	}
+	defer res.Body.Close()
 
 	return nil
 }
@@ -164,6 +175,15 @@ func (b *BGLData) LoadCurrentMatches() error {
 	url := API_BASE_URL + "matches/?format=json&limit=5"
 	method := "GET"
 
+	var teamIDs []int
+	for _, team := range b.User.Player.Teams {
+		teamIDs = append(teamIDs, team.ID)
+	}
+
+	for _, id := range teamIDs {
+		url += fmt.Sprintf("&team_id=%d", id)
+	}
+
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, nil)
 
@@ -171,7 +191,7 @@ func (b *BGLData) LoadCurrentMatches() error {
 		fmt.Println(err)
 		return err
 	}
-	req.Header.Add("Cookie", "__cfduid=d46fd59ede62ad09e5ddee89c282995271615360046")
+	req.Header.Add("Authorization", "Token "+b.Token)
 
 	res, err := client.Do(req)
 	if err != nil {
@@ -185,6 +205,11 @@ func (b *BGLData) LoadCurrentMatches() error {
 		fmt.Println(err)
 		return err
 	}
+
+	if res.StatusCode != 200 {
+		return errors.New("Invalid status code")
+	}
+
 	// fmt.Println(string(body))
 	err = json.Unmarshal(body, &b.matchResult)
 	if err != nil {
@@ -197,21 +222,4 @@ func (b *BGLData) LoadCurrentMatches() error {
 		b.Matches[key] = result.ID
 	}
 	return nil
-}
-
-type BGLMap struct {
-	PlayerNames map[string]string `json:"player_names"`
-	TeamNames   map[string]string `json:"team_names"`
-	PlayerIDs   map[string]int    `json:"player_ids"`
-	TeamIDs     map[string]int    `json:"team_ids"`
-}
-
-type SetMap struct {
-	Raw    stats.StatsJSON `json:"raw"`
-	BGLMap BGLMap          `json:"bgl_map"`
-}
-
-type FinalOutput struct {
-	MatchID int      `json:"match_id"`
-	Sets    []SetMap `json:"sets"`
 }
