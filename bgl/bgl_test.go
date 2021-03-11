@@ -1,13 +1,14 @@
 package bgl
 
 import (
+	"os"
 	"testing"
 )
 
 func TestGetMe(t *testing.T) {
 	want := "prosive"
 	bglData := BGLData{
-		Token: "e19f5efd2fb9f6abd3d4522d18d08b2db7754c24",
+		Token: os.Getenv("BGL_TOKEN"),
 	}
 	bglData.GetMe()
 	have := bglData.User.FirstName
@@ -19,7 +20,7 @@ func TestGetMe(t *testing.T) {
 
 func TestGetMatches(t *testing.T) {
 	bglData := BGLData{
-		Token: "e19f5efd2fb9f6abd3d4522d18d08b2db7754c24",
+		Token: os.Getenv("BGL_TOKEN"),
 	}
 	bglData.GetMe()
 	err := bglData.LoadCurrentMatches()
@@ -28,10 +29,10 @@ func TestGetMatches(t *testing.T) {
 	}
 }
 
-func TestGetMatchesLocal(t *testing.T) {
-	bglData := BGLData{}
-	err := bglData.LoadCurrentMatchesLocal()
-	if err != nil {
-		t.Error("Could not load matches from local json test file. ", err)
-	}
-}
+// func TestGetMatchesLocal(t *testing.T) {
+// 	bglData := BGLData{}
+// 	err := bglData.LoadCurrentMatchesLocal()
+// 	if err != nil {
+// 		t.Error("Could not load matches from local json test file. ", err)
+// 	}
+// }
