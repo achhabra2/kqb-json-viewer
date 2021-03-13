@@ -308,3 +308,77 @@ func (stat *StatsJSON) TeamWinners() []string {
 	}
 	return teamList
 }
+
+func (stat *StatsJSON) GetSetResult() SetResult {
+	output := SetResult{
+		Winner: stat.Winner(),
+		Stats:  stat.AdvancedStats(),
+	}
+	mapResults := make([]MapResult, len(stat.GameWinners))
+	for i, winner := range stat.GameWinners {
+		mapResults[i] = MapResult{
+			Name:         MAPNAMES[stat.MapPool[i]],
+			WinCondition: WINCONDITIONS[stat.WinConditions[i]],
+			Winner:       TEAMNUMBER[winner],
+			Duration:     stat.Games[i].Duration,
+		}
+		var loser string
+		if winner == 1 {
+			loser = "Blue"
+		} else {
+			loser = "Gold"
+		}
+		mapResults[i].Loser = loser
+	}
+	output.MapResults = mapResults
+	return output
+}
+
+func GetMatchResult(sets ...SetResult) MatchResult {
+	output := MatchResult{
+		SetResults: sets,
+	}
+	blueWins := 0
+	goldWins := 0
+	for _, set := range sets {
+		if set.Winner == "Gold" {
+			goldWins++
+		} else {
+			blueWins++
+		}
+	}
+	if goldWins > blueWins {
+		output.Winner = "Gold"
+		output.Loser = "Blue"
+	} else {
+		output.Loser = "Gold"
+		output.Winner = "Blue"
+	}
+	output.HomeSets = goldWins
+	output.AwaySets = blueWins
+
+	return output
+}
+
+type MapResult struct {
+	Name         string  `json:"map_name"`
+	WinCondition string  `json:"win_condition"`
+	Winner       string  `json:"winner"`
+	Loser        string  `json:"loser"`
+	Duration     float64 `json:"duration"`
+}
+
+type SetResult struct {
+	MapResults []MapResult                 `json:"map_results"`
+	Winner     string                      `json:"winner"`
+	Loser      string                      `json:"loser"`
+	Stats      []map[string]map[string]int `json:"stats"`
+}
+
+type MatchResult struct {
+	Winner     string      `json:"winner"`
+	Loser      string      `json:"loser"`
+	SetResults []SetResult `json:"set_results"`
+	HomeSets   int         `json:"home_sets"`
+	AwaySets   int         `json:"away_sets"`
+}

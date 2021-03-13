@@ -338,6 +338,7 @@ func (k *KQBApp) OnSetCompletion() {
 		MatchID: k.u.bgl.Matches[k.u.selectedMatch],
 		Sets:    k.subData,
 	}
+
 	k.u.bgl.SaveRawOutput(finalOuput)
 	if err != nil {
 		loadingDiag.Hide()
