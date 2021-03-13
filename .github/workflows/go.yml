@@ -27,9 +27,9 @@ jobs:
       run: fyne package -os windows -icon logo.png
 
     - uses: papeloto/action-zip@v1
-        with:
-          files: kqb-json-viewer.exe
-          dest: kqb-json-viewer-windows-amd64.zip
+      with:
+        files: kqb-json-viewer.exe
+        dest: kqb-json-viewer-windows-amd64.zip
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
