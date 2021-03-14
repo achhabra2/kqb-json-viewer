@@ -82,7 +82,7 @@ type TeamInfo struct {
 	WINS          int      `json:"wins,omitempty"`
 	Losses        int      `json:"losses,omitempty"`
 	CircuitAbbrev string   `json:"circuit_abbrev,omitempty"`
-	Members       []string `json:"members,omitempty"`
+	Members       []Member `json:"members,omitempty"`
 }
 
 type SetCount struct {
@@ -101,3 +101,25 @@ type Round struct {
 	Number string `json:"number,omitempty"`
 	Name   string `json:"name,omitempty"`
 }
+
+type Member struct {
+	ID              int64    `json:"id,omitempty"`
+	Name            string   `json:"name,omitempty"`
+	NamePhonetic    string   `json:"name_phonetic,omitempty"`
+	Pronouns        Pronouns `json:"pronouns,omitempty"`
+	DiscordUsername string   `json:"discord_username,omitempty"`
+	TwitchUsername  string   `json:"twitch_username,omitempty"`
+	Bio             string   `json:"bio,omitempty"`
+	Emoji           string   `json:"emoji,omitempty"`
+	AvatarURL       string   `json:"avatar_url,omitempty"`
+	Modified        string   `json:"modified,omitempty"`
+	Created         string   `json:"created,omitempty"`
+}
+
+type Pronouns string
+
+const (
+	HeHim    Pronouns = "he/him"
+	SheHer   Pronouns = "she/her"
+	TheyThem Pronouns = "they/them"
+)

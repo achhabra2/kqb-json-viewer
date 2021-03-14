@@ -296,7 +296,8 @@ func (k *KQBApp) OnSetSuccess() {
 				PlayerNames: k.u.PlayerMap,
 				TeamNames:   k.u.TeamMap,
 			},
-			Raw: k.u.data,
+			//			Raw: k.u.data,
+			Stats: k.u.data.GetSetResult(),
 		})
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()

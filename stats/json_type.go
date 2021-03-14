@@ -369,7 +369,7 @@ type MapResult struct {
 }
 
 type SetResult struct {
-	MapResults []MapResult                 `json:"map_results"`
+	MapResults []MapResult                 `json:"game_results"`
 	Winner     string                      `json:"winner"`
 	Loser      string                      `json:"loser"`
 	Stats      []map[string]map[string]int `json:"stats"`

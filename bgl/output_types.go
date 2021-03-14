@@ -11,6 +11,7 @@ type BGLMap struct {
 
 type SetMap struct {
 	Raw    stats.StatsJSON `json:"raw"`
+	Stats  stats.SetResult `json:"set_result"`
 	BGLMap BGLMap          `json:"bgl_map"`
 }
 
