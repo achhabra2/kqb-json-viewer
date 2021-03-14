@@ -77,7 +77,7 @@ func (k *KQBApp) ShowMainWindow() {
 		timeContainer.Objects[1] = timeWidget
 		cont.Objects[2] = players
 		cont.Objects[3] = k.BuildMapTable()
-		cont.Refresh()
+		// cont.Refresh()
 	})
 
 	upload := widget.NewButton("Add Set to Match Result", func() {

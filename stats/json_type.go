@@ -258,7 +258,7 @@ func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 				goldStats[player.Nickname]["WorkerKills"] += player.TotalWorkerKillCount
 				goldStats[player.Nickname]["WarriorDeaths"] += player.WarriorAndQueenDeathCount
 				goldStats[player.Nickname]["WorkerDeaths"] += player.WorkerDeathCount
-				goldStats[player.Nickname]["Team"] += player.Team
+				goldStats[player.Nickname]["Team"] = player.Team
 				goldStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
 				goldStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
 				goldStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
@@ -270,7 +270,7 @@ func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 				blueStats[player.Nickname]["WorkerKills"] += player.TotalWorkerKillCount
 				blueStats[player.Nickname]["WarriorDeaths"] += player.WarriorAndQueenDeathCount
 				blueStats[player.Nickname]["WorkerDeaths"] += player.WorkerDeathCount
-				blueStats[player.Nickname]["Team"] += player.Team
+				blueStats[player.Nickname]["Team"] = player.Team
 				blueStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
 				blueStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
 				blueStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
