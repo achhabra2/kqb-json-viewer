@@ -10,12 +10,13 @@ type BGLMap struct {
 }
 
 type SetMap struct {
-	Raw    stats.StatsJSON `json:"raw"`
-	Stats  stats.SetResult `json:"set_result"`
-	BGLMap BGLMap          `json:"bgl_map"`
+	Raw   stats.StatsJSON `json:"raw"`
+	Stats stats.SetResult `json:"set_result"`
 }
 
 type FinalOutput struct {
-	MatchID int      `json:"match_id"`
-	Sets    []SetMap `json:"sets"`
+	MatchID int `json:"match_id"`
+	//	Sets    []SetMap `json:"sets"`
+	Result stats.MatchResult `json:"match_result"`
+	BGLMap BGLMap            `json:"bgl_map"`
 }

@@ -35,7 +35,8 @@ type KQBApp struct {
 	splitContainer *fyne.Container
 	u              *Uploader
 	submission     bgl.Result
-	subData        []bgl.SetMap
+	subData        []stats.SetResult
+	bglMap         bgl.BGLMap
 }
 
 func (k *KQBApp) ShowMainWindow() {
@@ -197,8 +198,9 @@ func (k *KQBApp) ShowAdvancedStats() {
 
 func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	data := k.selectedData
-	nameCont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(1))
-	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(5))
+
+	nameCont := container.New(layout.NewGridLayoutWithColumns(1))
+	cont := container.New(layout.NewGridLayoutWithColumns(5))
 	nameCont.Add(widget.NewLabelWithStyle("Name", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
@@ -245,18 +247,16 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 func (k *KQBApp) ShowUploadWindow() {
 	if k.u.BGLToken == "" {
 		players := k.selectedData.Players()
-		BGLPlayers := []string{"BGL 1", "BGL 2", "BGL 3", "BGL 4"}
-		BGLTeams := []string{"BGL Team 1", "BGL Team 2"}
-		BGLMatches := []string{"Match 1", "Match 2", "Match 3"}
+
 		u := &Uploader{
 			a:          k.a,
 			w:          k.w,
 			Players:    players,
-			BGLPlayers: BGLPlayers,
-			BGLTeams:   BGLTeams,
+			BGLPlayers: make([]string, 0),
+			BGLTeams:   make([]string, 0),
 			PlayerMap:  make(map[string]string),
 			TeamMap:    make(map[string]string),
-			BGLMatches: BGLMatches,
+			BGLMatches: make([]string, 0),
 			data:       k.selectedData,
 			OnSuccess:  k.OnSetSuccess,
 			OnFail:     k.OnSetFail,
@@ -288,17 +288,13 @@ func (k *KQBApp) OnSetSuccess() {
 		sLen := len(k.submission.Sets)
 		k.submission.Sets[sLen-1].Number = sLen
 	}
-	k.subData = append(k.subData,
-		bgl.SetMap{
-			BGLMap: bgl.BGLMap{
-				PlayerIDs:   k.u.GetPlayerMapByID(),
-				TeamIDs:     k.u.GetTeamMapByID(),
-				PlayerNames: k.u.PlayerMap,
-				TeamNames:   k.u.TeamMap,
-			},
-			//			Raw: k.u.data,
-			Stats: k.u.data.GetSetResult(),
-		})
+	k.bglMap = bgl.BGLMap{
+		PlayerIDs:   k.u.GetPlayerMapByID(),
+		TeamIDs:     k.u.GetTeamMapByID(),
+		PlayerNames: k.u.PlayerMap,
+		TeamNames:   k.u.TeamMap,
+	}
+	k.subData = append(k.subData, k.u.data.GetSetResult())
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()
 }
@@ -337,7 +333,9 @@ func (k *KQBApp) OnSetCompletion() {
 
 	finalOuput := bgl.FinalOutput{
 		MatchID: k.u.bgl.Matches[k.u.selectedMatch],
-		Sets:    k.subData,
+		// Sets:    k.subData,
+		BGLMap: k.bglMap,
+		Result: stats.GetMatchResult(k.subData...),
 	}
 
 	k.u.bgl.SaveRawOutput(finalOuput)
@@ -397,7 +395,7 @@ func (k *KQBApp) BuildMapTable() *fyne.Container {
 	winConLabel := widget.NewLabelWithStyle("Win Con", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	winnerLabel := widget.NewLabelWithStyle("Winner", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 
-	cont := fyne.NewContainerWithLayout(layout.NewGridLayoutWithColumns(3), mapLabel, winConLabel, winnerLabel)
+	cont := container.New(layout.NewGridLayoutWithColumns(3), mapLabel, winConLabel, winnerLabel)
 	teamWinners := k.selectedData.TeamWinners()
 	mapList := k.selectedData.MapList()
 
@@ -432,7 +430,8 @@ func (k *KQBApp) ResetUploader() {
 	}
 	k.u = &Uploader{}
 	k.submission = bgl.Result{}
-	k.subData = []bgl.SetMap{}
+	// k.subData = []bgl.SetMap{}
+	k.subData = []stats.SetResult{}
 	k.w.Resize(fyne.NewSize(600, 600))
 }
 

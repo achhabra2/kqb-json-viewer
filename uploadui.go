@@ -11,6 +11,7 @@ import (
 	"fyne.io/fyne/v2/widget"
 	"github.com/achhabra2/kqb-json-viewer/bgl"
 	"github.com/achhabra2/kqb-json-viewer/stats"
+	"github.com/imdario/mergo"
 )
 
 type Uploader struct {
@@ -274,6 +275,7 @@ func (u *Uploader) HandleSubmit() {
 		Loser:  loser,
 	}
 	u.set = submissionSet
+	mergo.Merge(&u.PlayerMap, u.PlayerMapHistory)
 	u.OnSuccess()
 }
 

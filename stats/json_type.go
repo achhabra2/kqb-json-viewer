@@ -238,6 +238,15 @@ func (statJson *StatsJSON) Winner() string {
 	}
 }
 
+func (statJson *StatsJSON) Loser() string {
+	mapsWon := statJson.MapsWon()
+	if mapsWon["blue"] < 3 {
+		return "Blue"
+	} else {
+		return "Gold"
+	}
+}
+
 func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 	goldStats := make(map[string]map[string]int)
 	blueStats := make(map[string]map[string]int)
@@ -262,7 +271,7 @@ func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 				goldStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
 				goldStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
 				goldStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
-				goldStats[player.Nickname]["EntityType"] += player.EntityType
+				goldStats[player.Nickname]["EntityType"] = player.EntityType
 				goldStats[player.Nickname]["Snail"] += int(player.TotalSnailDistance)
 			} else {
 				blueStats[player.Nickname]["QueenKills"] += player.TotalQueenKillCount
@@ -274,7 +283,7 @@ func (statJson *StatsJSON) AdvancedStats() []map[string]map[string]int {
 				blueStats[player.Nickname]["WarriorUptime"] += int(player.TimeSpentAsWarriorSeconds)
 				blueStats[player.Nickname]["BerryDunks"] += (player.TotalBerryDeposits - player.TotalBerryThrowIns)
 				blueStats[player.Nickname]["BerryThrows"] += player.TotalBerryThrowIns
-				blueStats[player.Nickname]["EntityType"] += player.EntityType
+				blueStats[player.Nickname]["EntityType"] = player.EntityType
 				blueStats[player.Nickname]["Snail"] += int(player.TotalSnailDistance)
 			}
 		}
@@ -312,6 +321,7 @@ func (stat *StatsJSON) TeamWinners() []string {
 func (stat *StatsJSON) GetSetResult() SetResult {
 	output := SetResult{
 		Winner: stat.Winner(),
+		Loser:  stat.Loser(),
 		Stats:  stat.AdvancedStats(),
 	}
 	mapResults := make([]MapResult, len(stat.GameWinners))
