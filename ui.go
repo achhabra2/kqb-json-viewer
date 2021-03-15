@@ -53,8 +53,14 @@ func (k *KQBApp) ShowMainWindow() {
 	openDirectory := fyne.NewMenuItem("Open Stats Folder", func() {
 		stats.OpenStatDirectory()
 	})
+
+	upload := fyne.NewMenuItem("Add Set to Match", func() {
+		k.ShowUploadWindow()
+	})
+
 	fileMenu := fyne.NewMenu("File", about, openDirectory)
-	mainMenu := fyne.NewMainMenu(fileMenu)
+	bglMenu := fyne.NewMenu("BGL", upload)
+	mainMenu := fyne.NewMainMenu(fileMenu, bglMenu)
 
 	mapsContainer := k.BuildMapTable()
 	players := k.BuildPlayerUI()
@@ -80,10 +86,6 @@ func (k *KQBApp) ShowMainWindow() {
 		cont.Objects[2] = players
 		cont.Objects[3] = k.BuildMapTable()
 		// cont.Refresh()
-	})
-
-	upload := widget.NewButton("Add Set to Match Result", func() {
-		k.ShowUploadWindow()
 	})
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
@@ -127,7 +129,7 @@ func (k *KQBApp) ShowMainWindow() {
 	cont.Add(timeContainer)
 	cont.Add(players)
 	cont.Add(mapsContainer)
-	cont.Add(upload)
+	//	cont.Add(upload)
 
 	combo.SetSelectedIndex(0)
 	trailingContainer := container.NewVBox(layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer())
@@ -140,6 +142,7 @@ func (k *KQBApp) ShowMainWindow() {
 	k.w.SetMainMenu(mainMenu)
 	k.w.SetPadded(true)
 	k.w.Resize(fyne.NewSize(500, 900))
+
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
 	k.w.ShowAndRun()
