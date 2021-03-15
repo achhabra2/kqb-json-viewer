@@ -6,6 +6,8 @@ It provides an easy way to see at a glance stats, and to view some advanced char
 
 ## How to Run
 
+> **Note:**  There is an issue with the UI Framework and G-Sync displays. If you have G-Sync enabled in windowed & full screen modes, please change it to full screen only. Otherwise the app UI may be very choppy for you. 
+
 ### Download From Releases
 The easiest way to use this package is to download a pre-built release. Find the latest release for your operating system [here](https://github.com/achhabra2/kqb-json-viewer/releases). 
 

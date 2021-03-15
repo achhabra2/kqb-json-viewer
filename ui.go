@@ -23,8 +23,8 @@ import (
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
-var goldColor = color.RGBA{255, 179, 0, 1}
-var blueColor = color.RGBA{43, 93, 255, 1}
+var goldColor = color.RGBA{255, 179, 0, 200}
+var blueColor = color.RGBA{43, 93, 255, 200}
 
 type KQBApp struct {
 	files          []string
@@ -203,6 +203,10 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 	cont := container.New(layout.NewGridLayoutWithColumns(5))
 	nameCont.Add(widget.NewLabelWithStyle("Name", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+
+	// killsIcon := widget.NewIcon(fyne.NewStaticResource("icon_kills.png", icons.Icon_Kills))
+	// killsIcon.Resize(fyne.NewSize(16, 16))
+	// cont.Add(killsIcon)
 	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
@@ -407,9 +411,11 @@ func (k *KQBApp) BuildMapTable() *fyne.Container {
 		} else {
 			col = goldColor
 		}
-		mLabel := widget.NewLabel(mapList[idx])
-		conLabel := widget.NewLabel(winCon)
+		mLabel := widget.NewLabelWithStyle(mapList[idx], fyne.TextAlignCenter, fyne.TextStyle{})
+		conLabel := widget.NewLabelWithStyle(winCon, fyne.TextAlignCenter, fyne.TextStyle{})
 		wonLabel := canvas.NewText(team, col)
+		wonLabel.Alignment = fyne.TextAlignCenter
+
 		if k.selectedData.Winner() == team {
 			wonLabel.TextStyle = fyne.TextStyle{Bold: true}
 		}

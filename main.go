@@ -10,6 +10,10 @@ func main() {
 	data := stats.ReadJson(names[0])
 
 	a := app.NewWithID("com.kqb-json-viewer.app")
+
+	appTheme := myTheme{}
+	a.Settings().SetTheme(&appTheme)
+
 	w := a.NewWindow("KQB JSON Viewer")
 
 	kqbApp := KQBApp{
