@@ -24,9 +24,11 @@ import (
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
+// Colors for Gold and Blue Labels
 var goldColor = color.RGBA{255, 179, 0, 200}
 var blueColor = color.RGBA{43, 93, 255, 200}
 
+// Main App Struct
 type KQBApp struct {
 	files          []string
 	selectedData   stats.StatsJSON
@@ -38,13 +40,26 @@ type KQBApp struct {
 	submission     bgl.Result
 	subData        []stats.SetResult
 	bglMap         bgl.BGLMap
+	selectedFiles  map[string]int
+	selectedFile   string
+	fileDropDown   *widget.Select
 }
 
+// Main function to perform app setup and show the main window
 func (k *KQBApp) ShowMainWindow() {
 	k.u = &Uploader{}
+
+	// Initialize the header components
+	// timeWidget is the timestamp label for the current match
 	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
-	timeContainer := container.NewHBox(layout.NewSpacer(), timeWidget, layout.NewSpacer())
-	// a.SetIcon(resourceLogoPng)
+
+	// Within the time widget we are also going to show if this file is selected for upload
+	checkIconWidget := getStatLogo("Check")
+	selectedWidget := container.NewCenter(checkIconWidget)
+	k.selectedFiles = make(map[string]int)
+	matchLabelWidget := widget.NewLabel("Match: ")
+	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, layout.NewSpacer())
+
 	about := fyne.NewMenuItem("About", func() {
 		aboutMessage := fmt.Sprintf("kqb-json-viewer version %s \n by Prosive", version)
 		dialog := dialog.NewInformation("About", aboutMessage, k.w)
@@ -76,16 +91,24 @@ func (k *KQBApp) ShowMainWindow() {
 	combo := widget.NewSelect(trimmed, func(value string) {
 		log.Println("Select file", value)
 		k.selectedData = stats.ReadJson(trimmedMap[value])
+		k.selectedFile = value
 		if k.u.BGLToken != "" {
 			k.u.data = k.selectedData
 		}
-		timeWidget = widget.NewLabel(getTimeString(trimmedMap[value]))
+
+		if k.selectedFiles[value] == 1 {
+			selectedWidget.Show()
+		} else {
+			selectedWidget.Hide()
+		}
+		timeWidget.Text = getTimeString(trimmedMap[value])
 		players = k.BuildPlayerUI()
 
-		timeContainer.Objects[1] = timeWidget
 		cont.Objects[2] = players
 		cont.Objects[3] = k.BuildMapTable()
 	})
+
+	k.fileDropDown = combo
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
 		k.selectedData = stats.ReadJson(trimmedMap[combo.Selected])
@@ -305,6 +328,8 @@ func (k *KQBApp) OnSetSuccess() {
 		TeamNames:   k.u.TeamMap,
 	}
 	k.subData = append(k.subData, k.u.data.GetSetResult())
+	k.selectedFiles[k.selectedFile] = 1
+	k.fileDropDown.SetSelected(k.selectedFile)
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()
 }
@@ -445,6 +470,7 @@ func (k *KQBApp) ResetUploader() {
 	k.submission = bgl.Result{}
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
+	k.selectedFiles = make(map[string]int)
 	k.w.Resize(fyne.NewSize(500, 900))
 }
 
@@ -501,6 +527,8 @@ func getStatLogo(stat string) *fyne.Container {
 		res = fyne.NewStaticResource("Icon_Berries.png", icons.Icon_Berries)
 	case "Snail":
 		res = fyne.NewStaticResource("Icon_Snail.png", icons.Icon_Snail)
+	case "Check":
+		res = fyne.NewStaticResource("check.png", icons.Check)
 	}
 	iconCanvas := canvas.NewImageFromResource(res)
 	iconCanvas.FillMode = canvas.ImageFillContain

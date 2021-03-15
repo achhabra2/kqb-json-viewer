@@ -22,3 +22,6 @@ var Worker_Logo []byte
 
 //go:embed logo.png
 var Logo []byte
+
+//go:embed check.png
+var Check []byte
