@@ -132,13 +132,14 @@ func (k *KQBApp) ShowMainWindow() {
 	combo.SetSelectedIndex(0)
 	trailingContainer := container.NewVBox(layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer())
 	vSplitContainer := container.NewVScroll(trailingContainer)
-	mainContainer := container.NewHSplit(cont, vSplitContainer)
+	vSplitLeft := container.NewVScroll(cont)
+	mainContainer := container.NewHSplit(vSplitLeft, vSplitContainer)
 	k.mainContainer = mainContainer
 	k.splitContainer = trailingContainer
 	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
 	k.w.SetPadded(true)
-	k.w.Resize(fyne.NewSize(600, 600))
+	k.w.Resize(fyne.NewSize(500, 900))
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
 	k.w.ShowAndRun()
@@ -278,7 +279,7 @@ func (k *KQBApp) ShowUploadWindow() {
 		k.splitContainer.Objects[0] = uploadContainer
 		k.splitContainer.Objects[1] = layout.NewSpacer()
 	}
-	k.w.Resize(fyne.NewSize(900, 600))
+	k.w.Resize(fyne.NewSize(900, 900))
 }
 
 func (k *KQBApp) OnSetSuccess() {
@@ -441,7 +442,7 @@ func (k *KQBApp) ResetUploader() {
 	k.submission = bgl.Result{}
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
-	k.w.Resize(fyne.NewSize(600, 600))
+	k.w.Resize(fyne.NewSize(500, 900))
 }
 
 func getTimeString(file string) string {
