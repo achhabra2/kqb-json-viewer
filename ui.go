@@ -85,7 +85,6 @@ func (k *KQBApp) ShowMainWindow() {
 		timeContainer.Objects[1] = timeWidget
 		cont.Objects[2] = players
 		cont.Objects[3] = k.BuildMapTable()
-		// cont.Refresh()
 	})
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
@@ -332,7 +331,8 @@ func (k *KQBApp) OnSetCompletion() {
 	}
 	k.submission.SetCount = setCount
 
-	loadingDiag := dialog.NewProgressInfinite("Match Results Upload", "Sending results to BGL", k.w)
+	loadingWidget := widget.NewProgressBarInfinite()
+	loadingDiag := dialog.NewCustom("Match Results Upload", "", loadingWidget, k.w)
 	loadingDiag.Show()
 	err := k.u.bgl.HandleMatchUpdate(k.submission)
 	if err != nil {

@@ -5,6 +5,7 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/theme"
+	"github.com/achhabra2/kqb-json-viewer/font"
 )
 
 var bglLightColor color.RGBA = color.RGBA{240, 240, 240, 255}
@@ -55,9 +56,13 @@ func (m myTheme) Icon(name fyne.ThemeIconName) fyne.Resource {
 }
 
 func (m myTheme) Font(style fyne.TextStyle) fyne.Resource {
-	// defaultFont := fyne.NewStaticResource("Pirulenrg", font.Pirulenrg)
-	// return defaultFont
-	return theme.DefaultTheme().Font(style)
+	defaultFont := fyne.NewStaticResource("Roboto-Regular", font.Roboto_Regular)
+	boldFont := fyne.NewStaticResource("Roboto-Bold", font.Roboto_Bold)
+	if style.Bold {
+		return boldFont
+	}
+	// return theme.DefaultTheme().Font(style)
+	return defaultFont
 }
 
 func (m myTheme) Size(name fyne.ThemeSizeName) float32 {
