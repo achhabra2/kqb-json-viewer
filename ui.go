@@ -20,6 +20,7 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"github.com/achhabra2/kqb-json-viewer/bgl"
+	"github.com/achhabra2/kqb-json-viewer/icons"
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
 
@@ -201,17 +202,18 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 
 	nameCont := container.New(layout.NewGridLayoutWithColumns(1))
 	cont := container.New(layout.NewGridLayoutWithColumns(5))
-	nameCont.Add(widget.NewLabelWithStyle("Name", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	nameCont.Add(widget.NewLabelWithStyle("", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	// cont.Add(widget.NewLabelWithStyle("Kills", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	// cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	// cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	// cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 
-	// killsIcon := widget.NewIcon(fyne.NewStaticResource("icon_kills.png", icons.Icon_Kills))
-	// killsIcon.Resize(fyne.NewSize(16, 16))
-	// cont.Add(killsIcon)
-	cont.Add(widget.NewLabelWithStyle("Deaths", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	cont.Add(widget.NewLabelWithStyle("Berries", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
-	cont.Add(widget.NewLabelWithStyle("Snail", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	cont.Add(getStatLogo("Kills"))
+	cont.Add(getStatLogo("Deaths"))
+	cont.Add(getStatLogo("Berries"))
+	cont.Add(getStatLogo("Snail"))
 
-	cont.Add(widget.NewLabelWithStyle("Type", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+	cont.Add(widget.NewLabelWithStyle("", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 	sort.Slice(data.PlayerMatchStats, func(i, j int) bool {
 		return data.PlayerMatchStats[i].Team < data.PlayerMatchStats[j].Team
 	})
@@ -228,18 +230,19 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 		deaths := strconv.Itoa(player.Deaths)
 		berries := strconv.Itoa(player.Berries)
 		snail := strconv.FormatFloat(player.Snail, 'f', 0, 64)
-		entity := getEntity(player.EntityType)
+		// entity := getEntity(player.EntityType)
 		nameLabel := canvas.NewText(name, col)
 		if k.selectedData.Winner() == team {
 			nameLabel.TextStyle = fyne.TextStyle{Bold: true}
 		}
 		nameCont.Add(nameLabel)
-		cont.Add(widget.NewLabel(kills))
-		cont.Add(widget.NewLabel(deaths))
-		cont.Add(widget.NewLabel(berries))
-		cont.Add(widget.NewLabel(snail))
+		cont.Add(widget.NewLabelWithStyle(kills, fyne.TextAlignCenter, fyne.TextStyle{}))
+		cont.Add(widget.NewLabelWithStyle(deaths, fyne.TextAlignCenter, fyne.TextStyle{}))
+		cont.Add(widget.NewLabelWithStyle(berries, fyne.TextAlignCenter, fyne.TextStyle{}))
+		cont.Add(widget.NewLabelWithStyle(snail, fyne.TextAlignCenter, fyne.TextStyle{}))
 
-		cont.Add(widget.NewLabel(entity))
+		// cont.Add(widget.NewLabelWithStyle(entity, fyne.TextAlignCenter, fyne.TextStyle{}))
+		cont.Add(getEntityLogo(player.EntityType))
 	}
 	playerContainer := container.NewHBox(layout.NewSpacer(), nameCont, cont, layout.NewSpacer())
 	headerLabel := widget.NewLabelWithStyle("Player Info", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
@@ -466,6 +469,41 @@ func getEntity(entity int) string {
 	default:
 		return "Worker"
 	}
+}
+
+func getEntityLogo(entity int) *fyne.Container {
+	var res *fyne.StaticResource
+	switch entity {
+	case 3:
+		res = fyne.NewStaticResource("Queen_Logo_Large.png", icons.Queen_Logo)
+	default:
+		res = fyne.NewStaticResource("Worker_Logo_large.png", icons.Worker_Logo)
+	}
+	iconCanvas := canvas.NewImageFromResource(res)
+	iconCanvas.FillMode = canvas.ImageFillContain
+	iconCanvas.SetMinSize(fyne.NewSize(36, 36))
+	cont := container.NewPadded(iconCanvas)
+	return cont
+}
+
+func getStatLogo(stat string) *fyne.Container {
+	var res *fyne.StaticResource
+	switch stat {
+	case "Kills":
+		res = fyne.NewStaticResource("Icon_Kills.png", icons.Icon_Kills)
+	case "Deaths":
+		res = fyne.NewStaticResource("Icon_Deaths.png", icons.Icon_Deaths)
+	case "Berries":
+		res = fyne.NewStaticResource("Icon_Berries.png", icons.Icon_Berries)
+	case "Snail":
+		res = fyne.NewStaticResource("Icon_Snail.png", icons.Icon_Snail)
+	}
+	iconCanvas := canvas.NewImageFromResource(res)
+	iconCanvas.FillMode = canvas.ImageFillContain
+	iconCanvas.SetMinSize(fyne.NewSize(16, 16))
+	cont := container.NewPadded(iconCanvas)
+	//cont.Resize(fyne.NewSize(16, 16))
+	return cont
 }
 
 func formatTeamName(input string) string {
