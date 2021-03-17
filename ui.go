@@ -102,10 +102,10 @@ func (k *KQBApp) ShowMainWindow() {
 			selectedWidget.Hide()
 		}
 		timeWidget.Text = getTimeString(trimmedMap[value])
-		players = k.BuildPlayerUI()
-
-		cont.Objects[2] = players
+		cont.Hide()
+		cont.Objects[2] = k.BuildPlayerUI()
 		cont.Objects[3] = k.BuildMapTable()
+		cont.Show()
 	})
 
 	k.fileDropDown = combo
