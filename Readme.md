@@ -4,9 +4,14 @@ This app is meant to help you view the json stats you have stored locally.
 
 It provides an easy way to see at a glance stats, and to view some advanced charts as well. 
 
-## How to Run
+## Known Issues
+This is beta software and may have issues. You have been warned. 
+
+> **Note:**  The app will crash if you do not have any stats files to read. You must either have them in your KQB stats folder, or if you are using json files from someone else, they must be in the same directory as the kqb-json-viewer app. The default directory on windows is `C:\Users\%USERPROFILE%\AppData\LocalLow\Liquid Bit, LLC\Killer Queen Black\match-stats`
 
 > **Note:**  There is an issue with the UI Framework and G-Sync displays. If you have G-Sync enabled in windowed & full screen modes, please change it to full screen only. Otherwise the app UI may be very choppy for you. 
+
+## How to Run
 
 ### Download From Releases
 The easiest way to use this package is to download a pre-built release. Find the latest release for your operating system [here](https://github.com/achhabra2/kqb-json-viewer/releases). 
