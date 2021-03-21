@@ -31,7 +31,7 @@ type Uploader struct {
 	selectedMatch    string
 	OnSuccess        func()
 	OnFail           func()
-	set              bgl.Set
+	set              bgl.ResultSubmissionSet
 }
 
 func (u *Uploader) ShowUploadWindow() *fyne.Container {
@@ -252,25 +252,21 @@ func (u *Uploader) HandleSubmit() {
 	goldTeamID := u.bgl.Teams[goldTeamName]
 	blueTeamID := u.bgl.Teams[blueTeamName]
 
-	winner := bgl.TeamInfo{}
-	loser := bgl.TeamInfo{}
+	var winner int
+	var loser int
 
 	switch u.data.Winner() {
 	case "Blue":
-		winner.ID = blueTeamID
-		winner.Name = blueTeamName
-		loser.ID = goldTeamID
-		loser.Name = goldTeamName
+		winner = blueTeamID
+		loser = goldTeamID
 	case "Gold":
-		winner.ID = goldTeamID
-		winner.Name = goldTeamName
-		loser.ID = blueTeamID
-		loser.Name = blueTeamName
+		winner = goldTeamID
+		loser = blueTeamID
 	default:
 		break
 	}
 
-	submissionSet := bgl.Set{
+	submissionSet := bgl.ResultSubmissionSet{
 		Winner: winner,
 		Loser:  loser,
 	}

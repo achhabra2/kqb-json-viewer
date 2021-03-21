@@ -123,3 +123,17 @@ const (
 	SheHer   Pronouns = "she/her"
 	TheyThem Pronouns = "they/them"
 )
+
+type ResultSubmission struct {
+	Match  int                   `json:"match,omitempty"`
+	Status string                `json:"status,omitempty"`
+	Winner int                   `json:"winner,omitempty"`
+	Loser  int                   `json:"loser,omitempty"`
+	Sets   []ResultSubmissionSet `json:"sets,omitempty"`
+}
+
+type ResultSubmissionSet struct {
+	Number int `json:"number,omitempty"`
+	Winner int `json:"winner,omitempty"`
+	Loser  int `json:"loser,omitempty"`
+}

@@ -37,7 +37,7 @@ type KQBApp struct {
 	mainContainer  *container.Split
 	splitContainer *fyne.Container
 	u              *Uploader
-	submission     bgl.Result
+	submission     bgl.ResultSubmission
 	subData        []stats.SetResult
 	bglMap         bgl.BGLMap
 	selectedFiles  map[string]int
@@ -308,12 +308,12 @@ func (k *KQBApp) ShowUploadWindow() {
 }
 
 func (k *KQBApp) OnSetSuccess() {
-	if k.submission.ID == 0 {
+	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
-		k.submission = bgl.Result{
-			ID:     matchID,
-			Status: "Completed",
-			Sets:   []bgl.Set{k.u.set},
+		k.submission = bgl.ResultSubmission{
+			Match:  matchID,
+			Status: "C",
+			Sets:   []bgl.ResultSubmissionSet{k.u.set},
 		}
 		k.submission.Sets[0].Number = 1
 	} else {
@@ -340,7 +340,7 @@ func (k *KQBApp) OnSetCompletion() {
 	}
 	homeSets := 0
 	for _, set := range k.submission.Sets {
-		if set.Winner.ID == k.u.bgl.HomeID {
+		if set.Winner == k.u.bgl.HomeID {
 			homeSets++
 		}
 	}
@@ -348,18 +348,17 @@ func (k *KQBApp) OnSetCompletion() {
 	setCount.Home = homeSets
 
 	if setCount.Home > setCount.Away {
-		k.submission.Winner.ID = k.u.bgl.HomeID
-		k.submission.Loser.ID = k.u.bgl.AwayID
+		k.submission.Winner = k.u.bgl.HomeID
+		k.submission.Loser = k.u.bgl.AwayID
 	} else {
-		k.submission.Loser.ID = k.u.bgl.HomeID
-		k.submission.Winner.ID = k.u.bgl.AwayID
+		k.submission.Loser = k.u.bgl.HomeID
+		k.submission.Winner = k.u.bgl.AwayID
 	}
-	k.submission.SetCount = setCount
 
 	loadingWidget := widget.NewProgressBarInfinite()
 	loadingDiag := dialog.NewCustom("Match Results Upload", "", loadingWidget, k.w)
 	loadingDiag.Show()
-	err := k.u.bgl.HandleMatchUpdate(k.submission)
+	_, err := k.u.bgl.HandleMatchResultUpload(k.submission)
 	if err != nil {
 		loadingDiag.Hide()
 		dialog := dialog.NewInformation("Error", err.Error(), k.w)
@@ -403,8 +402,8 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 		)
 		for idx, set := range k.submission.Sets {
 			label := widget.NewLabel(strconv.Itoa(idx + 1))
-			winner := widget.NewLabel(formatTeamName(set.Winner.Name))
-			loser := widget.NewLabel(formatTeamName(set.Loser.Name))
+			winner := widget.NewLabel(formatTeamName(k.u.bgl.TeamsInt[set.Winner]))
+			loser := widget.NewLabel(formatTeamName(k.u.bgl.TeamsInt[set.Loser]))
 			cont.Add(label)
 			cont.Add(winner)
 			cont.Add(loser)
@@ -464,10 +463,10 @@ func (k *KQBApp) BuildMapTable() *fyne.Container {
 
 func (k *KQBApp) ResetUploader() {
 	for idx, _ := range k.splitContainer.Objects {
-		k.splitContainer.Objects[idx] = layout.NewSpacer()
+		k.splitContainer.Objects[idx] = container.NewHBox()
 	}
 	k.u = &Uploader{}
-	k.submission = bgl.Result{}
+	k.submission = bgl.ResultSubmission{}
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)

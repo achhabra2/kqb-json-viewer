@@ -1,6 +1,7 @@
 package bgl
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -18,6 +19,7 @@ type BGLData struct {
 	Token       string
 	Matches     map[string]int
 	Teams       map[string]int
+	TeamsInt    map[int]string
 	Players     map[string]int
 	HomeID      int
 	AwayID      int
@@ -84,10 +86,13 @@ func (b *BGLData) GetPlayerNames() []string {
 func (b *BGLData) LoadTeamsForMatch(match string) {
 	matchID := b.Matches[match]
 	teams := make(map[string]int)
+	teamIDs := make(map[int]string)
 	for _, result := range b.matchResult.Results {
 		if result.ID == matchID {
 			teams[result.Away.Name] = result.Away.ID
 			teams[result.Home.Name] = result.Home.ID
+			teamIDs[result.Away.ID] = result.Away.Name
+			teamIDs[result.Home.ID] = result.Home.Name
 			b.HomeID = result.Home.ID
 			b.HomeName = result.Home.Name
 			b.AwayID = result.Away.ID
@@ -95,6 +100,7 @@ func (b *BGLData) LoadTeamsForMatch(match string) {
 		}
 	}
 	b.Teams = teams
+	b.TeamsInt = teamIDs
 }
 
 func (b *BGLData) GetTeamNames() []string {
@@ -145,7 +151,7 @@ func (b *BGLData) GetMe() error {
 	return nil
 }
 
-func (b *BGLData) HandleMatchUpdate(result Result) error {
+func (b *BGLData) HandleMatchUpdate(result ResultSubmission) error {
 	wd, _ := os.Getwd()
 	outPath := filepath.Join(wd, "/tmp/match_update.json")
 	output, err := json.MarshalIndent(result, "  ", "    ")
@@ -229,4 +235,53 @@ func (b *BGLData) LoadCurrentMatches() error {
 		b.Matches[key] = result.ID
 	}
 	return nil
+}
+
+func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) {
+	url := "https://api-staging.beegame.gg/results/"
+	method := "POST"
+
+	output, err := json.Marshal(result)
+	if err != nil {
+		return 0, err
+	}
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url, bytes.NewBuffer(output))
+
+	if err != nil {
+		log.Println(err)
+		return 0, err
+	}
+	req.Header.Add("Authorization", "Token "+b.Token)
+	req.Header.Add("Content-Type", "application/json")
+
+	res, err := client.Do(req)
+	if err != nil {
+		log.Println(err)
+		return 0, err
+	}
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		log.Println(err)
+		return 0, err
+	}
+
+	if res.StatusCode != 201 {
+		log.Println("Submission Error Code", res.StatusCode)
+		return 0, errors.New(string(body))
+	}
+
+	var response MatchResultUploadResponse
+	if err := json.Unmarshal(body, &response); err != nil {
+		log.Println(err)
+		return 0, err
+	}
+	// fmt.Println(response.ID)
+	return response.ID, nil
+}
+
+type MatchResultUploadResponse struct {
+	ID int `json:"id"`
 }
