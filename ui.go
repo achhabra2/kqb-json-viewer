@@ -358,7 +358,7 @@ func (k *KQBApp) OnSetCompletion() {
 	loadingWidget := widget.NewProgressBarInfinite()
 	loadingDiag := dialog.NewCustom("Match Results Upload", "", loadingWidget, k.w)
 	loadingDiag.Show()
-	_, err := k.u.bgl.HandleMatchResultUpload(k.submission)
+	resultID, err := k.u.bgl.HandleMatchResultUpload(k.submission)
 	if err != nil {
 		loadingDiag.Hide()
 		dialog := dialog.NewInformation("Error", err.Error(), k.w)
@@ -381,7 +381,7 @@ func (k *KQBApp) OnSetCompletion() {
 		return
 	}
 	loadingDiag.Hide()
-	successDiag := dialog.NewInformation("Upload Success", "Match Upload Successful", k.w)
+	successDiag := dialog.NewInformation("Upload Success", "Match Upload Successful. Result ID:"+strconv.Itoa(resultID), k.w)
 	successDiag.Show()
 	k.ResetUploader()
 }
