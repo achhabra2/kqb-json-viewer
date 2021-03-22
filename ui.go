@@ -388,6 +388,9 @@ func (k *KQBApp) OnSetCompletion() {
 
 func (k *KQBApp) OnSetFail() {
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select a set to continue...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
+	k.splitContainer.Objects[1] = widget.NewButton("Reset Upload Form", func() {
+		k.ResetUploader()
+	})
 }
 
 func (k *KQBApp) ShowInputSets() *fyne.Container {
