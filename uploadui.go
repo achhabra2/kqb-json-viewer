@@ -269,6 +269,9 @@ func (u *Uploader) HandleSubmit() {
 	submissionSet := bgl.ResultSubmissionSet{
 		Winner: winner,
 		Loser:  loser,
+		SetLog: bgl.ResultSetLog{
+			Body: u.data,
+		},
 	}
 	u.set = submissionSet
 	mergo.Merge(&u.PlayerMap, u.PlayerMapHistory)

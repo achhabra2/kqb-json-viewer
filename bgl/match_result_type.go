@@ -6,7 +6,11 @@ package bgl
 //    matchResult, err := UnmarshalMatchResult(bytes)
 //    bytes, err = matchResult.Marshal()
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/achhabra2/kqb-json-viewer/stats"
+)
 
 func UnmarshalMatchResult(data []byte) (MatchResult, error) {
 	var r MatchResult
@@ -133,7 +137,13 @@ type ResultSubmission struct {
 }
 
 type ResultSubmissionSet struct {
-	Number int `json:"number,omitempty"`
-	Winner int `json:"winner,omitempty"`
-	Loser  int `json:"loser,omitempty"`
+	Number int          `json:"number,omitempty"`
+	Winner int          `json:"winner,omitempty"`
+	Loser  int          `json:"loser,omitempty"`
+	SetLog ResultSetLog `json:"log,omitempty"`
+}
+
+type ResultSetLog struct {
+	FileName string          `json:"filename,omitempty"`
+	Body     stats.StatsJSON `json:"body,omitempty"`
 }

@@ -57,7 +57,7 @@ func (k *KQBApp) ShowMainWindow() {
 	checkIconWidget := getStatLogo("Check")
 	selectedWidget := container.NewCenter(checkIconWidget)
 	k.selectedFiles = make(map[string]int)
-	matchLabelWidget := widget.NewLabel("Match: ")
+	matchLabelWidget := widget.NewLabel("Match Time: ")
 	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, layout.NewSpacer())
 
 	about := fyne.NewMenuItem("About", func() {
