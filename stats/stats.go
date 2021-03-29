@@ -64,11 +64,11 @@ func ReadJson(file string) StatsJSON {
 	var statsJSON StatsJSON
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
-		log.Fatal("Could not read json file", err)
+		log.Fatalf("Could not read json file (%v).  Error: %v", file, err)
 	}
 	err = json.Unmarshal(data, &statsJSON)
 	if err != nil {
-		log.Fatal("Could not parse json file", err)
+		log.Fatalf("Could not parse json file (%v).  Error: %v", file, err)
 	}
 
 	return statsJSON
