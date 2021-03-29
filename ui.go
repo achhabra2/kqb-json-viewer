@@ -90,7 +90,7 @@ func (k *KQBApp) ShowMainWindow() {
 
 	combo := widget.NewSelect(trimmed, func(value string) {
 		log.Println("Select file", value)
-		k.selectedData = stats.ReadJson(trimmedMap[value])
+		k.LoadStatsFile(trimmedMap[value])
 		k.selectedFile = value
 		if k.u.BGLToken != "" {
 			k.u.data = k.selectedData
@@ -111,7 +111,7 @@ func (k *KQBApp) ShowMainWindow() {
 	k.fileDropDown = combo
 
 	advancedStatsButton := widget.NewButtonWithIcon("Adv. Stats", theme.FileImageIcon(), func() {
-		k.selectedData = stats.ReadJson(trimmedMap[combo.Selected])
+		k.LoadStatsFile(trimmedMap[combo.Selected])
 		k.ShowAdvancedStats()
 	})
 
@@ -474,6 +474,16 @@ func (k *KQBApp) ResetUploader() {
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)
 	k.w.Resize(fyne.NewSize(500, 900))
+}
+
+func (k *KQBApp) LoadStatsFile(file string) {
+	newData, err := stats.ReadJson(file)
+	if err != nil {
+		dialog := dialog.NewError(err, k.w)
+		dialog.Show()
+		return
+	}
+	k.selectedData = newData
 }
 
 func getTimeString(file string) string {

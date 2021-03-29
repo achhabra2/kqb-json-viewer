@@ -17,7 +17,7 @@ func TestListStats(t *testing.T) {
 
 func TestAdvancedStats(t *testing.T) {
 	names := ListStatFiles()
-	data := ReadJson(names[0])
+	data, _ := ReadJson(names[0])
 	output := data.AdvancedStats()
 	t.Log(output)
 }

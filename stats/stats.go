@@ -60,18 +60,23 @@ func sortFiles(files []os.FileInfo) []os.FileInfo {
 	return files
 }
 
-func ReadJson(file string) StatsJSON {
+func ReadJson(file string) (StatsJSON, error) {
 	var statsJSON StatsJSON
 	data, err := ioutil.ReadFile(file)
+	_, fileName := filepath.Split(file)
 	if err != nil {
-		log.Fatal("Could not read json file", err)
+		jsonError := fmt.Errorf("could not read json file\n (%v): %v", fileName, err)
+		log.Println(jsonError.Error())
+		return statsJSON, jsonError
 	}
 	err = json.Unmarshal(data, &statsJSON)
 	if err != nil {
-		log.Fatal("Could not parse json file", err)
+		marshalError := fmt.Errorf("could not properly decode json file\n (%v): %v", fileName, err)
+		log.Println(marshalError.Error())
+		return statsJSON, marshalError
 	}
 
-	return statsJSON
+	return statsJSON, nil
 }
 
 func OpenStatDirectory() {

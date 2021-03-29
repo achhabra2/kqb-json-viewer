@@ -268,7 +268,7 @@ func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) 
 		return 0, err
 	}
 
-	if res.StatusCode != 201 {
+	if res.StatusCode != 200 {
 		log.Println("Submission Error Code", res.StatusCode)
 		return 0, errors.New(string(body))
 	}

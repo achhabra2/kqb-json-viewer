@@ -7,7 +7,7 @@ import (
 )
 
 func TestGraph(t *testing.T) {
-	data := ReadJson("../fixtures/sample.json")
+	data, _ := ReadJson("../fixtures/sample.json")
 	img := PlotStats(data)
 
 	// // Save the image.
