@@ -129,11 +129,15 @@ const (
 )
 
 type ResultSubmission struct {
-	Match  int                   `json:"match,omitempty"`
-	Status string                `json:"status,omitempty"`
-	Winner int                   `json:"winner,omitempty"`
-	Loser  int                   `json:"loser,omitempty"`
-	Sets   []ResultSubmissionSet `json:"sets,omitempty"`
+	Match         int                   `json:"match,omitempty"`
+	Status        string                `json:"status,omitempty"`
+	Winner        int                   `json:"winner,omitempty"`
+	Loser         int                   `json:"loser,omitempty"`
+	Sets          []ResultSubmissionSet `json:"sets,omitempty"`
+	PlayerMapping []PlayerObject        `json:"player_mapping,omitempty"`
+	TeamMapping   []TeamObject          `json:"team_mapping,omitempty"`
+	Source        string                `json:"source"`
+	Notes         string                `json:"notes"`
 }
 
 type ResultSubmissionSet struct {
@@ -146,4 +150,48 @@ type ResultSubmissionSet struct {
 type ResultSetLog struct {
 	FileName string          `json:"filename,omitempty"`
 	Body     stats.StatsJSON `json:"body,omitempty"`
+}
+
+type PlayerObject struct {
+	ID   int    `json:"id,omitempty"`
+	Name string `json:"nickname,omitempty"`
+}
+
+// type TeamObject struct {
+// 	Color string `json:"color,omitempty"`
+// 	Team  int    `json:"team,omitempty"`
+// }
+
+type TeamObject struct {
+	Team int `json:"team,omitempty"`
+	ID   int `json:"id,omitempty"`
+}
+
+func BglMapToObjects(b BGLMap) ([]PlayerObject, []TeamObject) {
+	playerMapping := make([]PlayerObject, 0)
+	teamMapping := make([]TeamObject, 0)
+
+	for k, v := range b.PlayerIDs {
+		playerObject := PlayerObject{
+			Name: k,
+			ID:   v,
+		}
+		playerMapping = append(playerMapping, playerObject)
+	}
+
+	for k, v := range b.TeamIDs {
+		var team int
+		switch k {
+		case "Gold":
+			team = 1
+		case "Blue":
+			team = 2
+		}
+		teamObject := TeamObject{
+			Team: team,
+			ID:   v,
+		}
+		teamMapping = append(teamMapping, teamObject)
+	}
+	return playerMapping, teamMapping
 }

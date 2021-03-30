@@ -57,8 +57,12 @@ func (k *KQBApp) ShowMainWindow() {
 	checkIconWidget := getStatLogo("Check")
 	selectedWidget := container.NewCenter(checkIconWidget)
 	k.selectedFiles = make(map[string]int)
+	uploadButton := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		k.ShowUploadWindow()
+	})
+	uploadButtonContainer := container.NewCenter(uploadButton)
 	matchLabelWidget := widget.NewLabel("Match Time: ")
-	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, layout.NewSpacer())
+	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, uploadButtonContainer, layout.NewSpacer())
 
 	about := fyne.NewMenuItem("About", func() {
 		aboutMessage := fmt.Sprintf("kqb-json-viewer version %s \n by Prosive", version)
@@ -98,8 +102,10 @@ func (k *KQBApp) ShowMainWindow() {
 
 		if k.selectedFiles[value] == 1 {
 			selectedWidget.Show()
+			uploadButtonContainer.Hide()
 		} else {
 			selectedWidget.Hide()
+			uploadButtonContainer.Show()
 		}
 		timeWidget.Text = getTimeString(trimmedMap[value])
 		cont.Hide()
@@ -363,6 +369,9 @@ func (k *KQBApp) OnSetCompletion() {
 		k.submission.Winner = k.u.bgl.AwayID
 	}
 
+	playerMapping, teamMapping := bgl.BglMapToObjects(k.bglMap)
+	k.submission.PlayerMapping = playerMapping
+	k.submission.TeamMapping = teamMapping
 	loadingWidget := widget.NewProgressBarInfinite()
 	loadingDiag := dialog.NewCustom("Match Results Upload", "", loadingWidget, k.w)
 	loadingDiag.Show()
@@ -477,7 +486,9 @@ func (k *KQBApp) ResetUploader() {
 		k.splitContainer.Objects[idx] = container.NewHBox()
 	}
 	k.u = &Uploader{}
-	k.submission = bgl.ResultSubmission{}
+	k.submission = bgl.ResultSubmission{
+		Source: "UL",
+	}
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)
