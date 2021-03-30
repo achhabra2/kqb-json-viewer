@@ -76,6 +76,11 @@ func ReadJson(file string) (StatsJSON, error) {
 		return statsJSON, marshalError
 	}
 
+	if len(statsJSON.PlayerMatchStats) == 0 {
+		invalidError := fmt.Errorf("invalid KQB Stats JSON File (%v)", fileName)
+		log.Println(invalidError.Error())
+		return statsJSON, invalidError
+	}
 	return statsJSON, nil
 }
 
