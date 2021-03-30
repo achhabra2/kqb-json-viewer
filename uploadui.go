@@ -231,17 +231,11 @@ func (u *Uploader) ValidateParams() bool {
 }
 
 func (u *Uploader) IsPlayerFormFilled() bool {
-	if len(u.PlayerMap) < 8 {
-		return false
-	}
-	return true
+	return len(u.PlayerMap) < 8
 }
 
 func (u *Uploader) IsTeamFormFilled() bool {
-	if len(u.TeamMap) < 2 {
-		return false
-	}
-	return true
+	return len(u.TeamMap) < 2
 }
 
 func (u *Uploader) HandleSubmit() {

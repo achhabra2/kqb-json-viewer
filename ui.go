@@ -512,15 +512,6 @@ func getTeam(team int) string {
 	}
 }
 
-func getEntity(entity int) string {
-	switch entity {
-	case 3:
-		return "Queen"
-	default:
-		return "Worker"
-	}
-}
-
 func getEntityLogo(entity int) *fyne.Container {
 	var res *fyne.StaticResource
 	switch entity {
