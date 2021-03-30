@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 )
 
-const API_BASE_URL = "https://api-staging.beegame.gg/"
+const STAGING_BASE_URL = "https://api-staging.beegame.gg/"
 const PROD_BASE_URL = "https://api.beegame.gg/v1/"
 
 type BGLData struct {
@@ -112,7 +112,7 @@ func (b *BGLData) GetTeamNames() []string {
 }
 
 func (b *BGLData) GetMe() error {
-	url := API_BASE_URL + "me/?format=json"
+	url := getAPIUrl() + "me/?format=json"
 	method := "GET"
 
 	client := &http.Client{}
@@ -180,7 +180,7 @@ func (b *BGLData) SaveRawOutput(final FinalOutput) error {
 }
 
 func (b *BGLData) LoadCurrentMatches() error {
-	url := API_BASE_URL + "matches/?format=json&limit=5&awaiting_results=true"
+	url := getAPIUrl() + "matches/?format=json&limit=5&awaiting_results=true"
 	method := "GET"
 
 	var teamIDs []int
@@ -280,6 +280,18 @@ func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) 
 	}
 	// fmt.Println(response.ID)
 	return response.ID, nil
+}
+
+func getAPIUrl() string {
+	mode, exists := os.LookupEnv("BGL_API_MODE")
+	if !exists {
+		return PROD_BASE_URL
+	}
+	if mode == "STAGING" {
+		return STAGING_BASE_URL
+	} else {
+		return PROD_BASE_URL
+	}
 }
 
 type MatchResultUploadResponse struct {
