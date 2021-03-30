@@ -278,6 +278,13 @@ func (k *KQBApp) BuildPlayerUI() *fyne.Container {
 }
 
 func (k *KQBApp) ShowUploadWindow() {
+	// Check if set was previously selected
+	if k.selectedFiles[k.selectedFile] == 1 {
+		duplicateSetError := fmt.Errorf("set already entered, try with a different set. ")
+		duplicateSetDialog := dialog.NewError(duplicateSetError, k.w)
+		duplicateSetDialog.Show()
+		return
+	}
 	if k.u.BGLToken == "" {
 		players := k.selectedData.Players()
 
@@ -309,12 +316,6 @@ func (k *KQBApp) ShowUploadWindow() {
 
 func (k *KQBApp) OnSetSuccess() {
 	// Check if set was already recorded
-	if k.selectedFiles[k.selectedFile] == 1 {
-		duplicateSetError := fmt.Errorf("set already entered, try with a different set. ")
-		duplicateSetDialog := dialog.NewError(duplicateSetError, k.w)
-		duplicateSetDialog.Show()
-		return
-	}
 	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
 		k.submission = bgl.ResultSubmission{
