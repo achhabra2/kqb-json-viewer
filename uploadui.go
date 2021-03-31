@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"fyne.io/fyne/v2"
@@ -143,7 +142,7 @@ func (u *Uploader) BuildPlayerForm() *widget.Form {
 
 	formItems := make([]*widget.FormItem, 8)
 	for idx, name := range u.Players {
-		fmt.Println(idx, name)
+		// fmt.Println(idx, name)
 		combo := widget.NewSelect(u.BGLPlayers, u.playerCallback(name))
 		if u.PlayerMapHistory[name] != "" {
 			combo.SetSelected(u.PlayerMapHistory[name])
@@ -155,7 +154,7 @@ func (u *Uploader) BuildPlayerForm() *widget.Form {
 	form := &widget.Form{
 		Items: formItems,
 		OnSubmit: func() {
-			fmt.Println(u.PlayerMap)
+			log.Println(u.PlayerMap)
 			if u.ValidateParams() {
 				errorDialog := dialog.NewInformation("Input Error", "Duplicate entries found, please correct the information and try again. ", u.w)
 				errorDialog.Show()

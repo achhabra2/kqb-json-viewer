@@ -328,6 +328,7 @@ func (k *KQBApp) OnSetSuccess() {
 			Match:  matchID,
 			Status: "C",
 			Sets:   []bgl.ResultSubmissionSet{k.u.set},
+			Source: "UL",
 		}
 		k.submission.Sets[0].Number = 1
 	} else {
@@ -486,9 +487,7 @@ func (k *KQBApp) ResetUploader() {
 		k.splitContainer.Objects[idx] = container.NewHBox()
 	}
 	k.u = &Uploader{}
-	k.submission = bgl.ResultSubmission{
-		Source: "UL",
-	}
+	k.submission = bgl.ResultSubmission{}
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)
