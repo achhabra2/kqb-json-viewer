@@ -69,6 +69,14 @@ func (k *KQBApp) ShowMainWindow() {
 		dialog := dialog.NewInformation("About", aboutMessage, k.w)
 		dialog.Show()
 	})
+
+	changeLogMenu := fyne.NewMenuItem("Changelog", func() {
+		OpenBrowser("https://github.com/achhabra2/kqb-json-viewer/releases")
+	})
+
+	helpMenu := fyne.NewMenuItem("Help", func() {
+		OpenBrowser("https://github.com/achhabra2/kqb-json-viewer/blob/main/Readme.md")
+	})
 	openDirectory := fyne.NewMenuItem("Open Stats Folder", func() {
 		stats.OpenStatDirectory()
 	})
@@ -77,9 +85,10 @@ func (k *KQBApp) ShowMainWindow() {
 		k.ShowUploadWindow()
 	})
 
-	fileMenu := fyne.NewMenu("File", about, openDirectory)
+	fileMenu := fyne.NewMenu("File", openDirectory)
 	bglMenu := fyne.NewMenu("BGL", upload)
-	mainMenu := fyne.NewMainMenu(fileMenu, bglMenu)
+	aboutMenu := fyne.NewMenu("About", about, changeLogMenu, helpMenu)
+	mainMenu := fyne.NewMainMenu(fileMenu, bglMenu, aboutMenu)
 
 	mapsContainer := k.BuildMapTable()
 	players := k.BuildPlayerUI()
