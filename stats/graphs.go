@@ -39,14 +39,14 @@ func PlotStats(data StatsJSON) image.Image {
 		}
 	}
 
-	p, err := plot.New()
-	if err != nil {
-		panic(err)
-	}
+	p := plot.New()
+	// if err != nil {
+	// 	panic(err)
+	// }
 	p.Title.Text = "Military Stats"
-	p.Title.Font.Size = vg.Points(20)
+	p.Title.TextStyle.Font.Size = vg.Points(20)
 	p.Y.Label.Text = "Count"
-	p.Y.Label.Font.Size = vg.Points(16)
+	p.Y.Label.TextStyle.Font.Size = vg.Points(20)
 	w := vg.Points(20)
 
 	barsA, err := plotter.NewBarChart(QueenKills, w)
@@ -95,7 +95,7 @@ func PlotStats(data StatsJSON) image.Image {
 	p.Legend.Add("Q/W-Deaths", barsD)
 	p.Legend.Add("WorkerDeaths", barsE)
 	p.Legend.Top = true
-	p.Legend.Font.Size = vg.Points(20)
+	p.Legend.TextStyle.Font.Size = vg.Points(20)
 	p.NominalX(labels...)
 	p.X.Tick.Label.Font.Size = vg.Points(12)
 	p.Y.Tick.Label.Font.Size = vg.Points(16)
@@ -131,14 +131,12 @@ func PlotObjectiveStats(data StatsJSON) image.Image {
 		}
 	}
 
-	p, err := plot.New()
-	if err != nil {
-		panic(err)
-	}
+	p := plot.New()
+
 	p.Title.Text = "Objective Stats"
-	p.Title.Font.Size = vg.Points(20)
+	p.Title.TextStyle.Font.Size = vg.Points(20)
 	p.Y.Label.Text = "Count"
-	p.Y.Label.Font.Size = vg.Points(16)
+	p.Y.Label.TextStyle.Font.Size = vg.Points(20)
 
 	w := vg.Points(20)
 
@@ -170,7 +168,7 @@ func PlotObjectiveStats(data StatsJSON) image.Image {
 	p.Legend.Add("BerriesThrown", barsB)
 	p.Legend.Add("Snail/50", barsC)
 	p.Legend.Top = true
-	p.Legend.Font.Size = vg.Points(20)
+	p.Legend.TextStyle.Font.Size = vg.Points(20)
 	p.NominalX(labels...)
 	p.X.Tick.Label.Font.Size = vg.Points(12)
 	p.Y.Tick.Label.Font.Size = vg.Points(16)
