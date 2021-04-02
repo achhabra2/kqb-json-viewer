@@ -165,7 +165,7 @@ func (b *BGLData) HandleMatchUpdate(result ResultSubmission) error {
 	return nil
 }
 
-func (b *BGLData) SaveRawOutput(final FinalOutput) error {
+func (b *BGLData) SaveRawOutput(final ResultSubmission) error {
 	wd, _ := os.Getwd()
 	outPath := filepath.Join(wd, "/tmp/match_output.json")
 	output, err := json.MarshalIndent(final, "  ", "    ")
@@ -283,15 +283,16 @@ func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) 
 }
 
 func getAPIUrl() string {
-	mode, exists := os.LookupEnv("BGL_API_MODE")
-	if !exists {
-		return PROD_BASE_URL
-	}
-	if mode == "STAGING" {
-		return STAGING_BASE_URL
-	} else {
-		return PROD_BASE_URL
-	}
+	// mode, exists := os.LookupEnv("BGL_API_MODE")
+	// if !exists {
+	// 	return PROD_BASE_URL
+	// }
+	// if mode == "STAGING" {
+	// 	return STAGING_BASE_URL
+	// } else {
+	// 	return PROD_BASE_URL
+	// }
+	return STAGING_BASE_URL
 }
 
 type MatchResultUploadResponse struct {

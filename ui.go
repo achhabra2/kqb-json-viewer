@@ -43,6 +43,7 @@ type KQBApp struct {
 	selectedFiles  map[string]int
 	selectedFile   string
 	fileDropDown   *widget.Select
+	SetNotes       string
 }
 
 // Main function to perform app setup and show the main window
@@ -382,6 +383,7 @@ func (k *KQBApp) OnSetCompletion() {
 	playerMapping, teamMapping := bgl.BglMapToObjects(k.bglMap)
 	k.submission.PlayerMapping = playerMapping
 	k.submission.TeamMapping = teamMapping
+	k.submission.Notes = k.SetNotes
 	loadingWidget := widget.NewProgressBarInfinite()
 	loadingDiag := dialog.NewCustom("Match Results Upload", "", loadingWidget, k.w)
 	loadingDiag.Show()
@@ -393,14 +395,14 @@ func (k *KQBApp) OnSetCompletion() {
 		return
 	}
 
-	finalOuput := bgl.FinalOutput{
-		MatchID: k.u.bgl.Matches[k.u.selectedMatch],
-		// Sets:    k.subData,
-		BGLMap: k.bglMap,
-		Result: stats.GetMatchResult(k.subData...),
-	}
+	// finalOuput := bgl.FinalOutput{
+	// 	MatchID: k.u.bgl.Matches[k.u.selectedMatch],
+	// 	// Sets:    k.subData,
+	// 	BGLMap: k.bglMap,
+	// 	Result: stats.GetMatchResult(k.subData...),
+	// }
 
-	k.u.bgl.SaveRawOutput(finalOuput)
+	k.u.bgl.SaveRawOutput(k.submission)
 	if err != nil {
 		loadingDiag.Hide()
 		dialog := dialog.NewInformation("Error", err.Error(), k.w)
@@ -446,10 +448,16 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 			})
 			uploadAction.Importance = widget.HighImportance
 			base.Add(uploadAction)
+			notesAction := widget.NewButton("Add Set Notes", func() {
+				k.ShowNotesDialog()
+			})
+			notesAction.Importance = widget.MediumImportance
+			base.Add(notesAction)
 		}
 		resetAction := widget.NewButton("Reset Upload Form", func() {
 			k.ResetUploader()
 		})
+		resetAction.Importance = widget.MediumImportance
 		base.Add(resetAction)
 	}
 	return base
@@ -511,6 +519,21 @@ func (k *KQBApp) LoadStatsFile(file string) {
 		return
 	}
 	k.selectedData = newData
+}
+
+func (k *KQBApp) ShowNotesDialog() {
+	notesWidget := widget.NewMultiLineEntry()
+	if k.SetNotes == "" {
+		notesWidget.Text = "Enter Set Notes here"
+	} else {
+		notesWidget.Text = k.SetNotes
+	}
+	notesDialog := dialog.NewCustomConfirm("Set Notes", "Save", "Cancel", notesWidget, func(save bool) {
+		if save {
+			k.SetNotes = notesWidget.Text
+		}
+	}, k.w)
+	notesDialog.Show()
 }
 
 func getTimeString(file string) string {

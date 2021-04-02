@@ -134,8 +134,8 @@ type ResultSubmission struct {
 	Winner        int                   `json:"winner,omitempty"`
 	Loser         int                   `json:"loser,omitempty"`
 	Sets          []ResultSubmissionSet `json:"sets,omitempty"`
-	PlayerMapping []PlayerObject        `json:"player_mapping,omitempty"`
-	TeamMapping   []TeamObject          `json:"team_mapping,omitempty"`
+	PlayerMapping []PlayerObject        `json:"player_mappings,omitempty"`
+	TeamMapping   []TeamObject          `json:"team_mappings,omitempty"`
 	Source        string                `json:"source"`
 	Notes         string                `json:"notes"`
 }
@@ -153,7 +153,7 @@ type ResultSetLog struct {
 }
 
 type PlayerObject struct {
-	ID   int    `json:"id,omitempty"`
+	ID   int    `json:"player,omitempty"`
 	Name string `json:"nickname,omitempty"`
 }
 
@@ -163,8 +163,8 @@ type PlayerObject struct {
 // }
 
 type TeamObject struct {
-	Team int `json:"team,omitempty"`
-	ID   int `json:"id,omitempty"`
+	Team int `json:"color,omitempty"`
+	ID   int `json:"team,omitempty"`
 }
 
 func BglMapToObjects(b BGLMap) ([]PlayerObject, []TeamObject) {
