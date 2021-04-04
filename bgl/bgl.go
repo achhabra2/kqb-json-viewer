@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -183,17 +182,6 @@ func (b *BGLData) LoadCurrentMatches() error {
 	url := getAPIUrl() + "matches/?format=json&limit=5&awaiting_results=true"
 	method := "GET"
 
-	var teamIDs []int
-	for _, team := range b.User.Player.Teams {
-		teamIDs = append(teamIDs, team.ID)
-	}
-	// log.Println(teamIDs)
-	url += fmt.Sprintf("&team_id=%d", teamIDs[0])
-
-	// for _, id := range teamIDs {
-	// 	url += fmt.Sprintf("&team_id=%d", id)
-	// }
-
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, nil)
 
@@ -231,8 +219,12 @@ func (b *BGLData) LoadCurrentMatches() error {
 		b.Matches = make(map[string]int)
 	}
 	for _, result := range b.matchResult.Results {
-		key := result.Away.Name + " @ " + result.Home.Name
-		b.Matches[key] = result.ID
+		for _, team := range b.User.Player.Teams {
+			if team.ID == result.Home.ID || team.ID == result.Away.ID {
+				key := result.Away.Name + " @ " + result.Home.Name
+				b.Matches[key] = result.ID
+			}
+		}
 	}
 	return nil
 }
