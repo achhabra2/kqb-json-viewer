@@ -12,7 +12,7 @@ import (
 )
 
 const STAGING_BASE_URL = "https://api-staging.beegame.gg/"
-const PROD_BASE_URL = "https://api.beegame.gg/v1/"
+const PROD_BASE_URL = "https://api.beegame.gg/"
 
 type BGLData struct {
 	Token       string
@@ -275,16 +275,15 @@ func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) 
 }
 
 func getAPIUrl() string {
-	// mode, exists := os.LookupEnv("BGL_API_MODE")
-	// if !exists {
-	// 	return PROD_BASE_URL
-	// }
-	// if mode == "STAGING" {
-	// 	return STAGING_BASE_URL
-	// } else {
-	// 	return PROD_BASE_URL
-	// }
-	return STAGING_BASE_URL
+	mode, exists := os.LookupEnv("BGL_API_MODE")
+	if !exists {
+		return PROD_BASE_URL
+	}
+	if mode == "STAGING" {
+		return STAGING_BASE_URL
+	} else {
+		return PROD_BASE_URL
+	}
 }
 
 type MatchResultUploadResponse struct {
