@@ -230,7 +230,7 @@ func (b *BGLData) LoadCurrentMatches() error {
 }
 
 func (b *BGLData) HandleMatchResultUpload(result ResultSubmission) (int, error) {
-	url := "https://api-staging.beegame.gg/results/"
+	url := getAPIUrl() + "results/"
 	method := "POST"
 
 	output, err := json.Marshal(result)
