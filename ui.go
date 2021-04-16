@@ -44,6 +44,7 @@ type KQBApp struct {
 	selectedFile   string
 	fileDropDown   *widget.Select
 	SetNotes       string
+	uploadButton   *widget.Button
 }
 
 // Main function to perform app setup and show the main window
@@ -63,6 +64,7 @@ func (k *KQBApp) ShowMainWindow() {
 		k.ShowUploadWindow()
 		uploadButton.Disable()
 	}
+	k.uploadButton = uploadButton
 	uploadButtonContainer := container.NewCenter(uploadButton)
 	matchLabelWidget := widget.NewLabel("Match Time: ")
 	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, uploadButtonContainer, layout.NewSpacer())
@@ -181,7 +183,7 @@ func (k *KQBApp) ShowMainWindow() {
 	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
 	k.w.SetPadded(true)
-	k.w.Resize(fyne.NewSize(500, 800))
+	k.w.Resize(fyne.NewSize(500, 850))
 
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
@@ -329,7 +331,7 @@ func (k *KQBApp) ShowUploadWindow() {
 		k.splitContainer.Objects[0] = uploadContainer
 		k.splitContainer.Objects[1] = layout.NewSpacer()
 	}
-	k.w.Resize(fyne.NewSize(900, 900))
+	k.w.Resize(fyne.NewSize(900, 850))
 }
 
 func (k *KQBApp) OnSetSuccess() {
@@ -359,6 +361,7 @@ func (k *KQBApp) OnSetSuccess() {
 	k.fileDropDown.SetSelected(k.selectedFile)
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()
+	k.uploadButton.Enable()
 }
 
 func (k *KQBApp) OnSetCompletion() {
@@ -510,7 +513,8 @@ func (k *KQBApp) ResetUploader() {
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)
-	k.w.Resize(fyne.NewSize(500, 900))
+	k.uploadButton.Enable()
+	k.w.Resize(fyne.NewSize(500, 850))
 }
 
 func (k *KQBApp) LoadStatsFile(file string) {

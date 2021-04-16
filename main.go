@@ -14,14 +14,13 @@ import (
 
 func main() {
 	setupLogs()
-
+	os.Setenv("FYNE_SCALE", "0.9")
 	mainIcon := fyne.NewStaticResource("logo.png", icons.Logo)
 
 	a := app.NewWithID("com.kqb-json-viewer.app")
 	a.SetIcon(mainIcon)
 	appTheme := myTheme{}
 	a.Settings().SetTheme(&appTheme)
-
 	w := a.NewWindow("KQB JSON Viewer")
 
 	names := stats.ListStatFiles()
@@ -30,7 +29,7 @@ func main() {
 		dialog := dialog.NewError(err, w)
 		dialog.SetOnClosed(func() { os.Exit(1) })
 		dialog.Show()
-		w.Resize(fyne.NewSize(500, 900))
+		w.Resize(fyne.NewSize(500, 850))
 		w.CenterOnScreen()
 		w.ShowAndRun()
 	} else {
