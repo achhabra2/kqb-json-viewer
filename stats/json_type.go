@@ -14,6 +14,7 @@ var MAPNAMES map[int]string = map[int]string{
 	14: "Spire",
 	15: "Split",
 	17: "Nest",
+	18: "Throne",
 }
 
 var TEAMNUMBER map[int]string = map[int]string{

@@ -58,9 +58,11 @@ func (k *KQBApp) ShowMainWindow() {
 	checkIconWidget := getStatLogo("Check")
 	selectedWidget := container.NewCenter(checkIconWidget)
 	k.selectedFiles = make(map[string]int)
-	uploadButton := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+	uploadButton := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {})
+	uploadButton.OnTapped = func() {
 		k.ShowUploadWindow()
-	})
+		uploadButton.Disable()
+	}
 	uploadButtonContainer := container.NewCenter(uploadButton)
 	matchLabelWidget := widget.NewLabel("Match Time: ")
 	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, uploadButtonContainer, layout.NewSpacer())
@@ -179,7 +181,7 @@ func (k *KQBApp) ShowMainWindow() {
 	k.w.SetContent(k.mainContainer)
 	k.w.SetMainMenu(mainMenu)
 	k.w.SetPadded(true)
-	k.w.Resize(fyne.NewSize(500, 900))
+	k.w.Resize(fyne.NewSize(500, 800))
 
 	k.w.CenterOnScreen()
 	go k.UpdateCheckUI()
