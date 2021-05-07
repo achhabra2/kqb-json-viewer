@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os/exec"
@@ -29,14 +30,18 @@ func OpenBrowser(url string) {
 
 }
 
-func FileNameToTime(filename string) time.Time {
+func FileNameToTime(filename string) (time.Time, error) {
 	arr := strings.Split(filename, "-")
 	timeArr := make([]int, 0)
-	for _, val := range arr[1:] {
-		intVal, _ := strconv.Atoi(val)
-		timeArr = append(timeArr, intVal)
+	if len(arr) == 7 {
+		for _, val := range arr[1:] {
+			intVal, _ := strconv.Atoi(val)
+			timeArr = append(timeArr, intVal)
+		}
+		currentLocation := time.Now().Location()
+		t := time.Date(timeArr[0], time.Month(timeArr[1]), timeArr[2], timeArr[3], timeArr[4], timeArr[5], 0, currentLocation)
+		return t, nil
+	} else {
+		return time.Now(), errors.New("Could not parse time")
 	}
-	currentLocation := time.Now().Location()
-	t := time.Date(timeArr[0], time.Month(timeArr[1]), timeArr[2], timeArr[3], timeArr[4], timeArr[5], 0, currentLocation)
-	return t
 }

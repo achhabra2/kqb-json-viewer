@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -24,6 +25,16 @@ func main() {
 	w := a.NewWindow("KQB JSON Viewer")
 
 	names := stats.ListStatFiles()
+	if len(names) == 0 {
+		err := errors.New("No Stat Files Available to Read")
+		log.Println("No Stat Files Available to Read")
+		dialog := dialog.NewError(err, w)
+		dialog.SetOnClosed(func() { os.Exit(1) })
+		dialog.Show()
+		w.Resize(fyne.NewSize(500, 850))
+		w.CenterOnScreen()
+		w.ShowAndRun()
+	}
 	data, err := stats.ReadJson(names[0])
 	if err != nil {
 		dialog := dialog.NewError(err, w)

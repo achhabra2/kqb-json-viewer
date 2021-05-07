@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image/color"
 	"log"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
@@ -359,7 +360,7 @@ func (k *KQBApp) ShowUploadWindow() {
 
 func (k *KQBApp) OnSetSuccess() {
 	// Check if set was already recorded
-	k.u.set.TimeStamp = FileNameToTime(k.selectedFile)
+	k.u.set.TimeStamp, _ = FileNameToTime(k.selectedFile)
 	k.u.set.SetLog.FileName = k.selectedFile
 	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
@@ -588,11 +589,14 @@ func (k *KQBApp) EnableSelectButtons() {
 }
 
 func getTimeString(file string) string {
-	// fInfo, _ := os.Open(file)
-	// info, _ := fInfo.Stat()
-	// timeStr := info.ModTime().String()
+
 	_, fpath := filepath.Split(file)
-	timeStamp := FileNameToTime(fpath)
+	timeStamp, err := FileNameToTime(fpath)
+	if err != nil {
+		fInfo, _ := os.Open(file)
+		info, _ := fInfo.Stat()
+		timeStamp = info.ModTime()
+	}
 	formattedTime := timeStamp.Format("02 Jan 06 3:04 PM MST")
 	return formattedTime
 }
