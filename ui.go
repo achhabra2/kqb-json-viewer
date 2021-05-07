@@ -107,7 +107,12 @@ func (k *KQBApp) ShowMainWindow() {
 	}
 	cont := container.NewVBox()
 
-	combo := widget.NewSelect(trimmed, func(value string) {
+	nextButton := widget.NewButtonWithIcon("Next", theme.MediaSkipNextIcon(), func() {})
+	prevButton := widget.NewButtonWithIcon("Prev", theme.MediaSkipPreviousIcon(), func() {})
+
+	combo := widget.NewSelect(trimmed, func(value string) {})
+
+	combo.OnChanged = func(value string) {
 		log.Println("Select file", value)
 		k.LoadStatsFile(trimmedMap[value])
 		k.selectedFile = value
@@ -127,7 +132,20 @@ func (k *KQBApp) ShowMainWindow() {
 		cont.Objects[2] = k.BuildPlayerUI()
 		cont.Objects[3] = k.BuildMapTable()
 		cont.Show()
-	})
+
+		if combo.SelectedIndex()+1 == len(trimmed) {
+			nextButton.Disable()
+		} else {
+			nextButton.Enable()
+		}
+
+		if combo.SelectedIndex() == 0 {
+			prevButton.Disable()
+		} else {
+			prevButton.Enable()
+		}
+
+	}
 
 	k.fileDropDown = combo
 
@@ -136,18 +154,20 @@ func (k *KQBApp) ShowMainWindow() {
 		k.ShowAdvancedStats()
 	})
 
-	nextButton := widget.NewButtonWithIcon("Next", theme.MediaSkipNextIcon(), func() {
+	nextButton.OnTapped = func() {
 		idx := combo.SelectedIndex()
-		if idx+1 < len(trimmed) {
+		targetIdx := idx + 1
+		if targetIdx < len(trimmed) {
 			combo.SetSelectedIndex(idx + 1)
 		}
-	})
-	prevButton := widget.NewButtonWithIcon("Prev", theme.MediaSkipPreviousIcon(), func() {
+	}
+
+	prevButton.OnTapped = func() {
 		idx := combo.SelectedIndex()
 		if idx-1 >= 0 {
 			combo.SetSelectedIndex(idx - 1)
 		}
-	})
+	}
 
 	k.selectButtons = append(k.selectButtons, uploadButton, nextButton, prevButton)
 
@@ -340,6 +360,7 @@ func (k *KQBApp) ShowUploadWindow() {
 func (k *KQBApp) OnSetSuccess() {
 	// Check if set was already recorded
 	k.u.set.TimeStamp = FileNameToTime(k.selectedFile)
+	k.u.set.SetLog.FileName = k.selectedFile
 	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
 		k.submission = bgl.ResultSubmission{
