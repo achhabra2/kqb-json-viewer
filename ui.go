@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"image/color"
 	"log"
-	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
@@ -45,6 +44,7 @@ type KQBApp struct {
 	fileDropDown   *widget.Select
 	SetNotes       string
 	uploadButton   *widget.Button
+	selectButtons  []*widget.Button
 }
 
 // Main function to perform app setup and show the main window
@@ -62,7 +62,8 @@ func (k *KQBApp) ShowMainWindow() {
 	uploadButton := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {})
 	uploadButton.OnTapped = func() {
 		k.ShowUploadWindow()
-		uploadButton.Disable()
+		// uploadButton.Disable()
+		k.DisableSelectButtons()
 	}
 	k.uploadButton = uploadButton
 	uploadButtonContainer := container.NewCenter(uploadButton)
@@ -147,6 +148,8 @@ func (k *KQBApp) ShowMainWindow() {
 			combo.SetSelectedIndex(idx - 1)
 		}
 	})
+
+	k.selectButtons = append(k.selectButtons, uploadButton, nextButton, prevButton)
 
 	openButton := widget.NewButtonWithIcon("Open", theme.FileIcon(), func() {
 		selectedFile := trimmedMap[combo.Selected]
@@ -336,6 +339,7 @@ func (k *KQBApp) ShowUploadWindow() {
 
 func (k *KQBApp) OnSetSuccess() {
 	// Check if set was already recorded
+	k.u.set.TimeStamp = FileNameToTime(k.selectedFile)
 	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
 		k.submission = bgl.ResultSubmission{
@@ -361,7 +365,8 @@ func (k *KQBApp) OnSetSuccess() {
 	k.fileDropDown.SetSelected(k.selectedFile)
 	k.splitContainer.Objects[0] = widget.NewLabelWithStyle("Select another set...", fyne.TextAlignCenter, fyne.TextStyle{Bold: true})
 	k.splitContainer.Objects[1] = k.ShowInputSets()
-	k.uploadButton.Enable()
+	// k.uploadButton.Enable()
+	k.EnableSelectButtons()
 }
 
 func (k *KQBApp) OnSetCompletion() {
@@ -432,18 +437,21 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 	if len(k.submission.Sets) > 0 {
 		base.Add(widget.NewLabelWithStyle("Queued for Upload", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
 		base.Add(widget.NewSeparator())
-		cont := container.NewGridWithColumns(3,
+		cont := container.NewGridWithColumns(4,
 			widget.NewLabel("Set"),
 			widget.NewLabel("Winner"),
 			widget.NewLabel("Loser"),
+			widget.NewLabel("Time"),
 		)
 		for idx, set := range k.submission.Sets {
 			label := widget.NewLabel(strconv.Itoa(idx + 1))
 			winner := widget.NewLabel(formatTeamName(k.u.bgl.TeamsInt[set.Winner]))
 			loser := widget.NewLabel(formatTeamName(k.u.bgl.TeamsInt[set.Loser]))
+			time := widget.NewLabel(set.TimeStamp.Format("3:04PM"))
 			cont.Add(label)
 			cont.Add(winner)
 			cont.Add(loser)
+			cont.Add(time)
 		}
 
 		base.Add(cont)
@@ -513,7 +521,8 @@ func (k *KQBApp) ResetUploader() {
 	// k.subData = []bgl.SetMap{}
 	k.subData = []stats.SetResult{}
 	k.selectedFiles = make(map[string]int)
-	k.uploadButton.Enable()
+	// k.uploadButton.Enable()
+	k.EnableSelectButtons()
 	k.w.Resize(fyne.NewSize(500, 850))
 }
 
@@ -542,11 +551,29 @@ func (k *KQBApp) ShowNotesDialog() {
 	notesDialog.Show()
 }
 
+func (k *KQBApp) DisableSelectButtons() {
+	for _, button := range k.selectButtons {
+		button.Disable()
+		button.Refresh()
+	}
+}
+
+func (k *KQBApp) EnableSelectButtons() {
+	for _, button := range k.selectButtons {
+		button.Enable()
+		button.Refresh()
+	}
+}
+
 func getTimeString(file string) string {
-	fInfo, _ := os.Open(file)
-	info, _ := fInfo.Stat()
-	timeStr := info.ModTime().String()
-	return timeStr
+	// fInfo, _ := os.Open(file)
+	// info, _ := fInfo.Stat()
+	// timeStr := info.ModTime().String()
+	fmt.Println(file)
+	_, fpath := filepath.Split(file)
+	timeStamp := FileNameToTime(fpath)
+	formattedTime := timeStamp.Format("02 Jan 06 3:04 PM MST")
+	return formattedTime
 }
 
 func getTeam(team int) string {

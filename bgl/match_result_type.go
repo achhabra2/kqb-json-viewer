@@ -8,6 +8,7 @@ package bgl
 
 import (
 	"encoding/json"
+	"time"
 
 	"github.com/achhabra2/kqb-json-viewer/stats"
 )
@@ -141,10 +142,11 @@ type ResultSubmission struct {
 }
 
 type ResultSubmissionSet struct {
-	Number int          `json:"number,omitempty"`
-	Winner int          `json:"winner,omitempty"`
-	Loser  int          `json:"loser,omitempty"`
-	SetLog ResultSetLog `json:"log,omitempty"`
+	Number    int          `json:"number,omitempty"`
+	Winner    int          `json:"winner,omitempty"`
+	Loser     int          `json:"loser,omitempty"`
+	SetLog    ResultSetLog `json:"log,omitempty"`
+	TimeStamp time.Time
 }
 
 type ResultSetLog struct {
