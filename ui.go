@@ -430,6 +430,7 @@ func (k *KQBApp) OnSetFail() {
 	k.splitContainer.Objects[1] = widget.NewButton("Reset Upload Form", func() {
 		k.ResetUploader()
 	})
+	k.EnableSelectButtons()
 }
 
 func (k *KQBApp) ShowInputSets() *fyne.Container {
@@ -569,7 +570,6 @@ func getTimeString(file string) string {
 	// fInfo, _ := os.Open(file)
 	// info, _ := fInfo.Stat()
 	// timeStr := info.ModTime().String()
-	fmt.Println(file)
 	_, fpath := filepath.Split(file)
 	timeStamp := FileNameToTime(fpath)
 	formattedTime := timeStamp.Format("02 Jan 06 3:04 PM MST")
