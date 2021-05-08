@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"image/color"
 	"log"
-	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
@@ -46,6 +45,7 @@ type KQBApp struct {
 	SetNotes       string
 	uploadButton   *widget.Button
 	selectButtons  []*widget.Button
+	basePath       string
 }
 
 // Main function to perform app setup and show the main window
@@ -90,6 +90,7 @@ func (k *KQBApp) ShowMainWindow() {
 
 	upload := fyne.NewMenuItem("Add Set to Match", func() {
 		k.ShowUploadWindow()
+		k.DisableSelectButtons()
 	})
 
 	fileMenu := fyne.NewMenu("File", openDirectory)
@@ -132,7 +133,6 @@ func (k *KQBApp) ShowMainWindow() {
 		cont.Hide()
 		cont.Objects[2] = k.BuildPlayerUI()
 		cont.Objects[3] = k.BuildMapTable()
-		cont.Show()
 
 		if combo.SelectedIndex()+1 == len(trimmed) {
 			nextButton.Disable()
@@ -145,6 +145,9 @@ func (k *KQBApp) ShowMainWindow() {
 		} else {
 			prevButton.Enable()
 		}
+
+		// time.Sleep(time.Millisecond * 150)
+		cont.Show()
 
 	}
 
@@ -361,7 +364,7 @@ func (k *KQBApp) ShowUploadWindow() {
 // OnSetSuccess is Called when the user finishes the player / team mapping via the uploader component
 func (k *KQBApp) OnSetSuccess() {
 	// Add timestamps to set
-	k.u.set.TimeStamp, _ = FileNameToTime(k.selectedFile)
+	k.u.set.TimeStamp = FileNameToTime(k.basePath, k.selectedFile)
 	// Add filename to SetLog
 	k.u.set.SetLog.FileName = k.selectedFile
 
@@ -605,14 +608,8 @@ func (k *KQBApp) EnableSelectButtons() {
 }
 
 func getTimeString(file string) string {
-
-	_, fpath := filepath.Split(file)
-	timeStamp, err := FileNameToTime(fpath)
-	if err != nil {
-		fInfo, _ := os.Open(file)
-		info, _ := fInfo.Stat()
-		timeStamp = info.ModTime()
-	}
+	basePath, fpath := filepath.Split(file)
+	timeStamp := FileNameToTime(basePath, fpath)
 	formattedTime := timeStamp.Format("02 Jan 06 3:04 PM MST")
 	return formattedTime
 }

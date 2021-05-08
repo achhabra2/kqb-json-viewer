@@ -1,10 +1,11 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
+	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"strconv"
 	"strings"
@@ -30,7 +31,7 @@ func OpenBrowser(url string) {
 
 }
 
-func FileNameToTime(filename string) (time.Time, error) {
+func FileNameToTime(basePath string, filename string) time.Time {
 	arr := strings.Split(filename, "-")
 	timeArr := make([]int, 0)
 	if len(arr) == 7 {
@@ -40,8 +41,11 @@ func FileNameToTime(filename string) (time.Time, error) {
 		}
 		currentLocation := time.Now().Location()
 		t := time.Date(timeArr[0], time.Month(timeArr[1]), timeArr[2], timeArr[3], timeArr[4], timeArr[5], 0, currentLocation)
-		return t, nil
+		return t
 	} else {
-		return time.Now(), errors.New("Could not parse time")
+		fullFilePath := filepath.Join(basePath, filename)
+		fInfo, _ := os.Open(fullFilePath)
+		info, _ := fInfo.Stat()
+		return info.ModTime()
 	}
 }

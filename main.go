@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -44,11 +45,13 @@ func main() {
 		w.CenterOnScreen()
 		w.ShowAndRun()
 	} else {
+		basePath, _ := filepath.Split(names[0])
 		kqbApp := KQBApp{
 			files:        names,
 			selectedData: data,
 			a:            a,
 			w:            w,
+			basePath:     basePath,
 		}
 
 		kqbApp.ShowMainWindow()
