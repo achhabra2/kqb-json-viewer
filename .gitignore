@@ -53,6 +53,7 @@ _testmain.go
 /kqb-json-viewer.app
 fyne.syso
 kqb-json-viewer-windows-amd64.zip
+.kqb-json-viewer.exe.old
 # This file includes artifacts of Go build that should not be checked in.
 # For files created by specific development environment (e.g. editor),
 # use alternative ways to exclude files from git.
