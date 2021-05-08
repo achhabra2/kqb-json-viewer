@@ -358,10 +358,14 @@ func (k *KQBApp) ShowUploadWindow() {
 	k.w.Resize(fyne.NewSize(900, 850))
 }
 
+// OnSetSuccess is Called when the user finishes the player / team mapping via the uploader component
 func (k *KQBApp) OnSetSuccess() {
-	// Check if set was already recorded
+	// Add timestamps to set
 	k.u.set.TimeStamp, _ = FileNameToTime(k.selectedFile)
+	// Add filename to SetLog
 	k.u.set.SetLog.FileName = k.selectedFile
+
+	// Check if set was already recorded
 	if k.submission.Match == 0 {
 		matchID := k.u.bgl.Matches[k.u.selectedMatch]
 		k.submission = bgl.ResultSubmission{
@@ -372,9 +376,18 @@ func (k *KQBApp) OnSetSuccess() {
 		}
 		k.submission.Sets[0].Number = 1
 	} else {
+		// Add new set to result submission
 		k.submission.Sets = append(k.submission.Sets, k.u.set)
-		sLen := len(k.submission.Sets)
-		k.submission.Sets[sLen-1].Number = sLen
+
+		// Sort Added sets based on timestamp
+		sort.Slice(k.submission.Sets, func(i int, j int) bool {
+			return k.submission.Sets[i].TimeStamp.Before(k.submission.Sets[j].TimeStamp)
+		})
+		for idx, _ := range k.submission.Sets {
+			k.submission.Sets[idx].Number = idx + 1
+		}
+		// sLen := len(k.submission.Sets)
+		// k.submission.Sets[sLen-1].Number = sLen
 	}
 	k.bglMap = bgl.BGLMap{
 		PlayerIDs:   k.u.GetPlayerMapByID(),
@@ -389,6 +402,7 @@ func (k *KQBApp) OnSetSuccess() {
 	k.splitContainer.Objects[1] = k.ShowInputSets()
 	// k.uploadButton.Enable()
 	k.EnableSelectButtons()
+	k.fileDropDown.SetSelected(k.selectedFile)
 }
 
 func (k *KQBApp) OnSetCompletion() {
@@ -546,7 +560,9 @@ func (k *KQBApp) ResetUploader() {
 	k.selectedFiles = make(map[string]int)
 	// k.uploadButton.Enable()
 	k.EnableSelectButtons()
-	k.w.Resize(fyne.NewSize(500, 850))
+	k.fileDropDown.SetSelectedIndex(0)
+	k.mainContainer.Refresh()
+	// k.w.Resize(fyne.NewSize(500, 850))
 }
 
 func (k *KQBApp) LoadStatsFile(file string) {
