@@ -109,8 +109,8 @@ func (k *KQBApp) ShowMainWindow() {
 	}
 	cont := container.NewVBox()
 
-	nextButton := widget.NewButtonWithIcon("Next", theme.MediaSkipNextIcon(), func() {})
-	prevButton := widget.NewButtonWithIcon("Prev", theme.MediaSkipPreviousIcon(), func() {})
+	nextButton := widget.NewButtonWithIcon("Prev", theme.MediaSkipNextIcon(), func() {})
+	prevButton := widget.NewButtonWithIcon("Next", theme.MediaSkipPreviousIcon(), func() {})
 
 	combo := widget.NewSelect(trimmed, func(value string) {})
 
