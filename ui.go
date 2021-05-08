@@ -55,7 +55,7 @@ func (k *KQBApp) ShowMainWindow() {
 	// Initialize the header components
 	// timeWidget is the timestamp label for the current match
 	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
-
+	filePlaceLabel := widget.NewLabel("Set (0/0)")
 	// Within the time widget we are also going to show if this file is selected for upload
 	checkIconWidget := getStatLogo("Check")
 	selectedWidget := container.NewCenter(checkIconWidget)
@@ -68,8 +68,8 @@ func (k *KQBApp) ShowMainWindow() {
 	}
 	k.uploadButton = uploadButton
 	uploadButtonContainer := container.NewCenter(uploadButton)
-	matchLabelWidget := widget.NewLabel("Match Time: ")
-	timeContainer := container.NewHBox(layout.NewSpacer(), matchLabelWidget, timeWidget, selectedWidget, uploadButtonContainer, layout.NewSpacer())
+	matchLabelWidget := widget.NewLabel("Time Completed: ")
+	timeContainer := container.NewHBox(layout.NewSpacer(), filePlaceLabel, matchLabelWidget, timeWidget, selectedWidget, uploadButtonContainer, layout.NewSpacer())
 
 	about := fyne.NewMenuItem("About", func() {
 		aboutMessage := fmt.Sprintf("kqb-json-viewer version %s \n by Prosive", version)
@@ -130,6 +130,7 @@ func (k *KQBApp) ShowMainWindow() {
 			uploadButtonContainer.Show()
 		}
 		timeWidget.Text = getTimeString(trimmedMap[value])
+		filePlaceLabel.Text = fmt.Sprintf("Set: (%d/%d)", combo.SelectedIndex()+1, len(trimmed))
 		cont.Hide()
 		cont.Objects[2] = k.BuildPlayerUI()
 		cont.Objects[3] = k.BuildMapTable()
