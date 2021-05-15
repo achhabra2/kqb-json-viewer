@@ -179,7 +179,7 @@ func (b *BGLData) SaveRawOutput(final ResultSubmission) error {
 }
 
 func (b *BGLData) LoadCurrentMatches() error {
-	url := getAPIUrl() + "matches/?format=json&limit=5&awaiting_results=true"
+	url := getAPIUrl() + "matches/?format=json&limit=26&awaiting_results=true"
 	method := "GET"
 
 	client := &http.Client{}
