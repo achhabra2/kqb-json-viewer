@@ -57,24 +57,24 @@ type StatsJSON struct {
 		ExternalIds struct {
 			Discord  interface{} `json:"discord"`
 			Nintendo interface{} `json:"nintendo"`
-			Test     string      `json:"test"`
-			Steam    string      `json:"steam"`
+			Test     interface{} `json:"test"`
+			Steam    interface{} `json:"steam"`
 			Xboxone  interface{} `json:"xboxone"`
 			Ps4      interface{} `json:"ps4"`
 			Stadia   interface{} `json:"stadia"`
 		} `json:"externalIds"`
 		HighestRankingRating float64 `json:"highestRankingRating"`
 		RankedRankingData    struct {
-			Rating        float64 `json:"rating"`
-			Deviation     float64 `json:"deviation"`
-			Volatility    float64 `json:"volatility"`
-			RoundedRating int     `json:"roundedRating"`
+			Rating        interface{} `json:"rating"`
+			Deviation     interface{} `json:"deviation"`
+			Volatility    interface{} `json:"volatility"`
+			RoundedRating int         `json:"roundedRating"`
 		} `json:"rankedRankingData"`
 		UnrankedRankingData struct {
-			Rating        float64 `json:"rating"`
-			Deviation     float64 `json:"deviation"`
-			Volatility    float64 `json:"volatility"`
-			RoundedRating int     `json:"roundedRating"`
+			Rating        interface{} `json:"rating"`
+			Deviation     interface{} `json:"deviation"`
+			Volatility    interface{} `json:"volatility"`
+			RoundedRating int         `json:"roundedRating"`
 		} `json:"unrankedRankingData"`
 		RankedRecord struct {
 			Win  int `json:"win"`
