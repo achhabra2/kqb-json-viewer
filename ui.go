@@ -531,8 +531,10 @@ func (k *KQBApp) BuildMapTable() *fyne.Container {
 		team := teamWinners[idx]
 		if team == "Blue" {
 			col = blueColor
-		} else {
+		} else if team == "Gold" {
 			col = goldColor
+		} else {
+			col = bglLightColor
 		}
 		mLabel := widget.NewLabelWithStyle(mapList[idx], fyne.TextAlignCenter, fyne.TextStyle{})
 		conLabel := widget.NewLabelWithStyle(winCon, fyne.TextAlignCenter, fyne.TextStyle{})

@@ -1,6 +1,7 @@
 package stats
 
 var WINCONDITIONS map[int]string = map[int]string{
+	0: "INC",
 	1: "Mil",
 	2: "Eco",
 	3: "Snail",
@@ -18,6 +19,7 @@ var MAPNAMES map[int]string = map[int]string{
 }
 
 var TEAMNUMBER map[int]string = map[int]string{
+	0: "INC",
 	1: "Gold",
 	2: "Blue",
 }
