@@ -496,7 +496,7 @@ func (k *KQBApp) ShowInputSets() *fyne.Container {
 		}
 
 		base.Add(cont)
-		if len(k.submission.Sets) >= 3 {
+		if len(k.submission.Sets) >= 2 {
 			uploadAction := widget.NewButton("Submit Match Results", func() {
 				k.OnSetCompletion()
 			})

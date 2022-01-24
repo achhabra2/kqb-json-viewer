@@ -139,8 +139,8 @@ func (u *Uploader) BuildTeamForm() *widget.Form {
 }
 
 func (u *Uploader) BuildPlayerForm() *widget.Form {
-
-	formItems := make([]*widget.FormItem, 8)
+	playerCount := len(u.Players)
+	formItems := make([]*widget.FormItem, playerCount)
 	for idx, name := range u.Players {
 		// fmt.Println(idx, name)
 		combo := widget.NewSelect(u.BGLPlayers, u.playerCallback(name))
@@ -230,7 +230,7 @@ func (u *Uploader) ValidateParams() bool {
 }
 
 func (u *Uploader) IsPlayerFormFilled() bool {
-	return len(u.PlayerMap) >= 8
+	return len(u.PlayerMap) >= len(u.Players)
 }
 
 func (u *Uploader) IsTeamFormFilled() bool {
