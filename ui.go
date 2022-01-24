@@ -14,6 +14,7 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/data/binding"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
@@ -54,8 +55,12 @@ func (k *KQBApp) ShowMainWindow() {
 
 	// Initialize the header components
 	// timeWidget is the timestamp label for the current match
-	timeWidget := widget.NewLabel(getTimeString(k.files[0]))
-	filePlaceLabel := widget.NewLabel("Set (0/0)")
+	timeStampStr := binding.NewString()
+	timeStampStr.Set(getTimeString(k.files[0]))
+	timeWidget := widget.NewLabelWithData(timeStampStr)
+	filePlaceLabelStr := binding.NewString()
+	filePlaceLabelStr.Set("Set (0/0)")
+	filePlaceLabel := widget.NewLabelWithData(filePlaceLabelStr)
 	// Within the time widget we are also going to show if this file is selected for upload
 	checkIconWidget := getStatLogo("Check")
 	selectedWidget := container.NewCenter(checkIconWidget)
@@ -129,8 +134,8 @@ func (k *KQBApp) ShowMainWindow() {
 			selectedWidget.Hide()
 			uploadButtonContainer.Show()
 		}
-		timeWidget.Text = getTimeString(trimmedMap[value])
-		filePlaceLabel.Text = fmt.Sprintf("Set: (%d/%d)", combo.SelectedIndex()+1, len(trimmed))
+		timeStampStr.Set(getTimeString(trimmedMap[value]))
+		filePlaceLabelStr.Set(fmt.Sprintf("Set: (%d/%d)", combo.SelectedIndex()+1, len(trimmed)))
 		cont.Hide()
 		cont.Objects[2] = k.BuildPlayerUI()
 		cont.Objects[3] = k.BuildMapTable()
